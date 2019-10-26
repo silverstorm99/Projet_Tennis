@@ -40,12 +40,13 @@ public class Arbitre extends Personne{
      * 21/10/2019
      * @param scoreA
      * @param scoreB
-     * @return String
      */
-    public String annocerScore(int scoreA, int scoreB){
-        return String.valueOf(scoreA) + "-" + String.valueOf(scoreB);
+    public void annoncerScore(int scoreA, int scoreB){
+        System.out.println(String.valueOf(scoreA) + "-" + String.valueOf(scoreB));
     }
 }
+
+
 
 
 

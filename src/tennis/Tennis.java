@@ -21,7 +21,7 @@ public class Tennis {
         System.out.println(Personne.nbPersonne);
         
         Joueur player2 = new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Nico",
-                new Date(14,07,1960), "Metz", new Date(19,11,2019), "France",
+                new Date(14,07,1960), "Metz", new Date(9,11,2019), "France",
                 170, 60, Main.GAUCHE, "URSS", "Poutine", Vetement.SHORT, Couleur.BLEU);
         
         System.out.println(player);
@@ -30,7 +30,17 @@ public class Tennis {
         Arbitre arbitre = new Arbitre("Mamene", "Mamene", "Rico", "Rico",
                 new Date(14,07,1995), "Metz", new Date(19,11,2019), "France",
                 170, 60);
+        
         System.out.println(arbitre);
+        
+        Arbitre [] arbitres = {arbitre};
+        Joueur [] joueurs = {player, player2};
+        Spectateur [] spectateurs = {};
+        Match match = new Match(Categorie.SIMPLE_HOMME, Phase.FINALE, arbitres, joueurs, spectateurs);
     }
     
 }
+
+
+
+
