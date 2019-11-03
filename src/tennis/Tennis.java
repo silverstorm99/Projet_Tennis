@@ -18,28 +18,51 @@ public class Tennis {
         Joueur player = new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Nico",
                 new Date(23,2,1998), "Metz", new Date(19,11,2019), "France",
                 170, 60, Main.DROITE, "URSS", "Poutine", Vetement.SHORT, Couleur.BLEU);
-        System.out.println(Personne.nbPersonne);
         
         Joueur player2 = new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Nico",
                 new Date(14,07,1960), "Metz", new Date(9,11,2019), "France",
                 170, 60, Main.GAUCHE, "URSS", "Poutine", Vetement.SHORT, Couleur.BLEU);
         
-        System.out.println(player);
-        System.out.println(player2);
+        Joueur player3 = new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Nico",
+                new Date(23,2,1998), "Metz", new Date(19,11,2019), "France",
+                170, 60, Main.DROITE, "URSS", "Poutine", Vetement.SHORT, Couleur.BLEU);
+        
+        Joueur player4 = new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Nico",
+                new Date(14,07,1960), "Metz", new Date(9,11,2019), "France",
+                170, 60, Main.GAUCHE, "URSS", "Poutine", Vetement.SHORT, Couleur.BLEU);
         
         Arbitre arbitre = new Arbitre("Mamene", "Mamene", "Rico", "Rico",
                 new Date(14,07,1995), "Metz", new Date(19,11,2019), "France",
                 170, 60);
         
-        System.out.println(arbitre);
-        
         Arbitre [] arbitres = {arbitre};
-        Joueur [] joueurs = {player, player2};
+        Joueur [] equipe1 = {player};
+        Joueur [] equipe2 = {player2};
         Spectateur [] spectateurs = {};
-        Match match = new Match(Categorie.SIMPLE_HOMME, Phase.FINALE, arbitres, joueurs, spectateurs);
+        Match match = new Match(Categorie.SIMPLE_HOMME, Phase.FINALE, arbitres, equipe1, equipe2, spectateurs);
+        System.out.println(match.play());
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

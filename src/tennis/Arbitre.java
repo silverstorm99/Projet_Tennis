@@ -13,6 +13,8 @@ public class Arbitre extends Personne{
     
     public static int nbArbitre = 0; // Compte le nombre d' arbitre
     
+    /* Constructor */
+    
     /**
      * 21/10/2019
      * @param nomNaissance
@@ -36,24 +38,15 @@ public class Arbitre extends Personne{
         nbArbitre++;
     }
     
+    
+    /* Methods */
+    
     /**
      * 21/10/2019
-     * @param scoreA
-     * @param scoreB
+     * @param score1
+     * @param score2
      */
-    public void annoncerScore(int scoreA, int scoreB){
-        System.out.println(String.valueOf(scoreA) + "-" + String.valueOf(scoreB));
+    public void annoncerScoreSet(int score1, int score2){
+        System.out.println("Set : " + String.valueOf(score1) + "-" + String.valueOf(score2));
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
