@@ -40,10 +40,14 @@ public class Tennis {
         Joueur [] equipe2 = {player2};
         Spectateur [] spectateurs = {};
         Match match = new Match(Categorie.SIMPLE_HOMME, Phase.FINALE, arbitres, equipe1, equipe2, spectateurs);
-        System.out.println(match.play());
+        match.play();
     }
     
 }
+
+
+
+
 
 
 

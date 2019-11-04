@@ -138,38 +138,50 @@ public class Match {
      * Cette méthode renvoie l'équipe qui remporte le match
      */
     public Joueur [] play(){
-        Joueur [] winners = {}; // Equipe qui remportera le match
+        Joueur [] vainqueurMatch = {}; // Equipe qui remportera le match
+        Joueur [] vainqueurSet = {}; // Equipe qui remportera le set
         int score1 = 0, score2 = 0; // Scores (set) de chaques équipes
-        Set set1 = new Set(this.arbitres, this.equipe1, this.equipe2, this.spectateurs);
-        Set set2 = new Set(this.arbitres, this.equipe1, this.equipe2, this.spectateurs);
+ 
+        // Premier et deuxième sets
+        while(score1 < 2 && score2 < 2){
+            Set set = new Set(this.arbitres, this.equipe1, this.equipe2, this.spectateurs);
+            
+            vainqueurSet = set.play();
+            if(vainqueurSet == this.equipe1){score1++;}
+            else if(vainqueurSet == this.equipe2){score2++;}
         
-        // Premier set
-        if(set1.play() == this.equipe1){score1++;}
-        else if(set1.play() == this.equipe2){score2++;}
-        
-        this.arbitres[0].annoncerScoreSet(score1, score2);
-        
-        // Deuxième set
-        if(set2.play() == this.equipe1){score1++;}
-        else if(set2.play() == this.equipe2){score2++;}
-        
-        this.arbitres[0].annoncerScoreSet(score1, score2);
+            this.arbitres[0].annoncerScoreMatch(vainqueurSet, score1, score2);
+        }
         
         // Set décisif si égalité
         if(score1 == score2){
-            Set set3 = new Set(this.arbitres, this.equipe1, this.equipe2, this.spectateurs);
-            if(set3.play() == this.equipe1){score1++;}
-            else if(set3.play() == this.equipe2){score2++;}
+            System.out.println("\nSet décisif");
+            Set set = new Set(this.arbitres, this.equipe1, this.equipe2, this.spectateurs);
+            vainqueurSet = set.play();
+            if(vainqueurSet == this.equipe1){score1++;}
+            else if(vainqueurSet == this.equipe2){score2++;}
             
-            this.arbitres[0].annoncerScoreSet(score1, score2);
+            this.arbitres[0].annoncerScoreMatch(vainqueurSet, score1, score2);
         }
         
-        if(score1 < score2){winners = this.equipe2;}
-        else if(score1 > score2){winners = this.equipe1;}
+        if(score1 < score2){vainqueurMatch = this.equipe2;}
+        else if(score1 > score2){vainqueurMatch = this.equipe1;}
         
-        return winners;
+        return vainqueurMatch;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
