@@ -44,7 +44,7 @@ public class Jeu {
         int score1 = 0, score2 = 0; // Scores (echange) de chaques équipes
         
         // Dans le cas où le score est de 40-AV (resp AV-40), tant qu'il n'y a pas d'écart de 2 points
-        while(score1 < 4 && score2 < 4 || Math.abs(score1 - score2) < 2){
+        while((score1 < 4 && score2 < 4) || Math.abs(score1 - score2) < 2){
             Echange echange = new Echange(this.arbitres, this.equipe1, this.equipe2, this.spectateurs);
             
             vainqueurEchange = echange.play();
