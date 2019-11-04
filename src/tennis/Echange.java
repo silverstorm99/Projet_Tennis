@@ -39,17 +39,18 @@ public class Echange {
      * Cette méthode renvoie l'équipe qui remportera l'échange
      */
     public Joueur [] play(){
-        Joueur [] winners = {}; // Equipe qui remportera l'échange
+        Joueur [] vainqueurEchange = {}; // Equipe qui remportera l'échange
         int score1 = 0, score2 = 0; // Scores (echange) de chaques équipes
         
         // Simulation
         double random = Math.random();
-        if(random < 0.5){winners = this.equipe1;}
-        else{winners = this.equipe2;}
+        if(random < 0.5){vainqueurEchange = this.equipe1;}
+        else{vainqueurEchange = this.equipe2;}
         
-        return winners;
+        return vainqueurEchange;
     }
 }
+
 
 
 
