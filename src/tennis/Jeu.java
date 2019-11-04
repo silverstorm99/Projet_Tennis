@@ -24,11 +24,12 @@ public class Jeu {
      * @param equipe2
      * @param spectateurs 
      */
-    public Jeu(Arbitre[] arbitres, Joueur[] equipe1, Joueur[] equipe2, Spectateur[] spectateurs) {
+    public Jeu(Arbitre[] arbitres, Joueur[] equipe1, Joueur[] equipe2, Spectateur[] spectateurs,int Service) {
         this.arbitres = arbitres;
         this.equipe1 = equipe1;
         this.equipe2 = equipe2;
         this.spectateurs = spectateurs;
+        this.service = Service;
     }
     
     /* Method */
@@ -45,7 +46,7 @@ public class Jeu {
         
         // Dans le cas où le score est de 40-AV (resp AV-40), tant qu'il n'y a pas d'écart de 2 points
         while((score1 < 4 && score2 < 4) || Math.abs(score1 - score2) < 2){
-            Echange echange = new Echange(this.arbitres, this.equipe1, this.equipe2, this.spectateurs);
+            Echange echange = new Echange(this.arbitres, this.equipe1, this.equipe2, this.spectateurs, this.service);
             
             vainqueurEchange = echange.play();
             if(vainqueurEchange == this.equipe1){score1++;}
