@@ -40,10 +40,10 @@ public class Echange {
      * Cette méthode renvoie l'équipe qui remportera l'échange
      */
     public Joueur [] play(){
-        Joueur [] equipe = {this.equipe1,this.equipe2};
+        Joueur [][] equipe = {this.equipe1,this.equipe2};
         Joueur [] winners = {}; // Equipe qui remportera l'échange
         int score1 = 0, score2 = 0; // Scores (echange) de chaques équipes
-        echangeFini = false;
+        boolean echangeFini = false;
         // Simulation
         while(!echangeFini){
             echangeFini = Joueur.play(equipe[this.service %2],this.arbitres);
