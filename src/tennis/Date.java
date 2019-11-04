@@ -21,13 +21,21 @@ public class Date {
      * @param annee 
      */
     public Date(int jour, int mois, int annee){
-        if(jour < 1 || jour > 31){throw new IllegalArgumentException("Le jour n'est pas conforme.");}
-        if(mois < 1 || mois > 12){throw new IllegalArgumentException("Le mois n'est pas conforme.");}
+        int[] tab = {31,28,31,30,31,30,31,31,30,31,30,31}; //Derniers jours de chaque mois
+        if (annee%400 == 0 || (annee%4 == 0 && annee%100 != 0)){tab[1] = 29;} // On vérifie si l'année est bissextile
+        
+        //  Vérification de la cohérence entre jour, mois et année
         if(annee < 1){throw new IllegalArgumentException("L'année n'est pas conforme.");}
+        if(mois < 1 || mois > 12){throw new IllegalArgumentException("Le mois n'est pas conforme.");}
+        if(jour < 1 || jour > tab[mois - 1]){throw new IllegalArgumentException("Le jour n'est pas conforme.");}
+        
         this.jour = jour;
         this.mois = mois;
         this.annee = annee;
     }
+    
+    /* Getters */
+    
     
     /**
      * 13/10/2019
@@ -52,7 +60,27 @@ public class Date {
     public int getAnnee() {
         return this.annee;
     }
+
+    
+    /* Method */
+    
+    /**
+     * 25/10/2019
+     * @return String
+     */
+    @Override
+    public String toString(){
+        String str_jour = "";
+        String str_mois = "";
+        if(this.mois < 10){str_mois = "0";}
+        if(this.jour < 10){str_jour = "0";}
+        return str_jour + this.jour + "/" + str_mois + this.mois + "/" + this.annee;
+    }
 }
+
+
+
+
 
 
 
