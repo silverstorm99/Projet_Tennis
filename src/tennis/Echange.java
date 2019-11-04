@@ -14,6 +14,7 @@ public class Echange {
     protected Joueur[] equipe1;
     protected Joueur[] equipe2;
     protected Spectateur[] spectateurs;
+    protected int service;
     
     /* Constructor */
     
@@ -40,8 +41,9 @@ public class Echange {
      * Cette méthode renvoie l'équipe qui remportera l'échange
      */
     public Joueur [] play(){
-        Joueur [][] equipe = {this.equipe1,this.equipe2};
+        Joueur [] [] equipe = {this.equipe1, this.equipe2};
         Joueur [] winners = {}; // Equipe qui remportera l'échange
+
         int score1 = 0, score2 = 0; // Scores (echange) de chaques équipes
         boolean echangeFini = false;
         // Simulation
@@ -53,6 +55,10 @@ public class Echange {
         return winners;
     }
 }
+
+
+
+
 
 
 

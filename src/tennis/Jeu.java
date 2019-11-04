@@ -14,6 +14,7 @@ public class Jeu {
     protected Joueur[] equipe1;
     protected Joueur[] equipe2;
     protected Spectateur[] spectateurs;
+    protected int service;
     
     /* Constructor */
     
@@ -62,3 +63,4 @@ public class Jeu {
         return vainqueurJeu;
     }
 }
+

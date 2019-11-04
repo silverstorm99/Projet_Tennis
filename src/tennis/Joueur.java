@@ -142,8 +142,26 @@ public class Joueur extends Personne{
                 this.classement + " " + this.entraineur + " " + this.vetement 
                 + " " + this.couleur;
     }
+    
+    /*servir, retourner un service, renvoyer la balle de l'adversaire, 
+    faire des fautes, appeler l'arbitre, s'encourager, boire, criersa victoire/sa défaite*/
+    
+    public Action servir(){
+        // Simulation
+        double random = Math.random();
+        if(random < 0.33){return Action.SERVICE_CORRECT;}
+        else if(0.33 <= random && random < 0.66){return Action.SERVICE_FAUTE;}
+        else{return Action.SERVICE_FILET;}
+    }
+    
+    public Action renvoyer(){
+        // Simulation
+        double random = Math.random();
+        if(random < 0.33){return Action.CORRECT;}
+        else if(0.33 <= random && random < 0.66){return Action.FAUTE;}
+        else{return Action.FILET;}
+    }
 }
-
 
 
 
