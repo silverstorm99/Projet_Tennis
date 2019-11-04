@@ -43,9 +43,10 @@ public class Set {
         Joueur [] vainqueurSet = {}; // Equipe qui remportera le set
         Joueur [] vainqueurJeu = {}; // Equipe qui remportera le jeu
         int score1 = 0, score2 = 0; // Scores (jeux) de chaques équipes
-        
-        while(score1 < 6 && score2 < 6){
-            Jeu jeu = new Jeu(this.arbitres, this.equipe1, this.equipe2, this.spectateurs);
+        int service = 0;
+        // Prends aussi le cas où le score est de 6-5 (resp 5-6), tant qu'il n'y a pas d'écart de 2 points
+        while((score1 < 6 && score2 < 6) || Math.abs(score1 - score2) < 2){
+            Jeu jeu = new Jeu(this.arbitres, this.equipe1, this.equipe2, this.spectateurs,service++ %2); //service 0 veut dire service par l'equipe 1
             
             vainqueurJeu = jeu.play();
             if(vainqueurJeu == this.equipe1){score1++;}
@@ -54,16 +55,6 @@ public class Set {
             this.arbitres[0].annoncerScoreSet(vainqueurJeu, score1, score2);
         }
         
-        // Dans le cas où le score est de 6-5 (resp 5-6), tant qu'il n'y a pas d'écart de 2 points
-        while(Math.abs(score1 - score2) < 2){
-            Jeu jeu = new Jeu(this.arbitres, this.equipe1, this.equipe2, this.spectateurs);
-            
-            vainqueurJeu = jeu.play();
-            if(vainqueurJeu == this.equipe1){score1++;}
-            else if(vainqueurJeu == this.equipe2){score2++;}
-            
-            this.arbitres[0].annoncerScoreSet(vainqueurJeu, score1, score2);
-        }
         
         if(score1 < score2){vainqueurSet = this.equipe2;}
         else if(score1 > score2){vainqueurSet = this.equipe1;}

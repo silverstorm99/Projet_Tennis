@@ -143,24 +143,15 @@ public class Match {
         int score1 = 0, score2 = 0; // Scores (set) de chaques équipes
  
         // Premier et deuxième sets
-        while(score1 < 2 && score2 < 2){
+        while((score1 < 2 && score2 < 2) || score1 == score2){
+            // Set décisif si égalité
+            if(score1 == score2) System.out.println("\nSet décisif");
             Set set = new Set(this.arbitres, this.equipe1, this.equipe2, this.spectateurs);
             
             vainqueurSet = set.play();
             if(vainqueurSet == this.equipe1){score1++;}
             else if(vainqueurSet == this.equipe2){score2++;}
         
-            this.arbitres[0].annoncerScoreMatch(vainqueurSet, score1, score2);
-        }
-        
-        // Set décisif si égalité
-        if(score1 == score2){
-            System.out.println("\nSet décisif");
-            Set set = new Set(this.arbitres, this.equipe1, this.equipe2, this.spectateurs);
-            vainqueurSet = set.play();
-            if(vainqueurSet == this.equipe1){score1++;}
-            else if(vainqueurSet == this.equipe2){score2++;}
-            
             this.arbitres[0].annoncerScoreMatch(vainqueurSet, score1, score2);
         }
         

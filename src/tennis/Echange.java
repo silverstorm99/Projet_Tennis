@@ -24,11 +24,12 @@ public class Echange {
      * @param equipe2
      * @param spectateurs 
      */
-    public Echange(Arbitre[] arbitres, Joueur[] equipe1, Joueur[] equipe2, Spectateur[] spectateurs) {
+    public Echange(Arbitre[] arbitres, Joueur[] equipe1, Joueur[] equipe2, Spectateur[] spectateurs, int Service) {
         this.arbitres = arbitres;
         this.equipe1 = equipe1;
         this.equipe2 = equipe2;
         this.spectateurs = spectateurs;
+        this.service = Service;
     }
     
     /* Method */
@@ -39,15 +40,19 @@ public class Echange {
      * Cette méthode renvoie l'équipe qui remportera l'échange
      */
     public Joueur [] play(){
-        Joueur [] vainqueurEchange = {}; // Equipe qui remportera l'échange
+        Joueur [] equipe = {this.equipe1,this.equipe2};
+        Joueur [] winners = {}; // Equipe qui remportera l'échange
+
         int score1 = 0, score2 = 0; // Scores (echange) de chaques équipes
-        
+        echangeFini = false;
+      
         // Simulation
-        double random = Math.random();
-        if(random < 0.5){vainqueurEchange = this.equipe1;}
-        else{vainqueurEchange = this.equipe2;}
+        while(!echangeFini){
+            echangeFini = Joueur.play(equipe[this.service %2],this.arbitres);
+            echangeFini = !echangeFini ? Joueur.play(equipe[this.service +1 %2],this.arbitres) : echangeFini;
+        }
         
-        return vainqueurEchange;
+        return winners;
     }
 }
 
