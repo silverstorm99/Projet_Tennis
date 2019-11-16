@@ -108,7 +108,7 @@ public class Arbitre extends Personne{
         else if(score1 > 3 && score2 < score1){Score1 = "AV"; Score2 = "40";}
         else if(score2 > 3 && score1 < score2){Score2 = "AV"; Score1 = "40";}
         
-        System.out.println("Echange : " + Score1 + "-" + Score2);
+        System.out.println("Echange : " + Score1 + "-" + Score2 + "\n");
     }
 }
 

@@ -141,13 +141,14 @@ public class Match {
         Joueur [] vainqueurMatch = {}; // Equipe qui remportera le match
         Joueur [] vainqueurSet = {}; // Equipe qui remportera le set
         int score1 = 0, score2 = 0; // Scores (set) de chaques équipes
+        
+        int service = Math.random() < 0.5 ? 0 : 1; // Determine aleatoirement qui sert le premier
  
         // Premier et deuxième sets
         while((score1 < 2 && score2 < 2) || score1 == score2){
             // Set décisif si égalité
             if(score1 == score2 && score1 != 0){ System.out.println("\nSet décisif " + score1);}
-
-            Set set = new Set(this.arbitres, this.equipe1, this.equipe2, this.spectateurs);
+            Set set = new Set(this.arbitres, this.equipe1, this.equipe2, this.spectateurs,(service++) %2);
             
             vainqueurSet = set.play();
             if(vainqueurSet == this.equipe1){score1++;}

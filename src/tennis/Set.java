@@ -14,7 +14,7 @@ public class Set {
     protected Joueur[] equipe1;
     protected Joueur[] equipe2;
     protected Spectateur[] spectateurs;
-    
+    protected int service;    
     
     /* Constructor */
     
@@ -25,11 +25,12 @@ public class Set {
      * @param equipe2
      * @param spectateurs 
      */
-    public Set(Arbitre [] arbitres, Joueur [] equipe1, Joueur [] equipe2, Spectateur [] spectateurs){
+    public Set(Arbitre [] arbitres, Joueur [] equipe1, Joueur [] equipe2, Spectateur [] spectateurs,int service){
         this.arbitres = arbitres;
         this.equipe1 = equipe1;
         this.equipe2 = equipe2;
         this.spectateurs = spectateurs;
+        this.service = service;
     }
     
     /* Method */
@@ -44,11 +45,9 @@ public class Set {
         Joueur [] vainqueurJeu = {}; // Equipe qui remportera le jeu
         int score1 = 0, score2 = 0; // Scores (jeux) de chaques équipes
         
-        int service = Math.random() < 0.5 ? 0 : 1; // Determine aleatoirement qui sert le premier
-        
         // Prends aussi le cas où le score est de 6-5 (resp 5-6), tant qu'il n'y a pas d'écart de 2 points
         while((score1 < 6 && score2 < 6) || Math.abs(score1 - score2) < 2){
-            Jeu jeu = new Jeu(this.arbitres, this.equipe1, this.equipe2, this.spectateurs,service++ %2); //service 0 veut dire service par l'equipe 1
+            Jeu jeu = new Jeu(this.arbitres, this.equipe1, this.equipe2, this.spectateurs,(this.service++) %2); //service 0 veut dire service par l'equipe 1
             
             vainqueurJeu = jeu.play();
             if(vainqueurJeu == this.equipe1){score1++;}
