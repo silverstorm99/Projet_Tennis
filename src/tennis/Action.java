@@ -11,6 +11,6 @@ package tennis;
  * Cette énumération rescence toute les actions possibles que peut faire un joueur durant un échange
  */
 public enum Action {
-    SERVICE_CORRECT, SERVICE_FAUTE, SERVICE_FILET,
+    SERVICE_FAUTE, SERVICE_LET,
     CORRECT, FILET, FAUTE
 }

@@ -20,13 +20,10 @@ public class Joueur extends Personne implements ActionSpectateur{
     
     public static int nbJoueur = 0; // Compte le nombre de joueur
     
-    public Joueur   (String nomNaissance, String nomCourant, String prenom,
-                    String surnom, Date dateNaissance, String lieuNaissance,
-                    Date dateDeces, String nationalite, int taille, int poids,
-                    Main main, String sponsor, String entraineur, 
-                    Vetement vetement, Couleur couleur){
-        super(nomNaissance, nomCourant, prenom, surnom, dateNaissance, 
-                lieuNaissance, dateDeces, nationalite, taille, poids);
+    public Joueur (String nomNaissance, String nomCourant, String prenom,String surnom, Date dateNaissance, String lieuNaissance,Date dateDeces, String nationalite, int taille,
+        int poids,Main main, String sponsor, String entraineur, Vetement vetement, Couleur couleur){
+        
+        super(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
         this.main = main;
         this.sponsor = sponsor;
         this.classement = nbJoueur + 1;
@@ -143,25 +140,20 @@ public class Joueur extends Personne implements ActionSpectateur{
                 + " " + this.couleur;
     }
     
-    /*servir, retourner un service, renvoyer la balle de l'adversaire, 
-    faire des fautes, appeler l'arbitre, s'encourager, boire, criersa victoire/sa défaite*/
-    public static Boolean play(Joueur[] equipe,Arbitre[] arbitres,Integer score){
-        
-        return true;
-    }
-    public Action servir(){
+    
+    protected Action servir(){
         // Simulation
         double random = Math.random();
-        if(random < 0.33){return Action.SERVICE_CORRECT;}
-        else if(0.33 <= random && random < 0.66){return Action.SERVICE_FAUTE;}
-        else{return Action.SERVICE_FILET;}
+        if(random < 0.66){return Action.CORRECT;}
+        //else if(random < 0.66){return Action.SERVICE_FAUTE;}
+        else{return Action.SERVICE_FAUTE;}
     }
     
-    public Action renvoyer(){
+    Action renvoyer(){
         // Simulation
         double random = Math.random();
         if(random < 0.33){return Action.CORRECT;}
-        else if(0.33 <= random && random < 0.66){return Action.FAUTE;}
+        else if(random < 0.66){return Action.FAUTE;}
         else{return Action.FILET;}
     }
     
@@ -183,11 +175,25 @@ public class Joueur extends Personne implements ActionSpectateur{
     public void dormir(){
         System.out.println("ZzZzZzZzZzZzZ");
     }
+
+
+    /*
+    * 21/10/2019
+     * @return Boolean
+     * servir, retourner un service, renvoyer la balle de l'adversaire, 
+     * faire des fautes, appeler l'arbitre, s'encourager, boire, criersa victoire/sa défaite
+     * 
+     * False veut dire que l'echange nest pas fini
+     * True oui (donc point gagne ou faute)
+     * */
+    public static Action play(Joueur[] equipe,Arbitre[] arbitres,int nbEchange){
+        System.out.print(equipe[0].getPrenom());
+        if (nbEchange == 0) {
+            System.out.println(" sert");
+            return equipe[0].servir();
+        }else{
+            System.out.println(" renvoie");
+            return equipe[0].renvoyer();
+        }
+    }
 }
-
-
-
-
-
-
-

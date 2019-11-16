@@ -12,16 +12,16 @@ import java.time.LocalDate; // import the LocalDate class
  * @author Nicolas
  */
 public abstract class Personne {
-    protected String nomNaissance;
-    protected String nomCourant;
-    protected String prenom;
-    protected String surnom;
-    protected Date dateNaissance;
-    protected String lieuNaissance;
-    protected Date dateDeces;
-    protected String nationalite;
-    protected int taille;
-    protected int poids;
+    private String nomNaissance;
+    private String nomCourant;
+    private String prenom;
+    private String surnom;
+    private Date dateNaissance;
+    private String lieuNaissance;
+    private Date dateDeces;
+    private String nationalite;
+    private int taille;
+    private int poids;
     
     public static int nbPersonne = 0; // Compte le nombre de personne
     
@@ -65,9 +65,7 @@ public abstract class Personne {
      * @param taille
      * @param poids 
      */
-    public Personne(String nomNaissance, String nomCourant, String prenom,
-                    String surnom, Date dateNaissance, String lieuNaissance,
-                    Date dateDeces, String nationalite, int taille, int poids){
+    public Personne(String nomNaissance, String nomCourant, String prenom,String surnom, Date dateNaissance, String lieuNaissance,Date dateDeces, String nationalite, int taille, int poids){
         this.nomNaissance = nomNaissance;
         this.nomCourant = nomCourant;
         this.prenom = prenom;

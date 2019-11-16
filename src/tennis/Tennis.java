@@ -21,7 +21,7 @@ public class Tennis {
                 new Date(23,2,1998), "Metz", new Date(19,11,2019), "France",
                 170, 60, Main.DROITE, "URSS", "Poutine", Vetement.SHORT, Couleur.BLEU);
         
-        Joueur player2 = new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Nico",
+        Joueur player2 = new Joueur("Sanchez", "SANCHEZ", "Clement", "Clem",
                 new Date(14,07,1960), "Metz", new Date(9,11,2019), "France",
                 170, 60, Main.GAUCHE, "URSS", "Poutine", Vetement.SHORT, Couleur.BLEU);
         
@@ -50,25 +50,10 @@ public class Tennis {
         
         for(int i=0; i<arraySize; i++){
             spectateurs.add(Spectateur.generer());
-            System.out.println(spectateurs.get(i));
+            //System.out.println(spectateurs.get(i));
         }
         
         //Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
