@@ -44,7 +44,7 @@ public class Echange {
         Joueur [][] equipe = {this.equipe1, this.equipe2};
         Joueur [] vainqueurEchange = {}; // Equipe qui remportera l'échange
         
-        Integer[] score = {0,0}; // Scores (echange) de chaques équipes
+        Integer[] score = {0}; // Scores (echange) de chaques équipes
         boolean echangeFini = false;
         // Simulation
         while(!echangeFini){

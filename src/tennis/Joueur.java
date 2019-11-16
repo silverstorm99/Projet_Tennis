@@ -145,7 +145,10 @@ public class Joueur extends Personne{
     
     /*servir, retourner un service, renvoyer la balle de l'adversaire, 
     faire des fautes, appeler l'arbitre, s'encourager, boire, criersa victoire/sa défaite*/
-    
+    public static Boolean play(Joueur[] equipe,Arbitre[] arbitres,Integer score){
+        
+        return true;
+    }
     public Action servir(){
         // Simulation
         double random = Math.random();
