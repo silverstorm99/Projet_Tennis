@@ -11,13 +11,18 @@ package tennis;
  */
 public interface ActionSpectateur {
     
-    public void applaudir();
-    
-    public void crier();
-    
-    public void huer();
-    
-    public void dormir();
+    public default void applaudir(){
+        System.out.println("CLAP CLAP CLAP");
+    }
+    public default void crier(){
+        System.out.println("ALLEZ !!!");
+    }
+    public default void huer(){
+        System.out.println("BOOOOOOOOOOO !!!! NUL !");
+    }
+    public default void dormir(){
+        System.out.println("ZzZzZzZzZzZzZ");
+    }
 }
 
 
