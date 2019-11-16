@@ -9,7 +9,7 @@ package tennis;
  * 13/10/2019
  * @author Nicolas
  */
-public class Joueur extends Personne{
+public class Joueur extends Personne implements ActionSpectateur{
     protected Main main;
     protected String sponsor;
     protected int classement;
@@ -164,7 +164,30 @@ public class Joueur extends Personne{
         else if(0.33 <= random && random < 0.66){return Action.FAUTE;}
         else{return Action.FILET;}
     }
+    
+    /* Interface ActionSpectateur methods */
+    
+    @Override
+    public void applaudir(){
+        System.out.println("CLAP CLAP CLAP");
+    }
+    @Override
+    public void crier(){
+        System.out.println("ALLEZ !!!");
+    }
+    @Override
+    public void huer(){
+        System.out.println("BOOOOOOOOOOO !!!! NUL !");
+    }
+    @Override
+    public void dormir(){
+        System.out.println("ZzZzZzZzZzZzZ");
+    }
 }
+
+
+
+
 
 
 

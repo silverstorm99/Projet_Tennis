@@ -41,30 +41,24 @@ public class Echange {
      * Cette méthode renvoie l'équipe qui remportera l'échange
      */
     public Joueur [] play(){
-        Joueur [][] equipe = {this.equipe1, this.equipe2};
+        //Joueur [][] equipe = {this.equipe1, this.equipe2};
         Joueur [] vainqueurEchange = {}; // Equipe qui remportera l'échange
         
-        Integer[] score = {0}; // Scores (echange) de chaques équipes
-        boolean echangeFini = false;
+
+        //Integer[] score = {0,0}; // Scores (echange) de chaques équipes
+        //boolean echangeFini = false;
+        
         // Simulation
+        
+        /*
         while(!echangeFini){
             echangeFini = Joueur.play(equipe[this.service %2],this.arbitres,score[this.service %2]);
             echangeFini = !echangeFini ? Joueur.play(equipe[this.service +1 %2],this.arbitres,score[this.service %2]) : echangeFini;
-        }
-        
-        if(score[0] < score[1]){vainqueurEchange = this.equipe2;}
-        else {vainqueurEchange = this.equipe1;}
+        }*/
+        double random = Math.random();
+        if(random < 0.5){vainqueurEchange = this.equipe1;}
+        else {vainqueurEchange = this.equipe2;}
 
         return vainqueurEchange;
     }
 }
-
-
-
-
-
-
-
-
-
-

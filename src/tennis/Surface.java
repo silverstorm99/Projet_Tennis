@@ -6,11 +6,13 @@
 package tennis;
 
 /**
- * 04/11/2019
+ * 11/11/2019
  * @author Nicolas
- * Cette énumération rescence toute les actions possibles que peut faire un joueur durant un échange
+ * Cette énumération rescence les différents types de surface pour chaque ville.
  */
-public enum Action {
-    SERVICE_CORRECT, SERVICE_FAUTE, SERVICE_FILET,
-    CORRECT, FILET, FAUTE
+public enum Surface {
+    PLEXICUSHION, TERRE_BATTUE, GAZON, DECOTURF
 }
+
+
+

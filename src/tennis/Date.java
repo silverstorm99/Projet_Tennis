@@ -5,6 +5,8 @@
  */
 package tennis;
 
+import java.util.Random;
+
 /**
  * 13/10/2019
  * @author Nicolas
@@ -62,7 +64,7 @@ public class Date {
     }
 
     
-    /* Method */
+    /* Methods */
     
     /**
      * 25/10/2019
@@ -76,7 +78,37 @@ public class Date {
         if(this.jour < 10){str_jour = "0";}
         return str_jour + this.jour + "/" + str_mois + this.mois + "/" + this.annee;
     }
+    
+    /**
+     * 14/11/2019 
+     * @param annee
+     * @return Date
+     */
+    public static Date generer(int annee){
+        int[] tab = {31,28,31,30,31,30,31,31,30,31,30,31}; //Derniers jours de chaque mois
+        Random random = new Random();
+        
+        int mois = random.nextInt(12) + 1;
+        int jour = random.nextInt(tab[mois-1]) + 1;
+        
+        return new Date(jour, mois, annee);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
