@@ -12,12 +12,16 @@ package tennis;
  */
 public enum Phase {
     AMICALE, 
-    TOUR,
-    HUIT_FINALE,
+    PREMIER_TOUR,
+    DEUXIEME_TOUR,
+    TROISIEME_TOUR,
+    HUITIEME_FINALE,
     QUART_FINALE,
     DEMI_FINALE,
     FINALE;
 }
+
+
 
 
 

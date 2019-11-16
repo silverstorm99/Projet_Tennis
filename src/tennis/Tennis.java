@@ -5,6 +5,8 @@
  */
 package tennis;
 
+import java.util.ArrayList;
+
 /**
  * 13/10/2019
  * @author Nicolas
@@ -38,23 +40,22 @@ public class Tennis {
         Arbitre [] arbitres = {arbitre};
         Joueur [] equipe1 = {player};
         Joueur [] equipe2 = {player2};
-        Spectateur [] spectateurs = {};
-        Match match = new Match(Categorie.SIMPLE_HOMME, Phase.FINALE, arbitres, equipe1, equipe2, spectateurs);
+        Spectateur [] spectateur = {};
+        Match match = new Match(Categorie.SIMPLE_HOMME, Phase.FINALE, arbitres, equipe1, equipe2, spectateur);
         match.play();
+        
+        int arraySize = 100;
+        
+        ArrayList <Spectateur> spectateurs = new ArrayList <Spectateur> (arraySize);
+        
+        for(int i=0; i<arraySize; i++){
+            spectateurs.add(Spectateur.generer());
+            System.out.println(spectateurs.get(i));
+        }
+        
+        //Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME);
     }
-    
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

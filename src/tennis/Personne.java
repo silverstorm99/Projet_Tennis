@@ -25,6 +25,33 @@ public abstract class Personne {
     
     public static int nbPersonne = 0; // Compte le nombre de personne
     
+    /* Listes des prénoms masculins, féminins et nom de famille */ 
+    public static String [] prenomMasculin = {"Alexandre","Aurélien","Baptiste",
+        "Clément","Dorian","Florian","Gaétan", "Grégoire","Julien","Louis",
+        "Maxime","Nicolas","Paul","Pierre","Quentin","Romain","Thibaud","Thomas",
+        "Valentin","Vincent"};
+    
+    public static String [] prenomFeminin = {"Amélie","Aurélie","Axelle",
+        "Camille","Cloé","Flora","Garance","Jade","Julie","Lucie","Manon",
+        "Mélanie","Nicole","Pauline","Perrine","Romane","Roxane","Théa",
+        "Valentine","Zoé"};
+    
+    public static String [] nomFamille = {"MARTIN","BLANC","DUBOIS",
+        "RICHARD","PETIT","LEROY","LEFEBVRE","FOURNIER","GIRARD","MERCIER","DUPONT",
+        "LAMBERT","MARTINEZ","LEGRAND","ROUSSEAU","MULLER","HENRY","MASSON",
+        "LEMAIRE","DUVAL"};
+    
+    // Cette liste est utiliser pour la génération de joueurs, arbitres et spectateurs
+    public static String [] villeNaissance = {"Paris","Marseille","Lyon",
+        "Bordeaux","Strasbourg","Lille","Grenoble","Toulouse","Toulon","Nice","Metz",
+        "Brest","Amiens","Nancy","Saint-Etienne","Tours","Orléans","Annecy",
+        "Lorient","Rennes"};
+    
+    public static String [] pays = {"Allemange","Autriche","Belgique",
+        "Croatie","Damemark","Espagne","Finlande", "France","Grèce","Hongrie",
+        "Irlande","Italie","Luxembourg","Monaco","Norvège","Pays-Bas","Pologne","Portugal",
+        "Royaume-Uni","Ukraine"};
+    
     /**
      * 21/10/2019
      * @param nomNaissance
@@ -209,14 +236,3 @@ public abstract class Personne {
                 this.nationalite + " " + this.taille + " " + this.poids;
     }
 }
-
-
-
-
-
-
-
-
-
-
-

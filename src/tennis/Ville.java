@@ -6,11 +6,11 @@
 package tennis;
 
 /**
- * 04/11/2019
+ * 11/11/2019
  * @author Nicolas
- * Cette énumération rescence toute les actions possibles que peut faire un joueur durant un échange
+ * Cette énuration rescence les villes où peuvent se dérouler les 
+ * tournois du Grand Chelem.
  */
-public enum Action {
-    SERVICE_CORRECT, SERVICE_FAUTE, SERVICE_FILET,
-    CORRECT, FILET, FAUTE
+public enum Ville {
+    LONDRES, MELBOURNE, NEW_YORK, PARIS
 }

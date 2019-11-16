@@ -6,11 +6,21 @@
 package tennis;
 
 /**
- * 04/11/2019
+ * 10/11/2019
  * @author Nicolas
- * Cette énumération rescence toute les actions possibles que peut faire un joueur durant un échange
  */
-public enum Action {
-    SERVICE_CORRECT, SERVICE_FAUTE, SERVICE_FILET,
-    CORRECT, FILET, FAUTE
+public interface ActionSpectateur {
+    
+    public void applaudir();
+    
+    public void crier();
+    
+    public void huer();
+    
+    public void dormir();
 }
+
+
+
+
+
