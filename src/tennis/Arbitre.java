@@ -5,6 +5,8 @@
  */
 package tennis;
 
+import java.util.Random;
+
 /**
  * 21/10/2019
  * @author Nicolas
@@ -110,6 +112,44 @@ public class Arbitre extends Personne{
         
         System.out.println("Echange : " + Score1 + "-" + Score2 + "\n");
     }
+    
+    /**
+     * 17/11/2019
+     * @return Arbitre
+     */
+    public static Arbitre generer(){
+        /* 
+        Création d'un objet de type Random pour générer de manière aléatoire
+        les différents attributs de l'arbitre
+        
+        anneeNaissance, esperanceVie, taille et poids suivront une loi normale
+        
+        Exemple: 
+        anneeNaissance: espérance = 1978 et écart_type = 15 donnera 
+        int anneeNaissance = (int)(15*random.nextGaussian() + 1991);
+        */
+        Random random = new Random();
+        
+        /* Génération des attributs considérés communs */
+        int anneeNaissance = (int)(15*random.nextGaussian() + 1991);
+        String nomNaissance = Personne.nomFamille[random.nextInt(Personne.nomFamille.length)],
+               nomCourant = nomNaissance,   // Par défaut le nomCourant sera le nomNaissance
+               lieuNaissance = Personne.villeNaissance[random.nextInt(Personne.villeNaissance.length)],
+               nationalite = Personne.pays[random.nextInt(Personne.pays.length)];
+        Date dateNaissance = Date.generer(anneeNaissance);
+        
+        /* Attributs particuliers selon le sexe qui ici sera insinué*/
+        boolean sexe = random.nextBoolean();  // Determine le sexe de l'arbitre (contrairement à un joeur ou à un spectateur, la distinction de ne fera pas par un vetement)
+        
+        int esperanceVie = (sexe) ? (int)(7*random.nextGaussian() + 79) : (int)(7*random.nextGaussian() + 85),
+            taille = (sexe) ? (int)(6*random.nextGaussian() + 178) : (int)(6*random.nextGaussian() + 165),
+            poids = (sexe) ? (int)(6*random.nextGaussian() + 75) : (int)(6*random.nextGaussian() + 70);
+        String prenom = (sexe) ? Personne.prenomMasculin[random.nextInt(Personne.prenomMasculin.length)] : Personne.prenomFeminin[random.nextInt(Personne.prenomFeminin.length)],
+               surnom = prenom;
+        Date dateDeces = Date.generer(anneeNaissance + esperanceVie);
+        nomCourant = (sexe) ? nomNaissance : Personne.nomFamille[random.nextInt(Personne.nomFamille.length)];
+        
+        return new Arbitre(nomNaissance, nomCourant, prenom, surnom, dateNaissance,
+                lieuNaissance, dateDeces, nationalite, taille, poids);
+    }
 }
-
-

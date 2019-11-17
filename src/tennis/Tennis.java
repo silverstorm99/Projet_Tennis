@@ -40,11 +40,11 @@ public class Tennis {
                 new Date(14,07,1995), "Metz", new Date(19,11,2019), "France",
                 170, 60);
         
-        Arbitre [] arbitres = {arbitre};
+        Arbitre [] arbitre1 = {arbitre};
         Joueur [] equipe1 = {player};
         Joueur [] equipe2 = {player2};
         Spectateur [] spectateur = {};
-        Match match = new Match(Categorie.SIMPLE_HOMME, Phase.FINALE, arbitres, equipe1, equipe2, spectateur);
+        Match match = new Match(Categorie.SIMPLE_HOMME, Phase.FINALE, arbitre1, equipe1, equipe2, spectateur);
         match.play();
         
         /* Test génération spectateur */
@@ -81,9 +81,24 @@ public class Tennis {
             System.out.println(joueurs.get(i));
         }
         
+        /* Test génération Arbitre */
+        
+        System.out.println("\n\n Test générer Arbitre");
+        
+        arraySize = 10;
+        
+        ArrayList <Arbitre> arbitres = new ArrayList <Arbitre> (arraySize);
+        
+        for(int i=arbitres.size(); i<arraySize; i++){
+            arbitres.add(Arbitre.generer());
+            System.out.print(i+" ");
+            System.out.println(arbitres.get(i));
+        }
+        
         //Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME);
     }
 }
+
 
 
 
