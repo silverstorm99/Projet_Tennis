@@ -65,7 +65,6 @@ public class Echange {
             }
 
         }
-
         System.out.println(equipe[(this.service + nbEchange)%2][0].getPrenom() + " a gagne car "+  equipe[(this.service + nbEchange + 1)%2][0].getPrenom() + " a perdu l'echange avec " + echange);
 
 

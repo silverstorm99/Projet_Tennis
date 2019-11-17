@@ -154,31 +154,12 @@ public class Joueur extends Personne implements ActionSpectateur{
     Action renvoyer(){
         // Simulation
         double random = Math.random();
-        if(random < 0.33){return Action.CORRECT;}
-        else if(random < 0.66){return Action.FAUTE;}
+        if(random < 0.8){return Action.CORRECT;}
+        else if(random < 0.9){return Action.FAUTE;}
         else{return Action.FILET;}
     }
     
-    /* Interface ActionSpectateur methods */
     
-    @Override
-    public void applaudir(){
-        System.out.println("CLAP CLAP CLAP");
-    }
-    @Override
-    public void crier(){
-        System.out.println("ALLEZ !!!");
-    }
-    @Override
-    public void huer(){
-        System.out.println("BOOOOOOOOOOO !!!! NUL !");
-    }
-    @Override
-    public void dormir(){
-        System.out.println("ZzZzZzZzZzZzZ");
-    }
-
-
     /*
     * 21/10/2019
      * @return Boolean
