@@ -41,7 +41,6 @@ public abstract class Personne {
         "LAMBERT","MARTINEZ","LEGRAND","ROUSSEAU","MULLER","HENRY","MASSON",
         "LEMAIRE","DUVAL"};
     
-    // Cette liste est utiliser pour la génération de joueurs, arbitres et spectateurs
     public static String [] villeNaissance = {"Paris","Marseille","Lyon",
         "Bordeaux","Strasbourg","Lille","Grenoble","Toulouse","Toulon","Nice","Metz",
         "Brest","Amiens","Nancy","Saint-Etienne","Tours","Orléans","Annecy",
@@ -51,6 +50,11 @@ public abstract class Personne {
         "Croatie","Damemark","Espagne","Finlande", "France","Grèce","Hongrie",
         "Irlande","Italie","Luxembourg","Monaco","Norvège","Pays-Bas","Pologne","Portugal",
         "Royaume-Uni","Ukraine"};
+    
+    public static String [] sponsor = {"BNP Paribas", "Emirates", "Peugeot", "Lacoste",
+        "Rolex", "Oppo", "Engie", "Infosys", "Perrier", "Accor Hotel", "Adecco",
+        "Babolat", "JC Decaux", "Lagardère", "Lavazza", "Magnum", "Mastercard",
+        "Orange", "Moët Hennessy", " Potel & Chabot", "Tropicana"};
     
     /**
      * 21/10/2019
@@ -234,3 +238,6 @@ public abstract class Personne {
                 this.nationalite + " " + this.taille + " " + this.poids;
     }
 }
+
+
+

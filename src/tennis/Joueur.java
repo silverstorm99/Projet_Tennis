@@ -5,6 +5,8 @@
  */
 package tennis;
 
+import java.util.Random;
+
 /**
  * 13/10/2019
  * @author Nicolas
@@ -196,4 +198,52 @@ public class Joueur extends Personne implements ActionSpectateur{
             return equipe[0].renvoyer();
         }
     }
+    
+    /**
+     * 16/11/2019
+     * @param vetement, ce paramètre determine le sexe du joueur
+     * @return Joueur
+     */
+    public static Joueur generer(Vetement vetement){
+        /* 
+        Création d'un objet de type Random pour générer de manière aléatoire
+        les différents attributs du spectateur ou de la spectatrice.
+        
+        anneeNaissance, esperanceVie, taille et poids suivront une loi normale
+        
+        Exemple: 
+        anneeNaissance: espérance = 1978 et écart_type = 15 donnera 
+        int anneeNaissance = (int)(15*random.nextGaussian() + 1991);
+        */
+        Random random = new Random();
+        
+        /* Génération des attributs considérés communs */
+        int anneeNaissance = (int)(15*random.nextGaussian() + 1991);
+        String nomNaissance = Personne.nomFamille[random.nextInt(Personne.nomFamille.length)],
+               nomCourant = nomNaissance,   // Par défaut le nomCourant sera le nomNaissance
+               lieuNaissance = Personne.villeNaissance[random.nextInt(Personne.villeNaissance.length)],
+               nationalite = Personne.pays[random.nextInt(Personne.pays.length)],
+               sponsor = Personne.sponsor[random.nextInt(Personne.sponsor.length)],
+               entraineur = Personne.nomFamille[random.nextInt(Personne.nomFamille.length)];
+        Date dateNaissance = Date.generer(anneeNaissance);
+        Couleur couleur = (random.nextBoolean()) ? Couleur.BLEU : Couleur.ROUGE ;  // Une chance sur 2 que la chemise ou les lunettes du/de la spectateur/spectatrice soit bleu ou rouge.
+        Main main = (random.nextBoolean()) ? Main.DROITE : Main.GAUCHE;
+        
+        /* Attributs particuliers selon le sexe */
+        int esperanceVie = (vetement == Vetement.SHORT) ? (int)(7*random.nextGaussian() + 79) : (int)(7*random.nextGaussian() + 85),
+            taille = (vetement == Vetement.SHORT) ? (int)(6*random.nextGaussian() + 178) : (int)(6*random.nextGaussian() + 165),
+            poids = (vetement == Vetement.SHORT) ? (int)(6*random.nextGaussian() + 75) : (int)(6*random.nextGaussian() + 70);
+        String prenom = (vetement == Vetement.SHORT) ? Personne.prenomMasculin[random.nextInt(Personne.prenomMasculin.length)] : Personne.prenomFeminin[random.nextInt(Personne.prenomFeminin.length)],
+               surnom = prenom;
+        Date dateDeces = Date.generer(anneeNaissance + esperanceVie);
+        nomCourant = (vetement == Vetement.SHORT) ? nomNaissance : Personne.nomFamille[random.nextInt(Personne.nomFamille.length)];
+        
+        return new Joueur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, entraineur, vetement, couleur);
+    }
 }
+
+
+
+
+
+

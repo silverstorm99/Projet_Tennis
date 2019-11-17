@@ -185,3 +185,4 @@ public class Spectateur extends Personne implements ActionSpectateur{
     }
 }
 
+

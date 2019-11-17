@@ -17,6 +17,9 @@ public class Tennis {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        /* Test création match */
+        
         Joueur player = new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Nico",
                 new Date(23,2,1998), "Metz", new Date(19,11,2019), "France",
                 170, 60, Main.DROITE, "URSS", "Poutine", Vetement.SHORT, Couleur.BLEU);
@@ -44,16 +47,61 @@ public class Tennis {
         Match match = new Match(Categorie.SIMPLE_HOMME, Phase.FINALE, arbitres, equipe1, equipe2, spectateur);
         match.play();
         
+        /* Test génération spectateur */
+        
+        System.out.println("\n\n Test générer Spectateur");
+        
         int arraySize = 100;
         
         ArrayList <Spectateur> spectateurs = new ArrayList <Spectateur> (arraySize);
         
-        for(int i=0; i<arraySize; i++){
+        // Ajout d'un premier spectateur dans la liste
+        Spectateur spectateur2 = new Spectateur("SCHMITT", "SCHMITT", "Nicolas", "Ruskov", new Date(23,02,1998), "Metz", new Date(25,11,2019), "France", 170, 60, Vetement.CHEMISE, Couleur.BLEU);
+        spectateurs.add(spectateur2);
+        System.out.println(spectateurs.get(0));
+        
+        // On complète la liste en générant d'autre spectateur
+        for(int i=spectateurs.size(); i<arraySize; i++){
             spectateurs.add(Spectateur.generer());
-            //System.out.println(spectateurs.get(i));
+            System.out.print(i+" ");
+            System.out.println(spectateurs.get(i));
+        }
+        
+        /* Test génération Joueur */
+        
+        System.out.println("\n\n Test générer Joueur");
+        
+        arraySize = 128;
+        
+        ArrayList <Joueur> joueurs = new ArrayList <Joueur> (arraySize);
+        
+        for(int i=joueurs.size(); i<arraySize; i++){
+            joueurs.add(Joueur.generer(Vetement.SHORT));
+            System.out.print(i+" ");
+            System.out.println(joueurs.get(i));
         }
         
         //Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
