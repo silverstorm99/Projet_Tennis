@@ -72,7 +72,9 @@ public class Tournoi {
         
         this.ville = ville;
         this.categorie = categorie;
-        this.joueurs = joueurs;
+        this.joueurs = joueurs; // On enregistre les joueurs déjà enregistrer manuellement
+        this.genererJoueur();   // On génère le reste de joueur pour atteindre les 128 joueurs du tournois
+        this.genererMatch();
     }
     
     /**
@@ -128,6 +130,7 @@ public class Tournoi {
         this.surface = surface;
         this.categorie = categorie;
         this.joueurs = joueurs;
+        this.genererMatch();
     }
     
     /* Getters */
@@ -154,11 +157,73 @@ public class Tournoi {
     
     /* Methods */
     
-    /*
-    private ArrayList<Joueur> fillJoueur(){
-        // En construction
+    /**
+     * 18/11/2019
+     * Cette méthode permet de générer les 127 matchs du tournoi
+     */
+    private void genererMatch(){
+        int nbArbitres = 10, nbSpectateurs = 100;
+        Phase phase;
+        
+        for(int i=0; i<127; i++){
+            Arbitre [] arbitres = new Arbitre [nbArbitres];
+            Spectateur [] spectateurs = new Spectateur [nbSpectateurs];
+            
+            // Génération des arbitres
+            for(int j=0; j<nbArbitres; j++){
+                spectateurs[j] = Spectateur.generer();
+            }
+            // Génération des spectateurs
+            for(int j=0; j<nbArbitres; j++){
+                arbitres[j] = Arbitre.generer();
+            }
+            
+            if(i > 125){phase = Phase.FINALE;}
+            else if(i > 123){phase = Phase.DEMI_FINALE;}
+            else if(i > 119){phase = Phase.QUART_FINALE;}
+            else if(i > 111){phase = Phase.HUITIEME_FINALE;}
+            else if(i > 95){phase = Phase.TROISIEME_TOUR;}
+            else if(i > 63){phase = Phase.DEUXIEME_TOUR;}
+            else{phase = Phase.PREMIER_TOUR;}
+            
+            Match match = new Match(this.categorie, phase, arbitres, spectateurs);
+            this.matchs.add(match);
+        }
     }
-    */
+    
+    /**
+     * 18/11/2019
+     * Cette méthode permet de remplir la list des joueurs du tournoi
+     */
+    private void genererJoueur(){
+        int nbJoueurs = 128;
+        Vetement vetement;
+        
+        switch(this.categorie){
+            case SIMPLE_HOMME:
+                vetement = Vetement.SHORT;
+                break;
+            case SIMPLE_FEMME:
+                vetement = Vetement.JUPE;
+                break;
+            case DOUBLE_HOMME:
+                vetement = Vetement.SHORT;
+                break;
+            case DOUBLE_FEMME:
+                vetement = Vetement.JUPE;
+                break;
+            default:
+                vetement = (Math.random()<0.5) ? Vetement.SHORT : Vetement.JUPE;
+                break;
+        }
+        
+        for(int i=this.joueurs.size(); i<nbJoueurs; i++){
+            if(this.categorie == Categorie.SIMPLE_MIXTE || this.categorie == Categorie.DOUBLE_MIXTE){
+                vetement = (Math.random()<0.5) ? Vetement.SHORT : Vetement.JUPE;
+            }
+            this.joueurs.add(Joueur.generer(vetement));
+        }
+    }
 }
 
 

@@ -79,6 +79,24 @@ public class Match {
         this.spectateurs = spectateurs;
     }
     
+    /**
+     * 18/11/2019
+     * @param categorie
+     * @param phase
+     * @param arbitres
+     * @param spectateurs 
+     */
+    public Match(Categorie categorie, Phase phase, Arbitre [] arbitres, Spectateur [] spectateurs){
+        
+        // Exceptions
+        if(arbitres.length == 0){throw new IllegalArgumentException("Il n'y a pas d'abitre(s) pour arbitrer le match.");}
+        
+        this.categorie = categorie;
+        this.phase = phase;
+        this.arbitres = arbitres;
+        this.spectateurs = spectateurs;
+    }
+    
     
     /* Getters */
     
@@ -138,6 +156,9 @@ public class Match {
      * Cette méthode renvoie l'équipe qui remporte le match
      */
     public Joueur [] play(){
+        // Exception dans le cas où il n'y a pas de joueurs
+        if(this.equipe1.length == 0 || this.equipe2.length == 0){throw new IllegalArgumentException("Il n'y a pas de joueur pour ce match.");}
+                
         Joueur [] vainqueurMatch = {}; // Equipe qui remportera le match
         Joueur [] vainqueurSet = {}; // Equipe qui remportera le set
         int score1 = 0, score2 = 0; // Scores (set) de chaques équipes
@@ -162,22 +183,17 @@ public class Match {
         
         return vainqueurMatch;
     }
+    
+    /**
+     * 18/11/2019
+     * @return String
+     */
+    @Override
+    public String toString(){
+        return this.categorie + " " + this.phase + " " + this.categorie + " " + 
+                this.arbitres + " " + this.equipe1 + " " + this.equipe2 + " " + this.spectateurs;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

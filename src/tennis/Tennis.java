@@ -19,7 +19,7 @@ public class Tennis {
     public static void main(String[] args) {
         
         /* Test création match */
-        
+        /*
         Joueur player = new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Nico",
                 new Date(23,2,1998), "Metz", new Date(19,11,2019), "France",
                 170, 60, Main.DROITE, "URSS", "Poutine", Vetement.SHORT, Couleur.BLEU);
@@ -46,9 +46,9 @@ public class Tennis {
         Spectateur [] spectateur = {};
         Match match = new Match(Categorie.SIMPLE_HOMME, Phase.FINALE, arbitre1, equipe1, equipe2, spectateur);
         match.play();
-        
+        */
         /* Test génération spectateur */
-        
+        /*
         System.out.println("\n\n Test générer Spectateur");
         
         int arraySize = 100;
@@ -66,9 +66,9 @@ public class Tennis {
             System.out.print(i+" ");
             System.out.println(spectateurs.get(i));
         }
-        
+        */
         /* Test génération Joueur */
-        
+        /*
         System.out.println("\n\n Test générer Joueur");
         
         arraySize = 128;
@@ -80,9 +80,9 @@ public class Tennis {
             System.out.print(i+" ");
             System.out.println(joueurs.get(i));
         }
-        
+        */
         /* Test génération Arbitre */
-        
+        /*
         System.out.println("\n\n Test générer Arbitre");
         
         arraySize = 10;
@@ -94,23 +94,26 @@ public class Tennis {
             System.out.print(i+" ");
             System.out.println(arbitres.get(i));
         }
+        */
         
-        //Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME);
+        /* Test création d'un tournoi */
+        
+        System.out.println("\n\n Test générer Tournoi");
+        
+        Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_MIXTE, new ArrayList <Joueur> ());
+        /*
+        for(int i=0; i<127; i++){
+            System.out.print(i+" ");
+            System.out.println(tournoi.getMatchs().get(i).toString());
+        }
+        */
+        for(int i=0; i<128;i++){
+            System.out.print(i+" ");
+            System.out.println(tournoi.getJoueurs().get(i).toString());
+        }
+        
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
