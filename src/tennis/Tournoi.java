@@ -15,27 +15,42 @@ public class Tournoi {
     protected Ville ville;
     protected Surface surface;
     protected Categorie categorie;
-    protected ArrayList <Joueur> joueurs;
-    protected ArrayList <Arbitre> arbitres;
-    protected ArrayList <Spectateur> spectateurs;
+    protected ArrayList <Joueur> joueurs = new ArrayList <Joueur> (128);
+    protected ArrayList <Match> matchs = new ArrayList <Match> (127);       // Un tournoi à 128 joueurs se fait en 127 matchs
 
     /* Constructors */
     
     /**
-     * 14/11/2019
+     * 17/11/2019
      * @param ville
      * @param categorie
      * @param joueurs
-     * @param arbitres
-     * @param spectateurs 
      */
-    public Tournoi(Ville ville, Categorie categorie, ArrayList <Joueur> joueurs,
-            ArrayList <Arbitre> arbitres, ArrayList <Spectateur> spectateurs) {
+    public Tournoi(Ville ville, Categorie categorie, ArrayList <Joueur> joueurs){
         
-        /* Exeption */
+        /* Exeptions */
         
+        // Seuls les matchs en simple seront joués
         if(categorie == Categorie.DOUBLE_FEMME || categorie == Categorie.DOUBLE_HOMME ||categorie == Categorie.DOUBLE_MIXTE){
             throw new IllegalArgumentException("Seul les tournoi en simple sont autorisé pour l'instant.");
+        }
+        
+        // On vérifie qu'il n'y ait pas de femmes dans une catégorie SIMPLE_HOMME
+        if(categorie == Categorie.SIMPLE_HOMME){
+            for(int i=0; i<joueurs.size(); i++){
+                if(joueurs.get(i).getVetement() != Vetement.SHORT){
+                    throw new IllegalArgumentException("Il y a une femme inscrite dans un tournoi SIMPLE_HOMME.");
+                }
+            }
+        }
+        
+        // On vérifie qu'il n'y ait pas d'hommes dans une catégorie SIMPLE_FEMME
+        if(categorie == Categorie.SIMPLE_FEMME){
+            for(int i=0; i<joueurs.size(); i++){
+                if(joueurs.get(i).getVetement() != Vetement.JUPE){
+                    throw new IllegalArgumentException("Il y a un homme inscrit dans un tournoi SIMPLE_FEMME.");
+                }
+            }
         }
         
         switch(ville){
@@ -61,20 +76,36 @@ public class Tournoi {
     }
     
     /**
-     * 14/11/2019
+     * 18/11/2019
      * @param surface
      * @param categorie
      * @param joueurs 
-     * @param arbitres 
-     * @param spectateurs 
      */
-    public Tournoi(Surface surface, Categorie categorie, ArrayList <Joueur> joueurs,
-            ArrayList <Arbitre> arbitres, ArrayList <Spectateur> spectateurs) {
+    public Tournoi(Surface surface, Categorie categorie, ArrayList <Joueur> joueurs){
         
-        /* Exeption */
+        /* Exeptions */
         
+        // Seuls les matchs en simple seront joués
         if(categorie == Categorie.DOUBLE_FEMME || categorie == Categorie.DOUBLE_HOMME ||categorie == Categorie.DOUBLE_MIXTE){
             throw new IllegalArgumentException("Seul les tournoi en simple sont autorisé pour l'instant.");
+        }
+        
+        // On vérifie qu'il n'y ait pas de femmes dans une catégorie SIMPLE_HOMME
+        if(categorie == Categorie.SIMPLE_HOMME){
+            for(int i=0; i<joueurs.size(); i++){
+                if(joueurs.get(i).getVetement() != Vetement.SHORT){
+                    throw new IllegalArgumentException("Il y a une femme inscrite dans un tournoi SIMPLE_HOMME.");
+                }
+            }
+        }
+        
+        // On vérifie qu'il n'y ait pas d'hommes dans une catégorie SIMPLE_FEMME
+        if(categorie == Categorie.SIMPLE_FEMME){
+            for(int i=0; i<joueurs.size(); i++){
+                if(joueurs.get(i).getVetement() != Vetement.JUPE){
+                    throw new IllegalArgumentException("Il y a un homme inscrit dans un tournoi SIMPLE_FEMME.");
+                }
+            }
         }
         
         switch(surface){
@@ -99,4 +130,36 @@ public class Tournoi {
         this.joueurs = joueurs;
     }
     
+    /* Getters */
+
+    public Ville getVille() {
+        return this.ville;
+    }
+
+    public Surface getSurface() {
+        return this.surface;
+    }
+
+    public Categorie getCategorie() {
+        return this.categorie;
+    }
+
+    public ArrayList<Joueur> getJoueurs() {
+        return this.joueurs;
+    }
+
+    public ArrayList<Match> getMatchs() {
+        return this.matchs;
+    }
+    
+    /* Methods */
+    
+    /*
+    private ArrayList<Joueur> fillJoueur(){
+        // En construction
+    }
+    */
 }
+
+
+
