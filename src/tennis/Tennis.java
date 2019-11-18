@@ -100,7 +100,11 @@ public class Tennis {
         
         System.out.println("\n\n Test générer Tournoi");
         
-        Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_MIXTE, new ArrayList <Joueur> ());
+        ArrayList <Joueur> joueurs = new ArrayList <Joueur> ();
+        joueurs.add(new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Ruskov", new Date(23,02,1998), "Metz", new Date(25,11,2019), "France", 170, 59, Main.DROITE, "Grey Shop", "Poutine", Vetement.CHEMISE, Couleur.ROUGE));
+        joueurs.add(new Joueur("SANCHEZ", "SANCHEZ", "Clément", "Mamène", new Date(23,02,1998), "Metz", new Date(31,12,2999), "France", 170, 59, Main.DROITE, "Apple", "ALKPOTE", Vetement.CHEMISE, Couleur.ROUGE));
+        
+        Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_MIXTE, joueurs);
         /*
         for(int i=0; i<127; i++){
             System.out.print(i+" ");
@@ -114,12 +118,3 @@ public class Tennis {
         
     }
 }
-
-
-
-
-
-
-
-
-
