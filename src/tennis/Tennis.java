@@ -108,7 +108,7 @@ public class Tennis {
         */
         
         /* Test création d'un tournoi */
-        
+        /*
         System.out.println("\n\n Test générer Tournoi");
         
         ArrayList <Joueur> joueurs = new ArrayList <Joueur> ();
@@ -116,18 +116,19 @@ public class Tennis {
         joueurs.add(new Joueur("SANCHEZ", "SANCHEZ", "Clément", "Mamène", new Date(23,02,1998), "Metz", new Date(31,12,2999), "France", 170, 59, Main.DROITE, "Apple", "ALKPOTE", Vetement.CHEMISE, Couleur.ROUGE));
         
         Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_MIXTE, joueurs);
+        */
         /*
         for(int i=0; i<127; i++){
             System.out.print(i+" ");
             System.out.println(tournoi.getMatchs().get(i).toString());
         }
         */
+        /*
         for(int i=0; i<128;i++){
             System.out.print(i+" ");
             System.out.println(tournoi.getJoueurs().get(i).toString());
         }
-        
-        //Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME);*/
+        */
     	
     	Menu menuPrincipal = new Menu();
     	menuPrincipal.addChoice(new MenuItems("Creer un nouveau personnage"));
@@ -147,7 +148,7 @@ public class Tennis {
                 break;
             default:
                 break;
-        };
+        }
     	}
     	
     }
@@ -184,7 +185,7 @@ public class Tennis {
 	            default:
 	            	System.out.println("Action non implémenté");
 	                break;
-	        };
+	        }
     	}
         
 

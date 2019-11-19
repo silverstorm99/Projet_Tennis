@@ -135,22 +135,42 @@ public class Tournoi {
     
     /* Getters */
 
+    /**
+     * 18/11/2019
+     * @return Ville
+     */
     public Ville getVille() {
         return this.ville;
     }
 
+    /**
+     * 18/11/2019
+     * @return Surface
+     */
     public Surface getSurface() {
         return this.surface;
     }
 
+    /**
+     * 18/11/2019
+     * @return Categorie
+     */
     public Categorie getCategorie() {
         return this.categorie;
     }
 
-    public ArrayList<Joueur> getJoueurs() {
+    /**
+     * 18/11/2019
+     * @return ArrayList 
+     */
+    public ArrayList <Joueur> getJoueurs() {
         return this.joueurs;
     }
 
+    /**
+     * 18/11/2019
+     * @return ArrayList
+     */
     public ArrayList<Match> getMatchs() {
         return this.matchs;
     }
@@ -224,7 +244,12 @@ public class Tournoi {
             this.joueurs.add(Joueur.generer(vetement));
         }
     }
+    
+    /**
+     * 19/11/2019
+     */
+    public void play(){
+        
+    }
 }
-
-
 

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import menu.MenuItems;
 
 public class Menu {
     private Scanner scanner = new Scanner(System.in);
