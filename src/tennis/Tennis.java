@@ -21,8 +21,10 @@ public class Tennis {
      */
     public static void main(String[] args) {
         
-        /* Test création match 
-        
+
+        /* Test création match */
+        /*
+
         Joueur player = new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Nico",
                 new Date(23,2,1998), "Metz", new Date(19,11,2019), "France",
                 170, 60, Main.DROITE, "URSS", "Poutine", Vetement.SHORT, Couleur.BLEU);
@@ -49,9 +51,11 @@ public class Tennis {
         Spectateur [] spectateur = {};
         Match match = new Match(Categorie.SIMPLE_HOMME, Phase.FINALE, arbitre1, equipe1, equipe2, spectateur);
         match.play();
-        
-        /* Test génération spectateur 
-        
+
+        */
+        /* Test génération spectateur */
+        /*
+
         System.out.println("\n\n Test générer Spectateur");
         
         int arraySize = 100;
@@ -69,9 +73,11 @@ public class Tennis {
             System.out.print(i+" ");
             System.out.println(spectateurs.get(i));
         }
-        
-        /* Test génération Joueur 
-        
+
+        */
+        /* Test génération Joueur */
+        /*
+
         System.out.println("\n\n Test générer Joueur");
         
         arraySize = 128;
@@ -83,9 +89,11 @@ public class Tennis {
             System.out.print(i+" ");
             System.out.println(joueurs.get(i));
         }
-        
-        /* Test génération Arbitre 
-        
+
+        */
+        /* Test génération Arbitre */
+        /*
+
         System.out.println("\n\n Test générer Arbitre");
         
         arraySize = 10;
@@ -96,6 +104,27 @@ public class Tennis {
             arbitres.add(Arbitre.generer());
             System.out.print(i+" ");
             System.out.println(arbitres.get(i));
+        }
+        */
+        
+        /* Test création d'un tournoi */
+        
+        System.out.println("\n\n Test générer Tournoi");
+        
+        ArrayList <Joueur> joueurs = new ArrayList <Joueur> ();
+        joueurs.add(new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Ruskov", new Date(23,02,1998), "Metz", new Date(25,11,2019), "France", 170, 59, Main.DROITE, "Grey Shop", "Poutine", Vetement.CHEMISE, Couleur.ROUGE));
+        joueurs.add(new Joueur("SANCHEZ", "SANCHEZ", "Clément", "Mamène", new Date(23,02,1998), "Metz", new Date(31,12,2999), "France", 170, 59, Main.DROITE, "Apple", "ALKPOTE", Vetement.CHEMISE, Couleur.ROUGE));
+        
+        Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_MIXTE, joueurs);
+        /*
+        for(int i=0; i<127; i++){
+            System.out.print(i+" ");
+            System.out.println(tournoi.getMatchs().get(i).toString());
+        }
+        */
+        for(int i=0; i<128;i++){
+            System.out.print(i+" ");
+            System.out.println(tournoi.getJoueurs().get(i).toString());
         }
         
         //Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME);*/
@@ -158,27 +187,6 @@ public class Tennis {
 	        };
     	}
         
+
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

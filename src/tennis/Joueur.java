@@ -199,7 +199,7 @@ public class Joueur extends Personne implements ActionSpectateur{
         Random random = new Random();
         
         /* Génération des attributs considérés communs */
-        int anneeNaissance = (int)(15*random.nextGaussian() + 1991);
+        int anneeNaissance = (int)(7*random.nextGaussian() + 1991);
         String nomNaissance = Personne.nomFamille[random.nextInt(Personne.nomFamille.length)],
                nomCourant = nomNaissance,   // Par défaut le nomCourant sera le nomNaissance
                lieuNaissance = Personne.villeNaissance[random.nextInt(Personne.villeNaissance.length)],
@@ -222,9 +222,3 @@ public class Joueur extends Personne implements ActionSpectateur{
         return new Joueur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, entraineur, vetement, couleur);
     }
 }
-
-
-
-
-
-
