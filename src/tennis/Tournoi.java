@@ -249,7 +249,34 @@ public class Tournoi {
      * 19/11/2019
      */
     public void play(){
+        ArrayList <Joueur> vainqueursPremierTour = new ArrayList <Joueur> (64);
+        ArrayList <Joueur> vainqueursDeuxiemeTour = new ArrayList <Joueur> (32);
+        ArrayList <Joueur> vainqueursTroisiemeTour = new ArrayList <Joueur> (16);
+        ArrayList <Joueur> vainqueursHuitiemeFinale = new ArrayList <Joueur> (8);
+        ArrayList <Joueur> vainqueursQuartFinale = new ArrayList <Joueur> (4);
+        ArrayList <Joueur> vainqueursDemiFinale = new ArrayList <Joueur> (2);
+        ArrayList <Joueur> vainqueursFinal = new ArrayList <Joueur> (1);
         
+        // On mets les 128 joueurs dans les matchs du PREMIER_TOUR
+        for(int i=0; i<127; i+=2){
+            Joueur [] equipe1 = {this.joueurs.get(i)};
+            Joueur [] equipe2 = {this.joueurs.get(i+1)};
+            this.matchs.get(i/2).setEquipe1(equipe1);
+            this.matchs.get(i/2).setEquipe2(equipe2);
+        }
+        
+        // On joue les match du premier tour
+        for(int i=0; i<64;i++){
+            System.out.println("---------------------------- MATCH "+i+" ----------------------------------------------");
+            vainqueursPremierTour.add(this.matchs.get(i/2).play()[0]);
+        }
+        /*
+        for(int i=0; i<64;i++){
+            System.out.println(vainqueursPremierTour.get(i).toString());
+        }
+        */
     }
 }
+
+
 

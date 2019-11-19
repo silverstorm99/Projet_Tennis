@@ -108,50 +108,50 @@ public class Tennis {
         */
         
         /* Test création d'un tournoi */
-        /*
+        
         System.out.println("\n\n Test générer Tournoi");
         
         ArrayList <Joueur> joueurs = new ArrayList <Joueur> ();
-        joueurs.add(new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Ruskov", new Date(23,02,1998), "Metz", new Date(25,11,2019), "France", 170, 59, Main.DROITE, "Grey Shop", "Poutine", Vetement.CHEMISE, Couleur.ROUGE));
-        joueurs.add(new Joueur("SANCHEZ", "SANCHEZ", "Clément", "Mamène", new Date(23,02,1998), "Metz", new Date(31,12,2999), "France", 170, 59, Main.DROITE, "Apple", "ALKPOTE", Vetement.CHEMISE, Couleur.ROUGE));
+        joueurs.add(new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Ruskov", new Date(23,02,1998), "Metz", new Date(25,11,2019), "France", 170, 59, Main.DROITE, "Grey Shop", "Poutine", Vetement.SHORT, Couleur.ROUGE));
+        joueurs.add(new Joueur("SANCHEZ", "SANCHEZ", "Clément", "Mamène", new Date(23,02,1998), "Metz", new Date(31,12,2999), "France", 170, 59, Main.DROITE, "Apple", "ALKPOTE", Vetement.SHORT, Couleur.ROUGE));
         
-        Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_MIXTE, joueurs);
-        */
+        Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME, joueurs);
+        tournoi.play();
         /*
         for(int i=0; i<127; i++){
             System.out.print(i+" ");
             System.out.println(tournoi.getMatchs().get(i).toString());
         }
         */
-        /*
+        
         for(int i=0; i<128;i++){
             System.out.print(i+" ");
             System.out.println(tournoi.getJoueurs().get(i).toString());
         }
-        */
+        
     	
     	Menu menuPrincipal = new Menu();
     	menuPrincipal.addChoice(new MenuItems("Creer un nouveau personnage"));
     	menuPrincipal.addChoice(new MenuItems("Creer un tournoi"));
     	Boolean continu = true;
     	while(continu && !fini) {
-    		switch (menuPrincipal.getChoice()) {
-            case 0:
-                createPersonnage();
-                break;
-            case 1:
-                System.out.println("creation d'un tournoi");
-                break;
-            case -1:
-            	System.out.println("fini");
-            	fini = true;
-                break;
-            default:
-                break;
+            switch (menuPrincipal.getChoice()) {
+                case 0:
+                    createPersonnage();
+                    break;
+                case 1:
+                    System.out.println("creation d'un tournoi");
+                    break;
+                case -1:
+                    System.out.println("fini");
+                    fini = true;
+                    break;
+                default:
+                    break;
+            }
         }
-    	}
-    	
     }
+    
     protected static Boolean fini = false;
     protected static ArrayList<Personne> mesPersonnages = new ArrayList<Personne>();
     protected static Scanner scanner = new Scanner(System.in);
@@ -165,29 +165,35 @@ public class Tennis {
         menuPersonnage.addChoice(new MenuItems("Retourner en arriere",-2));
         
         Boolean continu = true;
-    	while(continu && !fini) {
-	        switch (menuPersonnage.getChoice()) {
-	            case 0:
-	            	System.out.println("creation d'un joueur");
-	                mesPersonnages.add(new Joueur(scanner.next(), scanner.next(), scanner.next(), scanner.next(), new Date(scanner.nextInt(), scanner.nextInt(), scanner.nextInt()), scanner.next(), new Date(scanner.nextInt(), scanner.nextInt(), scanner.nextInt()), scanner.next(), scanner.nextInt(), scanner.nextInt(), Main.DROITE, scanner.next(), scanner.next(), Vetement.CHEMISE, Couleur.BLEU));
-	                break;
-	            case 1:
-	                System.out.println("creation d'un arbitre");
-	                break;
-	            case -2:
-	                System.out.println("En arriere");
-	                continu = false;
-	                break;
-	            case -1:
-	            	System.out.println("fini");
-	            	fini = true;
-	                break;
-	            default:
-	            	System.out.println("Action non implémenté");
-	                break;
-	        }
-    	}
-        
-
+    	while(continu && !fini){
+            switch (menuPersonnage.getChoice()) {
+                case 0:
+                    System.out.println("creation d'un joueur");
+                    mesPersonnages.add(new Joueur(scanner.next(), scanner.next(), scanner.next(), scanner.next(), new Date(scanner.nextInt(), scanner.nextInt(), scanner.nextInt()), scanner.next(), new Date(scanner.nextInt(), scanner.nextInt(), scanner.nextInt()), scanner.next(), scanner.nextInt(), scanner.nextInt(), Main.DROITE, scanner.next(), scanner.next(), Vetement.CHEMISE, Couleur.BLEU));
+                    break;
+                case 1:
+                    System.out.println("creation d'un arbitre");
+                    break;
+                case -2:
+                    System.out.println("En arriere");
+                    continu = false;
+                    break;
+                case -1:
+                    System.out.println("fini");
+                    fini = true;
+                    break;
+                default:
+                    System.out.println("Action non implémenté");
+                    break;
+            }
+        }
     }
 }
+
+
+
+
+
+
+
+
