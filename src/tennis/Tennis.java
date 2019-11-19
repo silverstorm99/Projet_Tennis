@@ -6,7 +6,10 @@
 package tennis;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.function.Function;
 
+import menu.*;
 /**
  * 13/10/2019
  * @author Nicolas
@@ -18,7 +21,7 @@ public class Tennis {
      */
     public static void main(String[] args) {
         
-        /* Test création match */
+        /* Test création match 
         
         Joueur player = new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Nico",
                 new Date(23,2,1998), "Metz", new Date(19,11,2019), "France",
@@ -47,7 +50,7 @@ public class Tennis {
         Match match = new Match(Categorie.SIMPLE_HOMME, Phase.FINALE, arbitre1, equipe1, equipe2, spectateur);
         match.play();
         
-        /* Test génération spectateur */
+        /* Test génération spectateur 
         
         System.out.println("\n\n Test générer Spectateur");
         
@@ -67,7 +70,7 @@ public class Tennis {
             System.out.println(spectateurs.get(i));
         }
         
-        /* Test génération Joueur */
+        /* Test génération Joueur 
         
         System.out.println("\n\n Test générer Joueur");
         
@@ -81,7 +84,7 @@ public class Tennis {
             System.out.println(joueurs.get(i));
         }
         
-        /* Test génération Arbitre */
+        /* Test génération Arbitre 
         
         System.out.println("\n\n Test générer Arbitre");
         
@@ -95,7 +98,66 @@ public class Tennis {
             System.out.println(arbitres.get(i));
         }
         
-        //Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME);
+        //Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME);*/
+    	
+    	Menu menuPrincipal = new Menu();
+    	menuPrincipal.addChoice(new MenuItems("Creer un nouveau personnage"));
+    	menuPrincipal.addChoice(new MenuItems("Creer un tournoi"));
+    	Boolean continu = true;
+    	while(continu && !fini) {
+    		switch (menuPrincipal.getChoice()) {
+            case 0:
+                createPersonnage();
+                break;
+            case 1:
+                System.out.println("creation d'un tournoi");
+                break;
+            case -1:
+            	System.out.println("fini");
+            	fini = true;
+                break;
+            default:
+                break;
+        };
+    	}
+    	
+    }
+    protected static Boolean fini = false;
+    protected static ArrayList<Personne> mesPersonnages = new ArrayList<Personne>();
+    protected static Scanner scanner = new Scanner(System.in);
+
+    public static void createPersonnage(){
+        System.out.println("creation d'un nouveau personnage");
+        Menu menuPersonnage = new Menu();
+        menuPersonnage.addChoice(new MenuItems("Creer un nouveau joueur"));
+        menuPersonnage.addChoice(new MenuItems("Creer un nouveau arbitre"));
+        menuPersonnage.addChoice(new MenuItems("Creer un nouveau spectateur"));
+        menuPersonnage.addChoice(new MenuItems("Retourner en arriere",-2));
+        
+        Boolean continu = true;
+    	while(continu && !fini) {
+	        switch (menuPersonnage.getChoice()) {
+	            case 0:
+	            	System.out.println("creation d'un joueur");
+	                mesPersonnages.add(new Joueur(scanner.next(), scanner.next(), scanner.next(), scanner.next(), new Date(scanner.nextInt(), scanner.nextInt(), scanner.nextInt()), scanner.next(), new Date(scanner.nextInt(), scanner.nextInt(), scanner.nextInt()), scanner.next(), scanner.nextInt(), scanner.nextInt(), Main.DROITE, scanner.next(), scanner.next(), Vetement.CHEMISE, Couleur.BLEU));
+	                break;
+	            case 1:
+	                System.out.println("creation d'un arbitre");
+	                break;
+	            case -2:
+	                System.out.println("En arriere");
+	                continu = false;
+	                break;
+	            case -1:
+	            	System.out.println("fini");
+	            	fini = true;
+	                break;
+	            default:
+	            	System.out.println("Action non implémenté");
+	                break;
+	        };
+    	}
+        
     }
 }
 

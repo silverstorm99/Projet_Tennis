@@ -2,11 +2,15 @@ package menu;
 
 import java.util.function.Function;
 
-public class MenuItems<T,R> {
+public class MenuItems {
     protected String description;
-    protected String valeur;
-    public MenuItems(String description, String valeur, Function<T,R> p ){
+    public int value;
+    
+    public MenuItems(String description ){
         this.description = description;
-        this.valeur = valeur;
+    }
+    public MenuItems(String description,int value ){
+        this.description = description;
+        this.value = value;
     }
 }
