@@ -148,6 +148,24 @@ public class Match {
         return this.spectateurs;
     }
     
+    /* Setters */
+    
+    /**
+     * 18/11/2019
+     * @param equipe1 
+     */
+    public void setEquipe1(Joueur[] equipe1) {
+        this.equipe1 = equipe1;
+    }
+
+    /**
+     * 18/11/2019
+     * @param equipe2 
+     */
+    public void setEquipe2(Joueur[] equipe2) {
+        this.equipe2 = equipe2;
+    }
+    
     /* Methods */
     
     /**
@@ -194,6 +212,3 @@ public class Match {
                 this.arbitres + " " + this.equipe1 + " " + this.equipe2 + " " + this.spectateurs;
     }
 }
-
-
-
