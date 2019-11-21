@@ -36,11 +36,12 @@ public class Echange {
     /* Method */
     
     /**
-     * 03/11/2019
+     * 20/11/2019
+     * @param muteEchange
      * @return Joueur []
-     * Cette méthode renvoie l'équipe qui remportera l'échange
+     * Cette méthode renvoie l'équipe qui remporte l'échange
      */
-    public Joueur [] play(){
+    public Joueur [] play(boolean muteEchange){
         Joueur [][] equipe = {this.equipe1, this.equipe2};
         
 
@@ -48,25 +49,32 @@ public class Echange {
         Action echange = Action.CORRECT;
         int fauteService = 0;
         while(echange == Action.CORRECT){
-            echange = Joueur.play(equipe[(this.service + nbEchange) %2],this.arbitres,nbEchange);
+            echange = Joueur.play(equipe[(this.service + nbEchange) %2],this.arbitres,nbEchange,muteEchange);
             nbEchange++;
             if (echange == Action.SERVICE_LET) {
                 // on remet a zero pour que le joeur puisse re-servir sans compter de faute 
-                System.out.println(equipe[(this.service + --nbEchange)%2][0].getPrenom() + " a fait un let");
+                if(!muteEchange){
+                    System.out.println(equipe[(this.service + --nbEchange)%2][0].getPrenom() + " a fait un let");
+                }
                 echange = Action.CORRECT;
                 nbEchange = 0;
             }
             else if (echange == Action.SERVICE_FAUTE && fauteService==0) {
                 // on remet a zero pour que le joeur puisse re-servir en comptant la faute 
-                System.out.println(equipe[(this.service + --nbEchange)%2][0].getPrenom() + " a fait une faute au service a lechange");
+                if(!muteEchange){
+                    System.out.println(equipe[(this.service + --nbEchange)%2][0].getPrenom() + " a fait une faute au service a lechange");
+                }
                 echange = Action.CORRECT;
                 nbEchange = 0;
                 fauteService++;
             }
 
         }
-        System.out.println(equipe[(this.service + nbEchange)%2][0].getPrenom() + " a gagne car "+  equipe[(this.service + nbEchange + 1)%2][0].getPrenom() + " a perdu l'echange avec " + echange);
-
+        
+        // Permet d'afficher ou non les résultats de chaque échanges
+        if(!muteEchange){
+            System.out.println(equipe[(this.service + nbEchange)%2][0].getPrenom() + " a gagne car "+  equipe[(this.service + nbEchange + 1)%2][0].getPrenom() + " a perdu l'echange avec " + echange);
+        }
 
         return equipe[(this.service + nbEchange)%2];
     }

@@ -36,11 +36,13 @@ public class Jeu {
     /* Method */
     
     /**
-     * 03/11/2019
+     * 20/11/2019
+     * @param muteJeu
+     * @param muteEchange
      * @return Joueur []
      * Cette méthode renvoie l'équipe qui remporte le jeu
      */
-    public Joueur[] play(){
+    public Joueur[] play(boolean muteJeu, boolean muteEchange){
         Joueur [] vainqueurJeu = {}; // Equipe qui remportera le jeu
         Joueur [] vainqueurEchange = {}; // Equipe qui remportera l'échange
         int score1 = 0, score2 = 0; // Scores (echange) de chaques équipes
@@ -49,13 +51,15 @@ public class Jeu {
         while((score1 < 4 && score2 < 4) || Math.abs(score1 - score2) < 2){
             Echange echange = new Echange(this.arbitres, this.equipe1, this.equipe2, this.spectateurs, this.service);
             
-            vainqueurEchange = echange.play();
+            vainqueurEchange = echange.play(muteEchange);
             if(vainqueurEchange == this.equipe1){score1++;}
             else if(vainqueurEchange == this.equipe2){score2++;}
             
-            this.arbitres[0].annoncerScoreJeu(score1, score2);
+            // Permet d'afficher ou non les résultats de chaque jeu
+            if(!muteJeu){
+                this.arbitres[0].annoncerScoreJeu(score1, score2);
+            }
         }
-        
         
         if(score1 < score2){vainqueurJeu = this.equipe2;}
         else if(score1 > score2){vainqueurJeu = this.equipe1;}
@@ -63,4 +67,3 @@ public class Jeu {
         return vainqueurJeu;
     }
 }
-

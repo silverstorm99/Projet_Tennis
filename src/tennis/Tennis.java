@@ -123,12 +123,12 @@ public class Tennis {
             System.out.println(tournoi.getMatchs().get(i).toString());
         }
         */
-        
+        /*
         for(int i=0; i<128;i++){
             System.out.print(i+" ");
             System.out.println(tournoi.getJoueurs().get(i).toString());
         }
-        
+        */
     	
     	Menu menuPrincipal = new Menu();
     	menuPrincipal.addChoice(new MenuItems("Creer un nouveau personnage"));
@@ -189,6 +189,7 @@ public class Tennis {
         }
     }
 }
+
 
 
 

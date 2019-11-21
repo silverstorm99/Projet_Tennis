@@ -114,6 +114,15 @@ public class Arbitre extends Personne{
     }
     
     /**
+     * 21/11/2019
+     * @param vainqueurMatch
+     * @param phase 
+     */
+    public void annoncerVainqueurMatch(Joueur vainqueurMatch, Phase phase){
+        System.out.println(vainqueurMatch.getNomCourant() + " " + vainqueurMatch.getPrenom() + " remporte le " + phase);
+    }
+    
+    /**
      * 17/11/2019
      * @return Arbitre
      */
@@ -153,3 +162,7 @@ public class Arbitre extends Personne{
                 lieuNaissance, dateDeces, nationalite, taille, poids);
     }
 }
+
+
+
+

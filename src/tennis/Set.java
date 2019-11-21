@@ -36,11 +36,14 @@ public class Set {
     /* Method */
     
     /**
-     * 03/11/2019
+     * 20/11/2019
+     * @param muteSet
+     * @param muteJeu
+     * @param muteEchange
      * @return Joueur []
      * Cette méthode renvoie l'équipe qui remporte le set
      */
-    public Joueur[] play(){
+    public Joueur[] play(boolean muteSet, boolean muteJeu, boolean muteEchange){
         Joueur [] vainqueurSet = {}; // Equipe qui remportera le set
         Joueur [] vainqueurJeu = {}; // Equipe qui remportera le jeu
         int score1 = 0, score2 = 0; // Scores (jeux) de chaques équipes
@@ -49,13 +52,15 @@ public class Set {
         while((score1 < 6 && score2 < 6) || Math.abs(score1 - score2) < 2){
             Jeu jeu = new Jeu(this.arbitres, this.equipe1, this.equipe2, this.spectateurs,(this.service++) %2); //service 0 veut dire service par l'equipe 1
             
-            vainqueurJeu = jeu.play();
+            vainqueurJeu = jeu.play(muteJeu, muteEchange);
             if(vainqueurJeu == this.equipe1){score1++;}
             else if(vainqueurJeu == this.equipe2){score2++;}
             
-            this.arbitres[0].annoncerScoreSet(vainqueurJeu, score1, score2);
+            // Permet d'afficher ou non les résultats de chaque set
+            if(!muteSet){
+                this.arbitres[0].annoncerScoreSet(vainqueurJeu, score1, score2);
+            }
         }
-        
         
         if(score1 < score2){vainqueurSet = this.equipe2;}
         else if(score1 > score2){vainqueurSet = this.equipe1;}
@@ -63,19 +68,3 @@ public class Set {
         return vainqueurSet;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

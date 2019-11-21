@@ -169,13 +169,13 @@ public class Joueur extends Personne implements ActionSpectateur{
      * False veut dire que l'echange nest pas fini
      * True oui (donc point gagne ou faute)
      * */
-    public static Action play(Joueur[] equipe,Arbitre[] arbitres,int nbEchange){
-        System.out.print(equipe[0].getPrenom());
+    public static Action play(Joueur[] equipe, Arbitre[] arbitres, int nbEchange, boolean muteEchange){
+        if(!muteEchange){System.out.print(equipe[0].getPrenom());}
         if (nbEchange == 0) {
-            System.out.println(" sert");
+            if(!muteEchange){System.out.println(" sert");}
             return equipe[0].servir();
         }else{
-            System.out.println(" renvoie");
+            if(!muteEchange){System.out.println(" renvoie");}
             return equipe[0].renvoyer();
         }
     }
@@ -222,3 +222,4 @@ public class Joueur extends Personne implements ActionSpectateur{
         return new Joueur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, entraineur, vetement, couleur);
     }
 }
+

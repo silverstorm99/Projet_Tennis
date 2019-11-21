@@ -169,11 +169,15 @@ public class Match {
     /* Methods */
     
     /**
-     * 03/11/2019
+     * 20/11/2019
+     * @param muteMatch
+     * @param muteSet
+     * @param muteJeu
+     * @param muteEchange
      * @return Joueur []
      * Cette méthode renvoie l'équipe qui remporte le match
      */
-    public Joueur [] play(){
+    public Joueur [] play(boolean muteMatch, boolean muteSet, boolean muteJeu, boolean muteEchange){
         // Exception dans le cas où il n'y a pas de joueurs
         if(this.equipe1.length == 0 || this.equipe2.length == 0){throw new IllegalArgumentException("Il n'y a pas de joueur pour ce match.");}
                 
@@ -189,11 +193,14 @@ public class Match {
             if(score1 == score2 && score1 != 0){ System.out.println("\nSet décisif " + score1);}
             Set set = new Set(this.arbitres, this.equipe1, this.equipe2, this.spectateurs,(service++) %2);
             
-            vainqueurSet = set.play();
+            vainqueurSet = set.play(muteSet, muteJeu, muteEchange);
             if(vainqueurSet == this.equipe1){score1++;}
             else if(vainqueurSet == this.equipe2){score2++;}
-        
-            this.arbitres[0].annoncerScoreMatch(vainqueurSet, score1, score2);
+            
+            // Permet d'afficher ou non le résultat du match
+            if(!muteMatch){
+                this.arbitres[0].annoncerScoreMatch(vainqueurSet, score1, score2);
+            }
         }
         
         if(score1 < score2){vainqueurMatch = this.equipe2;}

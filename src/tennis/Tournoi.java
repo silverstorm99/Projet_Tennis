@@ -267,16 +267,17 @@ public class Tournoi {
         
         // On joue les match du premier tour
         for(int i=0; i<64;i++){
-            System.out.println("---------------------------- MATCH "+i+" ----------------------------------------------");
-            vainqueursPremierTour.add(this.matchs.get(i/2).play()[0]);
+            System.out.println("------------------------------------------- MATCH "+i+" -------------------------------------------");
+            vainqueursPremierTour.add(this.matchs.get(i).play(false, true, true, true)[0]);
+            this.matchs.get(i).arbitres[0].annoncerVainqueurMatch(vainqueursPremierTour.get(i), this.matchs.get(i).getPhase());
         }
+        
         /*
         for(int i=0; i<64;i++){
             System.out.println(vainqueursPremierTour.get(i).toString());
         }
         */
+        
     }
 }
-
-
 
