@@ -5,7 +5,9 @@
  */
 package tennis;
 
+import java.util.InputMismatchException;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * 13/10/2019
@@ -35,6 +37,43 @@ public class Joueur extends Personne implements ActionSpectateur{
         this.couleur = couleur;
         
         nbJoueur ++;
+    }
+    protected static Scanner scanner = new Scanner(System.in);
+
+    public static Joueur createJoueur() throws InputMismatchException{
+        Joueur j = null;
+        try {
+            String nomNaissance = scanner.next();
+            String nomCourant = scanner.next();
+            String prenom = scanner.next();
+            String surnom = scanner.next();
+            String lieuNaissance = scanner.next();
+            String nationalite = scanner.next();
+            
+            int taille = scanner.nextInt();
+            int poids = scanner.nextInt();
+            String sponsor = scanner.next();
+            String entraineur = scanner.next();
+            
+            Main main = Main.createInterface();
+            Date dateNaissance = Date.createInterface();
+            Date dateDeces = Date.createInterface();
+            Vetement vetement = Vetement.createInterface();
+            
+            Couleur couleur = Couleur.createInterface();
+
+            j = new Joueur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, entraineur, vetement, couleur);
+        } 
+        catch(InputMismatchException e){
+            j = generer(Vetement.CHEMISE);
+            System.out.println("Vous avez rentré un mauvais parametre pour votre joueur : You're a bad person !\nUn joueur aléatoire a été crée à la place\n");
+        }
+        catch (Exception e) {
+            j = generer(Vetement.CHEMISE);
+            System.out.println("Vous avez rentré un mauvais parametre pour votre joueur : You're a bad person !\nUn joueur aléatoire a été crée à la place\n");
+        }
+
+        return j;
     }
 
     /* Getters */ 
@@ -182,20 +221,23 @@ public class Joueur extends Personne implements ActionSpectateur{
     
     /**
      * 16/11/2019
+     * 
+     * <p> Création d'un objet de type Random pour générer de manière aléatoire
+     * les différents attributs du spectateur ou de la spectatrice.</p>
+     * 
+     * <p>anneeNaissance, esperanceVie, taille et poids suivront une loi normale</p>
+    
+     * <h3>Exemple: </h3>
+     * <p>
+     * anneeNaissance: espérance = 1978 et écart_type = 15 donnera 
+     * int anneeNaissance = (int)(15*random.nextGaussian() + 1991);;
+     * </p>
+     * 
+     * @see Random
      * @param vetement, ce paramètre determine le sexe du joueur
      * @return Joueur
      */
     public static Joueur generer(Vetement vetement){
-        /* 
-        Création d'un objet de type Random pour générer de manière aléatoire
-        les différents attributs du spectateur ou de la spectatrice.
-        
-        anneeNaissance, esperanceVie, taille et poids suivront une loi normale
-        
-        Exemple: 
-        anneeNaissance: espérance = 1978 et écart_type = 15 donnera 
-        int anneeNaissance = (int)(15*random.nextGaussian() + 1991);
-        */
         Random random = new Random();
         
         /* Génération des attributs considérés communs */
@@ -206,8 +248,8 @@ public class Joueur extends Personne implements ActionSpectateur{
                nationalite = Personne.pays[random.nextInt(Personne.pays.length)],
                sponsor = Personne.sponsor[random.nextInt(Personne.sponsor.length)],
                entraineur = Personne.nomFamille[random.nextInt(Personne.nomFamille.length)];
-        Date dateNaissance = Date.generer(anneeNaissance);
-        Couleur couleur = (random.nextBoolean()) ? Couleur.BLEU : Couleur.ROUGE ;  // Une chance sur 2 que la chemise ou les lunettes du/de la spectateur/spectatrice soit bleu ou rouge.
+        Date dateNaissance = Date.genererAleatoire(anneeNaissance);
+        Couleur couleur = (random.nextBoolean()) ? Couleur.BLEU : Couleur.ROUGE ;  // Une chance sur 2 que la chemise ou les lunettes du/de la spectateur/spectatrice soit bleu ou rouge.;
         Main main = (random.nextBoolean()) ? Main.DROITE : Main.GAUCHE;
         
         /* Attributs particuliers selon le sexe */
@@ -216,7 +258,7 @@ public class Joueur extends Personne implements ActionSpectateur{
             poids = (vetement == Vetement.SHORT) ? (int)(6*random.nextGaussian() + 75) : (int)(6*random.nextGaussian() + 70);
         String prenom = (vetement == Vetement.SHORT) ? Personne.prenomMasculin[random.nextInt(Personne.prenomMasculin.length)] : Personne.prenomFeminin[random.nextInt(Personne.prenomFeminin.length)],
                surnom = prenom;
-        Date dateDeces = Date.generer(anneeNaissance + esperanceVie);
+        Date dateDeces = Date.genererAleatoire(anneeNaissance + esperanceVie);
         nomCourant = (vetement == Vetement.SHORT) ? nomNaissance : Personne.nomFamille[random.nextInt(Personne.nomFamille.length)];
         
         return new Joueur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, entraineur, vetement, couleur);

@@ -30,7 +30,7 @@ public class Match {
      * @param spectateurs 
      */
     public Match(Categorie categorie, Phase phase, Arbitre [] arbitres, 
-            Joueur [] equipe1, Joueur [] equipe2, Spectateur [] spectateurs) {
+            Joueur [] equipe1, Joueur [] equipe2, Spectateur [] spectateurs) throws IllegalArgumentException {
         
         
         /* Exceptions */

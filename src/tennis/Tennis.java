@@ -130,7 +130,8 @@ public class Tennis {
             System.out.println(tournoi.getJoueurs().get(i).toString());
         }
         */
-    	
+
+        
     	Menu menuPrincipal = new Menu();
     	menuPrincipal.addChoice(new MenuItems("Creer un nouveau personnage"));
     	menuPrincipal.addChoice(new MenuItems("Creer un tournoi"));
@@ -170,7 +171,7 @@ public class Tennis {
             switch (menuPersonnage.getChoice()) {
                 case 0:
                     System.out.println("creation d'un joueur");
-                    mesPersonnages.add(new Joueur(scanner.next(), scanner.next(), scanner.next(), scanner.next(), new Date(scanner.nextInt(), scanner.nextInt(), scanner.nextInt()), scanner.next(), new Date(scanner.nextInt(), scanner.nextInt(), scanner.nextInt()), scanner.next(), scanner.nextInt(), scanner.nextInt(), Main.DROITE, scanner.next(), scanner.next(), Vetement.CHEMISE, Couleur.BLEU));
+                    mesPersonnages.add(Joueur.createJoueur());
                     break;
                 case 1:
                     System.out.println("creation d'un arbitre");

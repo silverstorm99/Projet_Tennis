@@ -145,7 +145,7 @@ public class Arbitre extends Personne{
                nomCourant = nomNaissance,   // Par défaut le nomCourant sera le nomNaissance
                lieuNaissance = Personne.villeNaissance[random.nextInt(Personne.villeNaissance.length)],
                nationalite = Personne.pays[random.nextInt(Personne.pays.length)];
-        Date dateNaissance = Date.generer(anneeNaissance);
+        Date dateNaissance = Date.genererAleatoire(anneeNaissance);
         
         /* Attributs particuliers selon le sexe qui ici sera insinué*/
         boolean sexe = random.nextBoolean();  // Determine le sexe de l'arbitre (contrairement à un joeur ou à un spectateur, la distinction de ne fera pas par un vetement)
@@ -155,7 +155,7 @@ public class Arbitre extends Personne{
             poids = (sexe) ? (int)(6*random.nextGaussian() + 75) : (int)(6*random.nextGaussian() + 70);
         String prenom = (sexe) ? Personne.prenomMasculin[random.nextInt(Personne.prenomMasculin.length)] : Personne.prenomFeminin[random.nextInt(Personne.prenomFeminin.length)],
                surnom = prenom;
-        Date dateDeces = Date.generer(anneeNaissance + esperanceVie);
+        Date dateDeces = Date.genererAleatoire(anneeNaissance + esperanceVie);
         nomCourant = (sexe) ? nomNaissance : Personne.nomFamille[random.nextInt(Personne.nomFamille.length)];
         
         return new Arbitre(nomNaissance, nomCourant, prenom, surnom, dateNaissance,
