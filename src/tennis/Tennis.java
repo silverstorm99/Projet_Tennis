@@ -116,7 +116,8 @@ public class Tennis {
         joueurs.add(new Joueur("SANCHEZ", "SANCHEZ", "Clément", "Mamène", new Date(23,02,1998), "Metz", new Date(31,12,2999), "France", 170, 59, Main.DROITE, "Apple", "ALKPOTE", Vetement.SHORT, Couleur.ROUGE));
         
         Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME, joueurs);
-        tournoi.play();
+        tournoi.play(true, true, true, true);
+        
         /*
         for(int i=0; i<127; i++){
             System.out.print(i+" ");
@@ -189,12 +190,4 @@ public class Tennis {
         }
     }
 }
-
-
-
-
-
-
-
-
 

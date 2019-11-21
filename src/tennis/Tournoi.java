@@ -248,7 +248,7 @@ public class Tournoi {
     /**
      * 19/11/2019
      */
-    public void play(){
+    public void play(boolean muteMatch, boolean muteSet, boolean muteJeu, boolean muteEchange){
         ArrayList <Joueur> vainqueursPremierTour = new ArrayList <Joueur> (64);
         ArrayList <Joueur> vainqueursDeuxiemeTour = new ArrayList <Joueur> (32);
         ArrayList <Joueur> vainqueursTroisiemeTour = new ArrayList <Joueur> (16);
@@ -256,6 +256,8 @@ public class Tournoi {
         ArrayList <Joueur> vainqueursQuartFinale = new ArrayList <Joueur> (4);
         ArrayList <Joueur> vainqueursDemiFinale = new ArrayList <Joueur> (2);
         ArrayList <Joueur> vainqueursFinal = new ArrayList <Joueur> (1);
+        
+        /*------------------------------------------ PREMIER TOUR ------------------------------------------*/
         
         // On mets les 128 joueurs dans les matchs du PREMIER_TOUR
         for(int i=0; i<127; i+=2){
@@ -267,17 +269,114 @@ public class Tournoi {
         
         // On joue les match du premier tour
         for(int i=0; i<64;i++){
-            System.out.println("------------------------------------------- MATCH "+i+" -------------------------------------------");
-            vainqueursPremierTour.add(this.matchs.get(i).play(false, true, true, true)[0]);
+            System.out.println("------------------------------------------- MATCH "+i+" PREMIER TOUR -------------------------------------------");
+            vainqueursPremierTour.add(this.matchs.get(i).play(muteMatch, muteSet, muteJeu, muteEchange)[0]);
             this.matchs.get(i).arbitres[0].annoncerVainqueurMatch(vainqueursPremierTour.get(i), this.matchs.get(i).getPhase());
         }
         
-        /*
-        for(int i=0; i<64;i++){
-            System.out.println(vainqueursPremierTour.get(i).toString());
-        }
-        */
         
+        
+        /*------------------------------------------ DEUXIEME TOUR ------------------------------------------*/
+        
+        // On mets les 64 joueurs dans les matchs du DEUXIEME_TOUR
+        for(int i=0; i<64; i+=2){
+            Joueur [] equipe1 = {vainqueursPremierTour.get(i)};
+            Joueur [] equipe2 = {vainqueursPremierTour.get(i+1)};
+            this.matchs.get(i/2 + 64).setEquipe1(equipe1);
+            this.matchs.get(i/2 + 64).setEquipe2(equipe2);
+        }
+        
+        // On joue les match du deuxième tour
+        for(int i=0; i<32;i++){
+            System.out.println("------------------------------------------- MATCH "+i+" DEUXIEME TOUR -------------------------------------------");
+            vainqueursDeuxiemeTour.add(this.matchs.get(i+64).play(muteMatch, muteSet, muteJeu, muteEchange)[0]);
+            this.matchs.get(i).arbitres[0].annoncerVainqueurMatch(vainqueursDeuxiemeTour.get(i), this.matchs.get(i+64).getPhase());
+        }
+        
+        /*------------------------------------------ TROISIEME TOUR ------------------------------------------*/
+        
+        // On mets les 32 joueurs dans les matchs du TROISIEME_TOUR
+        for(int i=0; i<32; i+=2){
+            Joueur [] equipe1 = {vainqueursDeuxiemeTour.get(i)};
+            Joueur [] equipe2 = {vainqueursDeuxiemeTour.get(i+1)};
+            this.matchs.get(i/2 + 96).setEquipe1(equipe1);
+            this.matchs.get(i/2 + 96).setEquipe2(equipe2);
+        }
+        
+        // On joue les match du troisième tour
+        for(int i=0; i<16;i++){
+            System.out.println("------------------------------------------- MATCH "+i+" TROISIEME TOUR -------------------------------------------");
+            vainqueursTroisiemeTour.add(this.matchs.get(i+96).play(muteMatch, muteSet, muteJeu, muteEchange)[0]);
+            this.matchs.get(i).arbitres[0].annoncerVainqueurMatch(vainqueursTroisiemeTour.get(i), this.matchs.get(i+96).getPhase());
+        }
+        
+        /*------------------------------------------ HUITIEME FINALE ------------------------------------------*/
+        
+        // On mets les 16 joueurs dans les matchs de HUITIEME_FINALE
+        for(int i=0; i<16; i+=2){
+            Joueur [] equipe1 = {vainqueursTroisiemeTour.get(i)};
+            Joueur [] equipe2 = {vainqueursTroisiemeTour.get(i+1)};
+            this.matchs.get(i/2 + 112).setEquipe1(equipe1);
+            this.matchs.get(i/2 + 112).setEquipe2(equipe2);
+        }
+        
+        // On joue les match de huitième de finale
+        for(int i=0; i<8;i++){
+            System.out.println("------------------------------------------- MATCH "+i+" HUITIEME FINALE -------------------------------------------");
+            vainqueursHuitiemeFinale.add(this.matchs.get(i+112).play(muteMatch, muteSet, muteJeu, muteEchange)[0]);
+            this.matchs.get(i).arbitres[0].annoncerVainqueurMatch(vainqueursHuitiemeFinale.get(i), this.matchs.get(i+112).getPhase());
+        }
+        
+        
+        /*------------------------------------------ QUART FINALE ------------------------------------------*/
+        
+        // On mets les 8 joueurs dans les matchs de QUART_FINALE
+        for(int i=0; i<8; i+=2){
+            Joueur [] equipe1 = {vainqueursHuitiemeFinale.get(i)};
+            Joueur [] equipe2 = {vainqueursHuitiemeFinale.get(i+1)};
+            this.matchs.get(i/2 + 120).setEquipe1(equipe1);
+            this.matchs.get(i/2 + 120).setEquipe2(equipe2);
+        }
+        
+        // On joue les match de quart de finale
+        for(int i=0; i<4;i++){
+            System.out.println("------------------------------------------- MATCH "+i+" QUART FINALE -------------------------------------------");
+            vainqueursQuartFinale.add(this.matchs.get(i+120).play(muteMatch, muteSet, muteJeu, muteEchange)[0]);
+            this.matchs.get(i).arbitres[0].annoncerVainqueurMatch(vainqueursQuartFinale.get(i), this.matchs.get(i+120).getPhase());
+        }
+        
+        /*------------------------------------------ DEMI FINALE ------------------------------------------*/
+        
+        // On mets les 4 joueurs dans les matchs de DEMI_FINALE
+        for(int i=0; i<4; i+=2){
+            Joueur [] equipe1 = {vainqueursQuartFinale.get(i)};
+            Joueur [] equipe2 = {vainqueursQuartFinale.get(i+1)};
+            this.matchs.get(i/2 + 124).setEquipe1(equipe1);
+            this.matchs.get(i/2 + 124).setEquipe2(equipe2);
+        }
+        
+        // On joue les match de demi finale
+        for(int i=0; i<2;i++){
+            System.out.println("------------------------------------------- MATCH "+i+" DEMI FINALE -------------------------------------------");
+            vainqueursDemiFinale.add(this.matchs.get(i+124).play(muteMatch, muteSet, muteJeu, muteEchange)[0]);
+            this.matchs.get(i).arbitres[0].annoncerVainqueurMatch(vainqueursDemiFinale.get(i), this.matchs.get(i+124).getPhase());
+        }
+        
+        /*------------------------------------------ FINALE ------------------------------------------*/
+        
+        // On mets les 2 joueurs dans le match FINALE
+        for(int i=0; i<2; i+=2){
+            Joueur [] equipe1 = {vainqueursDemiFinale.get(i)};
+            Joueur [] equipe2 = {vainqueursDemiFinale.get(i+1)};
+            this.matchs.get(i/2 + 126).setEquipe1(equipe1);
+            this.matchs.get(i/2 + 126).setEquipe2(equipe2);
+        }
+        
+        // On joue les match de demi finale
+        for(int i=0; i<1;i++){
+            System.out.println("------------------------------------------- MATCH FINALE -------------------------------------------");
+            vainqueursFinal.add(this.matchs.get(i+126).play(muteMatch, muteSet, muteJeu, muteEchange)[0]);
+            this.matchs.get(i).arbitres[0].annoncerVainqueurMatch(vainqueursFinal.get(i), this.matchs.get(i+126).getPhase());
+        }
     }
 }
-

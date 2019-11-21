@@ -190,7 +190,9 @@ public class Match {
         // Premier et deuxième sets
         while((score1 < 2 && score2 < 2) || score1 == score2){
             // Set décisif si égalité
-            if(score1 == score2 && score1 != 0){ System.out.println("\nSet décisif " + score1);}
+            if(score1 == score2 && score1 != 0 && !muteMatch){ 
+                System.out.println("\nSet décisif " + score1);
+            }
             Set set = new Set(this.arbitres, this.equipe1, this.equipe2, this.spectateurs,(service++) %2);
             
             vainqueurSet = set.play(muteSet, muteJeu, muteEchange);
@@ -219,3 +221,4 @@ public class Match {
                 this.arbitres + " " + this.equipe1 + " " + this.equipe2 + " " + this.spectateurs;
     }
 }
+
