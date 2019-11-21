@@ -256,7 +256,7 @@ public class Tournoi {
         ArrayList <Joueur> vainqueursQuartFinale = new ArrayList <Joueur> (4);
         ArrayList <Joueur> vainqueursDemiFinale = new ArrayList <Joueur> (2);
         ArrayList <Joueur> vainqueursFinal = new ArrayList <Joueur> (1);
-        
+
         // On mets les 128 joueurs dans les matchs du PREMIER_TOUR
         for(int i=0; i<127; i+=2){
             Joueur [] equipe1 = {this.joueurs.get(i)};
