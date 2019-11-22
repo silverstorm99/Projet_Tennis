@@ -6,6 +6,7 @@
 package tennis;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * 13/10/2019
@@ -84,7 +85,7 @@ public class Date {
      * @param annee
      * @return Date
      */
-    public static Date generer(int annee){
+    public static Date genererAleatoire(int annee){
         int[] tab = {31,28,31,30,31,30,31,31,30,31,30,31}; //Derniers jours de chaque mois
         Random random = new Random();
         
@@ -92,6 +93,26 @@ public class Date {
         int jour = random.nextInt(tab[mois-1]) + 1;
         
         return new Date(jour, mois, annee);
+    }
+
+    protected static Scanner scanner = new Scanner(System.in);
+
+    public static Date createInterface(){
+        Date d = null;
+        try {
+        	int jour = scanner.nextInt();
+        	int mois = scanner.nextInt();
+        	int annee = scanner.nextInt();
+        	d = new Date(jour, mois, annee);
+			
+		} catch (Exception e) {
+            Random random = new Random();
+			d = genererAleatoire((int)(7*random.nextGaussian() + 1991));
+			System.out.println("Vous avez mal rentré la date, une date aléatoire a été crée ...");
+		}
+		
+        return d;
+        
     }
 }
 

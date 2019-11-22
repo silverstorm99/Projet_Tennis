@@ -14,16 +14,16 @@ import java.util.ArrayList;
  * @author Nicolas
  */
 public abstract class Personne{
-    private String nomNaissance;
-    private String nomCourant;
-    private String prenom;
-    private String surnom;
-    private Date dateNaissance;
-    private String lieuNaissance;
-    private Date dateDeces;
-    private String nationalite;
-    private int taille;
-    private int poids;
+    protected String nomNaissance;
+    protected String nomCourant;
+    protected String prenom;
+    protected String surnom;
+    protected Date dateNaissance;
+    protected String lieuNaissance;
+    protected Date dateDeces;
+    protected String nationalite;
+    protected int taille;
+    protected int poids;
     
     public static int nbPersonne = 0; // Compte le nombre de personne
      
@@ -216,6 +216,7 @@ public abstract class Personne{
                 this.nationalite + " " + this.taille + " " + this.poids;
     }
 }
+
 
 
 

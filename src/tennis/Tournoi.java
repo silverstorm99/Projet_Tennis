@@ -189,13 +189,14 @@ public class Tournoi {
             Arbitre [] arbitres = new Arbitre [nbArbitres];
             Spectateur [] spectateurs = new Spectateur [nbSpectateurs];
             
-            // Génération des arbitres
-            for(int j=0; j<nbArbitres; j++){
-                arbitres[j] = Arbitre.generer();
-            }
+
             // Génération des spectateurs
             for(int j=0; j<nbSpectateurs; j++){
                 spectateurs[j] = Spectateur.generer();
+            }
+            // Génération des arbitres
+            for(int j=0; j<nbArbitres; j++){
+                arbitres[j] = Arbitre.generer();
             }
             
             if(i > 125){phase = Phase.FINALE;}
@@ -385,3 +386,4 @@ public class Tournoi {
         }
     }
 }
+

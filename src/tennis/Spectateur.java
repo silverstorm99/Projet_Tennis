@@ -165,7 +165,7 @@ public class Spectateur extends Personne implements ActionSpectateur{
                nomCourant = nomNaissance,   // Par défaut le nomCourant sera le nomNaissance
                lieuNaissance = Personne.villeNaissance.get(random.nextInt(Personne.villeNaissance.size())),
                nationalite = Personne.pays.get(random.nextInt(Personne.pays.size()));
-        Date dateNaissance = Date.generer(anneeNaissance);
+        Date dateNaissance = Date.genererAleatoire(anneeNaissance);
         Couleur couleur = (random.nextBoolean()) ? Couleur.BLEU : Couleur.ROUGE ;  // Une chance sur 2 que la chemise ou les lunettes du/de la spectateur/spectatrice soit bleu ou rouge.
         
         /* Attributs particuliers selon le sexe */
@@ -176,7 +176,8 @@ public class Spectateur extends Personne implements ActionSpectateur{
             poids = (vetement == Vetement.CHEMISE) ? (int)(6*random.nextGaussian() + 75) : (int)(6*random.nextGaussian() + 70);
         String prenom = (vetement == Vetement.CHEMISE) ? Personne.prenomMasculin.get(random.nextInt(Personne.prenomMasculin.size())) : Personne.prenomFeminin.get(random.nextInt(Personne.prenomFeminin.size())),
                surnom = prenom;
-        Date dateDeces = Date.generer(anneeNaissance + esperanceVie);
+
+        Date dateDeces = Date.genererAleatoire(anneeNaissance + esperanceVie);
         nomCourant = (vetement == Vetement.CHEMISE) ? nomNaissance : Personne.nomFamille.get(random.nextInt(Personne.nomFamille.size()));
         
         return new Spectateur(nomNaissance, nomCourant, prenom, surnom, 
@@ -184,8 +185,3 @@ public class Spectateur extends Personne implements ActionSpectateur{
                     taille, poids, vetement, couleur);
     }
 }
-
-
-
-
-
