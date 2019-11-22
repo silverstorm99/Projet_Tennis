@@ -161,10 +161,10 @@ public class Spectateur extends Personne implements ActionSpectateur{
         
         /* Génération des attributs considérés communs */
         int anneeNaissance = (int)(15*random.nextGaussian() + 1991);
-        String nomNaissance = Personne.nomFamille[random.nextInt(Personne.nomFamille.length)],
+        String nomNaissance = Personne.nomFamille.get(random.nextInt(Personne.nomFamille.size())),
                nomCourant = nomNaissance,   // Par défaut le nomCourant sera le nomNaissance
-               lieuNaissance = Personne.villeNaissance[random.nextInt(Personne.villeNaissance.length)],
-               nationalite = Personne.pays[random.nextInt(Personne.pays.length)];
+               lieuNaissance = Personne.villeNaissance.get(random.nextInt(Personne.villeNaissance.size())),
+               nationalite = Personne.pays.get(random.nextInt(Personne.pays.size()));
         Date dateNaissance = Date.generer(anneeNaissance);
         Couleur couleur = (random.nextBoolean()) ? Couleur.BLEU : Couleur.ROUGE ;  // Une chance sur 2 que la chemise ou les lunettes du/de la spectateur/spectatrice soit bleu ou rouge.
         
@@ -174,15 +174,18 @@ public class Spectateur extends Personne implements ActionSpectateur{
         int esperanceVie = (vetement == Vetement.CHEMISE) ? (int)(7*random.nextGaussian() + 79) : (int)(7*random.nextGaussian() + 85),
             taille = (vetement == Vetement.CHEMISE) ? (int)(6*random.nextGaussian() + 178) : (int)(6*random.nextGaussian() + 165),
             poids = (vetement == Vetement.CHEMISE) ? (int)(6*random.nextGaussian() + 75) : (int)(6*random.nextGaussian() + 70);
-        String prenom = (vetement == Vetement.CHEMISE) ? Personne.prenomMasculin[random.nextInt(Personne.prenomMasculin.length)] : Personne.prenomFeminin[random.nextInt(Personne.prenomFeminin.length)],
+        String prenom = (vetement == Vetement.CHEMISE) ? Personne.prenomMasculin.get(random.nextInt(Personne.prenomMasculin.size())) : Personne.prenomFeminin.get(random.nextInt(Personne.prenomFeminin.size())),
                surnom = prenom;
         Date dateDeces = Date.generer(anneeNaissance + esperanceVie);
-        nomCourant = (vetement == Vetement.CHEMISE) ? nomNaissance : Personne.nomFamille[random.nextInt(Personne.nomFamille.length)];
+        nomCourant = (vetement == Vetement.CHEMISE) ? nomNaissance : Personne.nomFamille.get(random.nextInt(Personne.nomFamille.size()));
         
         return new Spectateur(nomNaissance, nomCourant, prenom, surnom, 
                     dateNaissance, lieuNaissance, dateDeces, nationalite,
                     taille, poids, vetement, couleur);
     }
 }
+
+
+
 
 

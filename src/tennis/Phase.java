@@ -20,9 +20,3 @@ public enum Phase {
     DEMI_FINALE,
     FINALE;
 }
-
-
-
-
-
-

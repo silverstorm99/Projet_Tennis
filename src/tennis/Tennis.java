@@ -5,9 +5,12 @@
  */
 package tennis;
 
+import data.FileData;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.function.Function;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import menu.*;
 /**
@@ -15,13 +18,13 @@ import menu.*;
  * @author Nicolas
  */
 public class Tennis {
-
+    
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args){
         
-
+        FileData.getData("prenomFeminin");
         /* Test création match */
         /*
 
@@ -120,14 +123,14 @@ public class Tennis {
         
         /*
         for(int i=0; i<127; i++){
-            System.out.print(i+" ");
-            System.out.println(tournoi.getMatchs().get(i).toString());
+        System.out.print(i+" ");
+        System.out.println(tournoi.getMatchs().get(i).toString());
         }
         */
         /*
         for(int i=0; i<128;i++){
-            System.out.print(i+" ");
-            System.out.println(tournoi.getJoueurs().get(i).toString());
+        System.out.print(i+" ");
+        System.out.println(tournoi.getJoueurs().get(i).toString());
         }
         */
     	
@@ -190,4 +193,10 @@ public class Tennis {
         }
     }
 }
+
+
+
+
+
+
 

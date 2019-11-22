@@ -191,11 +191,11 @@ public class Tournoi {
             
             // Génération des arbitres
             for(int j=0; j<nbArbitres; j++){
-                spectateurs[j] = Spectateur.generer();
+                arbitres[j] = Arbitre.generer();
             }
             // Génération des spectateurs
-            for(int j=0; j<nbArbitres; j++){
-                arbitres[j] = Arbitre.generer();
+            for(int j=0; j<nbSpectateurs; j++){
+                spectateurs[j] = Spectateur.generer();
             }
             
             if(i > 125){phase = Phase.FINALE;}
@@ -246,7 +246,11 @@ public class Tournoi {
     }
     
     /**
-     * 19/11/2019
+     * 21/11/2019
+     * @param muteMatch
+     * @param muteSet
+     * @param muteJeu
+     * @param muteEchange 
      */
     public void play(boolean muteMatch, boolean muteSet, boolean muteJeu, boolean muteEchange){
         ArrayList <Joueur> vainqueursPremierTour = new ArrayList <Joueur> (64);
