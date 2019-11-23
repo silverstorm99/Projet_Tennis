@@ -1,7 +1,5 @@
 package menu;
 
-import java.util.function.Function;
-
 /**
  * 
  * @author clement
