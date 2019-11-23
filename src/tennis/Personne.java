@@ -5,56 +5,34 @@
  */
 package tennis;
 
+import data.FileData;
 import java.time.LocalDate; // import the LocalDate class
+import java.util.ArrayList;
 
 /**
  * 13/10/2019
  * @author Nicolas
  */
-public abstract class Personne {
-    private String nomNaissance;
-    private String nomCourant;
-    private String prenom;
-    private String surnom;
-    private Date dateNaissance;
-    private String lieuNaissance;
-    private Date dateDeces;
-    private String nationalite;
-    private int taille;
-    private int poids;
+public abstract class Personne{
+    protected String nomNaissance;
+    protected String nomCourant;
+    protected String prenom;
+    protected String surnom;
+    protected Date dateNaissance;
+    protected String lieuNaissance;
+    protected Date dateDeces;
+    protected String nationalite;
+    protected int taille;
+    protected int poids;
     
     public static int nbPersonne = 0; // Compte le nombre de personne
-    
-    /* Listes des prénoms masculins, féminins et nom de famille */ 
-    public static String [] prenomMasculin = {"Alexandre","Aurélien","Baptiste",
-        "Clément","Dorian","Florian","Gaétan", "Grégoire","Julien","Louis",
-        "Maxime","Nicolas","Paul","Pierre","Quentin","Romain","Thibaud","Thomas",
-        "Valentin","Vincent"};
-    
-    public static String [] prenomFeminin = {"Amélie","Aurélie","Axelle",
-        "Camille","Cloé","Flora","Garance","Jade","Julie","Lucie","Manon",
-        "Mélanie","Nicole","Pauline","Perrine","Romane","Roxane","Théa",
-        "Valentine","Zoé"};
-    
-    public static String [] nomFamille = {"MARTIN","BLANC","DUBOIS",
-        "RICHARD","PETIT","LEROY","LEFEBVRE","FOURNIER","GIRARD","MERCIER","DUPONT",
-        "LAMBERT","MARTINEZ","LEGRAND","ROUSSEAU","MULLER","HENRY","MASSON",
-        "LEMAIRE","DUVAL"};
-    
-    public static String [] villeNaissance = {"Paris","Marseille","Lyon",
-        "Bordeaux","Strasbourg","Lille","Grenoble","Toulouse","Toulon","Nice","Metz",
-        "Brest","Amiens","Nancy","Saint-Etienne","Tours","Orléans","Annecy",
-        "Lorient","Rennes"};
-    
-    public static String [] pays = {"Allemange","Autriche","Belgique",
-        "Croatie","Damemark","Espagne","Finlande", "France","Grèce","Hongrie",
-        "Irlande","Italie","Luxembourg","Monaco","Norvège","Pays-Bas","Pologne","Portugal",
-        "Royaume-Uni","Ukraine"};
-    
-    public static String [] sponsor = {"BNP Paribas", "Emirates", "Peugeot", "Lacoste",
-        "Rolex", "Oppo", "Engie", "Infosys", "Perrier", "Accor Hotel", "Adecco",
-        "Babolat", "JC Decaux", "Lagardère", "Lavazza", "Magnum", "Mastercard",
-        "Orange", "Moët Hennessy", " Potel & Chabot", "Tropicana"};
+     
+    protected static ArrayList <String> prenomMasculin = FileData.getData("prenomMasculin");
+    protected static ArrayList <String> prenomFeminin = FileData.getData("prenomFeminin");
+    protected static ArrayList <String> nomFamille = FileData.getData("nomFamille");
+    protected static ArrayList <String> villeNaissance = FileData.getData("villeNaissance");
+    protected static ArrayList <String> pays = FileData.getData("pays");
+    protected static ArrayList <String> sponsor = FileData.getData("sponsor");
     
     /**
      * 21/10/2019
@@ -238,6 +216,3 @@ public abstract class Personne {
                 this.nationalite + " " + this.taille + " " + this.poids;
     }
 }
-
-
-

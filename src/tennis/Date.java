@@ -110,43 +110,10 @@ public class Date {
 			
 		} catch (Exception e) {
             Random random = new Random();
-			d = genererAleatoire((int)(7*random.nextGaussian() + 1991));
-			System.out.println("Vous avez mal rentré la date, une date aléatoire a été crée ...");
-		}
+            d = genererAleatoire((int)(7*random.nextGaussian() + 1991));
+            System.out.println("Vous avez mal rentré la date, une date aléatoire a été crée ...");
+        }
 		
         return d;
-        
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

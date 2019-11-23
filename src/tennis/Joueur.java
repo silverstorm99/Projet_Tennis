@@ -22,6 +22,8 @@ public class Joueur extends Personne implements ActionSpectateur{
     protected Vetement vetement;
     protected Couleur couleur;
     
+    protected Statistique statistique;
+    
     public static int nbJoueur = 0; // Compte le nombre de joueur
     
     public Joueur (String nomNaissance, String nomCourant, String prenom,String surnom, Date dateNaissance, String lieuNaissance,Date dateDeces, String nationalite, int taille,
@@ -258,26 +260,25 @@ public class Joueur extends Personne implements ActionSpectateur{
         
         /* Génération des attributs considérés communs */
         int anneeNaissance = (int)(7*random.nextGaussian() + 1991);
-        String nomNaissance = Personne.nomFamille[random.nextInt(Personne.nomFamille.length)],
+        String nomNaissance = Personne.nomFamille.get(random.nextInt(Personne.nomFamille.size())),
                nomCourant = nomNaissance,   // Par défaut le nomCourant sera le nomNaissance
-               lieuNaissance = Personne.villeNaissance[random.nextInt(Personne.villeNaissance.length)],
-               nationalite = Personne.pays[random.nextInt(Personne.pays.length)],
-               sponsor = Personne.sponsor[random.nextInt(Personne.sponsor.length)],
-               entraineur = Personne.nomFamille[random.nextInt(Personne.nomFamille.length)];
+               lieuNaissance = Personne.villeNaissance.get(random.nextInt(Personne.villeNaissance.size())),
+               nationalite = Personne.pays.get(random.nextInt(Personne.pays.size())),
+               sponsor = Personne.sponsor.get(random.nextInt(Personne.sponsor.size())),
+               entraineur = Personne.nomFamille.get(random.nextInt(Personne.nomFamille.size()));
         Date dateNaissance = Date.genererAleatoire(anneeNaissance);
-        Couleur couleur = (random.nextBoolean()) ? Couleur.BLEU : Couleur.ROUGE ;  // Une chance sur 2 que la chemise ou les lunettes du/de la spectateur/spectatrice soit bleu ou rouge.;
+        Couleur couleur = (random.nextBoolean()) ? Couleur.BLEU : Couleur.ROUGE ;  // Une chance sur 2 que la chemise ou les lunettes du/de la spectateur/spectatrice soit bleu ou rouge.
         Main main = (random.nextBoolean()) ? Main.DROITE : Main.GAUCHE;
         
         /* Attributs particuliers selon le sexe */
         int esperanceVie = (vetement == Vetement.SHORT) ? (int)(7*random.nextGaussian() + 79) : (int)(7*random.nextGaussian() + 85),
             taille = (vetement == Vetement.SHORT) ? (int)(6*random.nextGaussian() + 178) : (int)(6*random.nextGaussian() + 165),
             poids = (vetement == Vetement.SHORT) ? (int)(6*random.nextGaussian() + 75) : (int)(6*random.nextGaussian() + 70);
-        String prenom = (vetement == Vetement.SHORT) ? Personne.prenomMasculin[random.nextInt(Personne.prenomMasculin.length)] : Personne.prenomFeminin[random.nextInt(Personne.prenomFeminin.length)],
+        String prenom = (vetement == Vetement.SHORT) ? Personne.prenomMasculin.get(random.nextInt(Personne.prenomMasculin.size())) : Personne.prenomFeminin.get(random.nextInt(Personne.prenomFeminin.size())),
                surnom = prenom;
         Date dateDeces = Date.genererAleatoire(anneeNaissance + esperanceVie);
-        nomCourant = (vetement == Vetement.SHORT) ? nomNaissance : Personne.nomFamille[random.nextInt(Personne.nomFamille.length)];
+        nomCourant = (vetement == Vetement.SHORT) ? nomNaissance : Personne.nomFamille.get(random.nextInt(Personne.nomFamille.size()));
         
         return new Joueur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, entraineur, vetement, couleur);
     }
 }
-
