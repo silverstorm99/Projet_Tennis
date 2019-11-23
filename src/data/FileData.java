@@ -14,16 +14,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * 21/11/2019
+ * <b>Cette classe permet de lire les données des différents fichiers: </b>
+ * <ul><li>nomFamille.txt</li>
+ * <li>pays.txt</li>
+ * <li>prenomFeminin.txt</li>
+ * <li>prenomMasculin.txt</li>
+ * <li>sponsor.txt</li>
+ * <li>villeNaissance.txt</li></ul>
  * @author Nicolas
- * Cette classe permet de lire les données des différents fichiers contenant 
- * chacun les prénoms, noms, pays et sponsors.
+ * @since 21/11/2019
  */
 public abstract class FileData {
     private static File path = new File(""); // C:\Users\Nicolas\Documents\NetBeansProjects\Projet_Tennis
     
     /**
-     * 22/11/2019
+     * Cette méthode permet de sélectionner et renvoyer les données du fichier que l'on veut lire.
      * @param data
      * @return ArrayList
      */
@@ -38,7 +43,7 @@ public abstract class FileData {
     }
     
     /**
-     * 22/11/2019
+     * Cette méthode lit et renvoie les données du fichier sélectionné.
      * @param data
      * @return ArrayList
      * @throws IOException 

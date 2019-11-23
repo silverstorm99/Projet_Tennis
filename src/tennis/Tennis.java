@@ -5,17 +5,17 @@
  */
 package tennis;
 
-import data.FileData;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.function.Function;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import menu.*;
+
 /**
- * 13/10/2019
- * @author Nicolas
+ * <b>Cette classe est le point d'entrée du programme.</b>
+ * @author Nicolas, Clément
+ * @since 13/10/2019
+ * @see Menu
+ * @see 
  */
 public class Tennis {
     
@@ -23,8 +23,6 @@ public class Tennis {
      * @param args the command line arguments
      */
     public static void main(String[] args){
-        
-        FileData.getData("prenomFeminin");
         /* Test création match */
         /*
 
@@ -194,10 +192,4 @@ public class Tennis {
         }
     }
 }
-
-
-
-
-
-
 
