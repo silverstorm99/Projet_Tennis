@@ -7,8 +7,10 @@ package tennis;
 import menu.*;
 
 /**
- * 21/10/2019
- * @author Nicolas
+ * <b>Cette énumération détermine si le joueur est droitier ou gaucher.</b>
+ * @since 21/10/2019
+ * @author Nicolas, Clément
+ * @see Joueur
  */
 public enum Main {
     DROITE, GAUCHE;

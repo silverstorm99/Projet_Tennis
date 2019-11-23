@@ -6,8 +6,11 @@
 package tennis;
 
 /**
- * 21/10/2019
+ * <b>Cette classe permet de créer un objet Billet qui sera aacheté par un Spectateur pour aller voir un match.</b>
+ * @since 21/10/2019
  * @author Nicolas
+ * @see Spectateur
+ * @see Tribune
  */
 public class Billet {
     protected int prix;
@@ -16,6 +19,13 @@ public class Billet {
     
     public static int nbBillet = 0; // Compte le nombre de billet vendu
     
+    /* Constructor */
+    
+    /**
+     * @param prix
+     * @param tribune
+     * @param place 
+     */
     public Billet(int prix, Tribune tribune, int place){
         this.prix = prix;
         this.tribune = tribune;
@@ -27,7 +37,6 @@ public class Billet {
     /* Getters */
 
     /**
-     * 21/10/2019
      * @return int
      */
     public int getPrix() {
@@ -35,7 +44,6 @@ public class Billet {
     }
 
     /**
-     * 21/10/2019
      * @return Tribune
      */
     public Tribune getTribune() {
@@ -43,16 +51,9 @@ public class Billet {
     }
 
     /**
-     * 21/10/2019
      * @return int
      */
     public int getPlace() {
         return this.place;
     }
-    
-    
 }
-
-
-
-

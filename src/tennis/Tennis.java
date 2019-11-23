@@ -15,7 +15,7 @@ import menu.*;
  * @author Nicolas, Clément
  * @since 13/10/2019
  * @see Menu
- * @see 
+ * @see Tournoi
  */
 public class Tennis {
     
@@ -193,4 +193,3 @@ public class Tennis {
         }
     }
 }
-

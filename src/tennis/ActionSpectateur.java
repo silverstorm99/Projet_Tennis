@@ -6,8 +6,11 @@
 package tennis;
 
 /**
- * 10/11/2019
+ * <b>Cette interface répertorie les actions que peut faire un spectateur mais aussi un joueur lorsqu'il ne joue pas.</b>
+ * @since 10/11/2019
  * @author Nicolas
+ * @see Joueur
+ * @see Spectateur
  */
 public interface ActionSpectateur {
     
@@ -24,8 +27,3 @@ public interface ActionSpectateur {
         System.out.println("ZzZzZzZzZzZzZ");
     }
 }
-
-
-
-
-

@@ -8,8 +8,17 @@ package tennis;
 import java.util.ArrayList;
 
 /**
- * 11/11/2019
+ * <b>Cette classe permet de créer un tournoi pour 128 joueurs.</b>
+ * @since 11/11/2019
  * @author Nicolas
+ * @see Joueur
+ * @see Arbitre
+ * @see Spectateur
+ * @see Ville
+ * @see Surface
+ * @see Categorie
+ * @see ArrayList
+ * @see Match
  */
 public class Tournoi {
     protected Ville ville;
@@ -21,7 +30,7 @@ public class Tournoi {
     /* Constructors */
     
     /**
-     * 17/11/2019
+     * @since 17/11/2019
      * @param ville
      * @param categorie
      * @param joueurs
@@ -78,7 +87,7 @@ public class Tournoi {
     }
     
     /**
-     * 18/11/2019
+     * @since 18/11/2019
      * @param surface
      * @param categorie
      * @param joueurs 
@@ -136,7 +145,6 @@ public class Tournoi {
     /* Getters */
 
     /**
-     * 18/11/2019
      * @return Ville
      */
     public Ville getVille() {
@@ -144,7 +152,6 @@ public class Tournoi {
     }
 
     /**
-     * 18/11/2019
      * @return Surface
      */
     public Surface getSurface() {
@@ -152,7 +159,6 @@ public class Tournoi {
     }
 
     /**
-     * 18/11/2019
      * @return Categorie
      */
     public Categorie getCategorie() {
@@ -160,7 +166,6 @@ public class Tournoi {
     }
 
     /**
-     * 18/11/2019
      * @return ArrayList 
      */
     public ArrayList <Joueur> getJoueurs() {
@@ -168,18 +173,19 @@ public class Tournoi {
     }
 
     /**
-     * 18/11/2019
      * @return ArrayList
      */
     public ArrayList<Match> getMatchs() {
         return this.matchs;
     }
     
+    
     /* Methods */
     
+    
     /**
-     * 18/11/2019
-     * Cette méthode permet de générer les 127 matchs du tournoi
+     * Cette méthode permet de générer les 127 matchs du tournoi.
+     * @since 18/11/2019
      */
     private void genererMatch(){
         int nbArbitres = 10, nbSpectateurs = 100;
@@ -188,8 +194,7 @@ public class Tournoi {
         for(int i=0; i<127; i++){
             Arbitre [] arbitres = new Arbitre [nbArbitres];
             Spectateur [] spectateurs = new Spectateur [nbSpectateurs];
-            
-
+           
             // Génération des spectateurs
             for(int j=0; j<nbSpectateurs; j++){
                 spectateurs[j] = Spectateur.generer();
@@ -213,8 +218,8 @@ public class Tournoi {
     }
     
     /**
-     * 18/11/2019
-     * Cette méthode permet de remplir la list des joueurs du tournoi
+     * Cette méthode permet de remplir la liste des joueurs du tournoi.
+     * @since 18/11/2019
      */
     private void genererJoueur(){
         int nbJoueurs = 128;
@@ -247,13 +252,15 @@ public class Tournoi {
     }
     
     /**
-     * 21/11/2019
+     * Cette méthode permet de jouer automatiquement tout les matchs du tournoi.
+     * @return Joueur
+     * @since 21/11/2019
      * @param muteMatch
      * @param muteSet
      * @param muteJeu
      * @param muteEchange 
      */
-    public void play(boolean muteMatch, boolean muteSet, boolean muteJeu, boolean muteEchange){
+    public Joueur play(boolean muteMatch, boolean muteSet, boolean muteJeu, boolean muteEchange){
         ArrayList <Joueur> vainqueursPremierTour = new ArrayList <Joueur> (64);
         ArrayList <Joueur> vainqueursDeuxiemeTour = new ArrayList <Joueur> (32);
         ArrayList <Joueur> vainqueursTroisiemeTour = new ArrayList <Joueur> (16);
@@ -384,6 +391,7 @@ public class Tournoi {
             vainqueursFinal.add(this.matchs.get(i+126).play(muteMatch, muteSet, muteJeu, muteEchange)[0]);
             this.matchs.get(i).arbitres[0].annoncerVainqueurMatch(vainqueursFinal.get(i), this.matchs.get(i+126).getPhase());
         }
+        
+        return vainqueursFinal.get(0);
     }
 }
-

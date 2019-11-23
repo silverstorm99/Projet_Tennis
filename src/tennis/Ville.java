@@ -6,10 +6,13 @@
 package tennis;
 
 /**
- * 11/11/2019
+ * <b>Cette énuration rescence les villes où peuvent se dérouler les tournois du Grand Chelem.</b>
+ * <ul><li>LONDRES</li>
+ * <li>MELBOURNE</li>
+ * <li>NEW_YORK</li>
+ * <li>PARIS</li></ul>
+ * @since 11/11/2019
  * @author Nicolas
- * Cette énuration rescence les villes où peuvent se dérouler les 
- * tournois du Grand Chelem.
  */
 public enum Ville {
     LONDRES, MELBOURNE, NEW_YORK, PARIS

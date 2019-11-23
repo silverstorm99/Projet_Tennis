@@ -6,8 +6,15 @@
 package tennis;
 
 /**
- * 25/10/2019
- * @author Nicolas
+ * <b>Cette classe permet de créer un match qui opposera deux joueurs/équipes.</b>
+ * @since 25/10/2019
+ * @author Nicolas, Clément
+ * @see Categorie
+ * @see Phase
+ * @see Arbitre
+ * @see Joueur
+ * @see Spectateur
+ * @see Set
  */
 public class Match {
     protected Categorie categorie;
@@ -29,10 +36,7 @@ public class Match {
      * @param equipe2
      * @param spectateurs 
      */
-    public Match(Categorie categorie, Phase phase, Arbitre [] arbitres, 
-            Joueur [] equipe1, Joueur [] equipe2, Spectateur [] spectateurs) throws IllegalArgumentException {
-        
-        
+    public Match(Categorie categorie, Phase phase, Arbitre [] arbitres, Joueur [] equipe1, Joueur [] equipe2, Spectateur [] spectateurs) throws IllegalArgumentException {
         /* Exceptions */
         
         if(arbitres.length == 0){throw new IllegalArgumentException("Il n'y a pas d'abitre(s) pour arbitrer le match.");}
@@ -70,7 +74,6 @@ public class Match {
                 throw new IllegalArgumentException("La categorie du match n'existe pas");
         }
         
-        
         this.categorie = categorie;
         this.phase = phase;
         this.arbitres = arbitres;
@@ -80,14 +83,13 @@ public class Match {
     }
     
     /**
-     * 18/11/2019
+     * @since 18/11/2019
      * @param categorie
      * @param phase
      * @param arbitres
      * @param spectateurs 
      */
     public Match(Categorie categorie, Phase phase, Arbitre [] arbitres, Spectateur [] spectateurs){
-        
         // Exceptions
         if(arbitres.length == 0){throw new IllegalArgumentException("Il n'y a pas d'abitre(s) pour arbitrer le match.");}
         
@@ -101,7 +103,6 @@ public class Match {
     /* Getters */
     
     /**
-     * 25/10/2019
      * @return Categorie
      */
     public Categorie getCategorie() {
@@ -109,7 +110,6 @@ public class Match {
     }
     
     /**
-     * 25/10/2019
      * @return Phase
      */
     public Phase getPhase() {
@@ -117,7 +117,6 @@ public class Match {
     }
     
     /**
-     * 25/10/2019
      * @return Arbitre[]
      */
     public Arbitre [] getArbitres() {
@@ -125,7 +124,6 @@ public class Match {
     }
 
     /**
-     * 02/11/2019
      * @return Joueur[]
      */
     public Joueur [] getEquipe1() {
@@ -133,7 +131,6 @@ public class Match {
     }
     
     /**
-     * 02/11/2019
      * @return Joueur[]
      */
     public Joueur [] getEquipe2() {
@@ -141,7 +138,6 @@ public class Match {
     }
 
     /**
-     * 25/10/2019
      * @return Spectateur[]
      */
     public Spectateur [] getSpectateurs() {
@@ -151,7 +147,6 @@ public class Match {
     /* Setters */
     
     /**
-     * 18/11/2019
      * @param equipe1 
      */
     public void setEquipe1(Joueur[] equipe1) {
@@ -159,23 +154,24 @@ public class Match {
     }
 
     /**
-     * 18/11/2019
      * @param equipe2 
      */
     public void setEquipe2(Joueur[] equipe2) {
         this.equipe2 = equipe2;
     }
     
+    
     /* Methods */
     
+    
     /**
-     * 20/11/2019
+     * Cette méthode lance le match entre deux joueurs/équipes.
+     * @since 20/11/2019
      * @param muteMatch
      * @param muteSet
      * @param muteJeu
      * @param muteEchange
-     * @return Joueur []
-     * Cette méthode renvoie l'équipe qui remporte le match
+     * @return Joueur [], l'équipe qui remporte le match.
      */
     public Joueur [] play(boolean muteMatch, boolean muteSet, boolean muteJeu, boolean muteEchange){
         // Exception dans le cas où il n'y a pas de joueurs
@@ -212,7 +208,8 @@ public class Match {
     }
     
     /**
-     * 18/11/2019
+     * Cette méthode décrit les valeurs des variables d'instances du macth.
+     * @since 18/11/2019
      * @return String
      */
     @Override
@@ -221,4 +218,3 @@ public class Match {
                 this.arbitres + " " + this.equipe1 + " " + this.equipe2 + " " + this.spectateurs;
     }
 }
-

@@ -7,8 +7,15 @@ package tennis;
 import menu.*;
 
 /**
- * 21/10/2019
- * @author Nicolas
+ * <b>Cette énumération rescence les vêtements que pourront porter les joueurs et les spectateurs.</b>
+ * <ul><li>SHORT</li>
+ * <li>JUPE</li>
+ * <li>CHEMISE</li>
+ * <li>LUNETTES</li></ul>
+ * @since 21/10/2019
+ * @author Nicolas, Clément
+ * @see Joueur
+ * @see Spectateur
  */
 public enum Vetement {
     SHORT,
@@ -16,6 +23,9 @@ public enum Vetement {
     CHEMISE,
     LUNETTES;
 
+    /**
+     * @return Vetement
+     */
     public static Vetement createInterface(){
         Vetement v = null;
         Menu menuVetement = new Menu("Il porte :");

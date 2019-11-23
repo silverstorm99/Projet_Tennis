@@ -6,8 +6,14 @@
 package tennis;
 
 /**
- * 25/10/2019
+ * <b>Cette classe permet de créer un set entre deux équipes/joueurs.</b>
+ * @since 25/10/2019
  * @author Nicolas
+ * @see Match
+ * @see Jeu
+ * @see Arbitre
+ * @see Joueur
+ * @see Spectateur
  */
 public class Set {
     protected Arbitre [] arbitres;
@@ -25,7 +31,7 @@ public class Set {
      * @param equipe2
      * @param spectateurs 
      */
-    public Set(Arbitre [] arbitres, Joueur [] equipe1, Joueur [] equipe2, Spectateur [] spectateurs,int service){
+    public Set(Arbitre [] arbitres, Joueur [] equipe1, Joueur [] equipe2, Spectateur [] spectateurs, int service){
         this.arbitres = arbitres;
         this.equipe1 = equipe1;
         this.equipe2 = equipe2;
@@ -36,12 +42,12 @@ public class Set {
     /* Method */
     
     /**
-     * 20/11/2019
+     * Cette méthode renvoie l'équipe qui remporte le set.
+     * @since 20/11/2019
      * @param muteSet
      * @param muteJeu
      * @param muteEchange
      * @return Joueur []
-     * Cette méthode renvoie l'équipe qui remporte le set
      */
     public Joueur[] play(boolean muteSet, boolean muteJeu, boolean muteEchange){
         Joueur [] vainqueurSet = {}; // Equipe qui remportera le set

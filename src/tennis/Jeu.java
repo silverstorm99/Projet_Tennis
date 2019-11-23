@@ -6,8 +6,14 @@
 package tennis;
 
 /**
- * 25/10/2019
- * @author Nicolas
+ * <b>Cette classe permet de créer un jeu entre deux équipes/joueurs.</b>
+ * @since 25/10/2019
+ * @author Nicolas, Clément
+ * @see Echange
+ * @see Set
+ * @see Joueur
+ * @see Arbitre
+ * @see Spectateur
  */
 public class Jeu {
     protected Arbitre [] arbitres;
@@ -36,11 +42,11 @@ public class Jeu {
     /* Method */
     
     /**
-     * 20/11/2019
+     * Cette méthode renvoie l'équipe qui remporte le jeu.
+     * @since 20/11/2019
      * @param muteJeu
      * @param muteEchange
      * @return Joueur []
-     * Cette méthode renvoie l'équipe qui remporte le jeu
      */
     public Joueur[] play(boolean muteJeu, boolean muteEchange){
         Joueur [] vainqueurJeu = {}; // Equipe qui remportera le jeu
