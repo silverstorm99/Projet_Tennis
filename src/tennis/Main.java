@@ -14,9 +14,9 @@ public enum Main {
     DROITE, GAUCHE;
     public static Main createInterface(){
         Main m = Main.DROITE;
-        Menu menuMain = new Menu();
-        menuMain.addChoice(new MenuItems("Droite"));
-        menuMain.addChoice(new MenuItems("Gauche"));
+        Menu menuMain = new Menu("Votre joueur est ");
+        menuMain.addChoice(new MenuItems("Droitier"));
+        menuMain.addChoice(new MenuItems("Gaucher"));
         switch (menuMain.getChoice()) {
             case 0:
                 m = Main.DROITE;

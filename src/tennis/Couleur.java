@@ -14,7 +14,7 @@ public enum Couleur {
     BLEU, ROUGE;
     public static Couleur createInterface(){
         Couleur c = Couleur.BLEU;
-        Menu menuCouleur = new Menu();
+        Menu menuCouleur = new Menu("Ses vetements sont : ");
         menuCouleur.addChoice(new MenuItems("Bleu"));
         menuCouleur.addChoice(new MenuItems("Rouge"));
         switch (menuCouleur.getChoice()) {

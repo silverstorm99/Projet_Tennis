@@ -97,15 +97,18 @@ public class Date {
 
     protected static Scanner scanner = new Scanner(System.in);
 
-    public static Date createInterface(){
+    public static Date createInterface(String dateof){
         Date d = null;
         try {
+            System.out.printf("\nJour de %s : ",dateof);
             int jour = scanner.nextInt();
+            System.out.printf("\nMois de %s : ",dateof);
             int mois = scanner.nextInt();
-            int annee = scanner.nextInt();
-            d = new Date(jour, mois, annee);
-            } 
-        catch (Exception e) {
+            System.out.printf("\nAnnée de %s : ",dateof);
+        	int annee = scanner.nextInt();
+        	d = new Date(jour, mois, annee);
+			
+		} catch (Exception e) {
             Random random = new Random();
             d = genererAleatoire((int)(7*random.nextGaussian() + 1991));
             System.out.println("Vous avez mal rentré la date, une date aléatoire a été crée ...");
