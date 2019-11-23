@@ -18,7 +18,7 @@ public enum Vetement {
 
     public static Vetement createInterface(){
         Vetement v = null;
-        Menu menuVetement = new Menu();
+        Menu menuVetement = new Menu("Il porte :");
         menuVetement.addChoice(new MenuItems("Short"));
         menuVetement.addChoice(new MenuItems("Jupe"));
         menuVetement.addChoice(new MenuItems("Chemise"));

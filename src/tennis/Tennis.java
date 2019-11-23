@@ -114,6 +114,7 @@ public class Tennis {
         ArrayList <Joueur> joueurs = new ArrayList <Joueur> ();
         joueurs.add(new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Ruskov", new Date(23,02,1998), "Metz", new Date(25,11,2019), "France", 170, 59, Main.DROITE, "Grey Shop", "Poutine", Vetement.SHORT, Couleur.ROUGE));
         joueurs.add(new Joueur("SANCHEZ", "SANCHEZ", "Clément", "Mamène", new Date(23,02,1998), "Metz", new Date(31,12,2999), "France", 170, 59, Main.DROITE, "Apple", "ALKPOTE", Vetement.SHORT, Couleur.ROUGE));
+        joueurs.add(new Joueur("DUBOIS", "DUBOIS", "Thomas", "Th4nx", new Date(23,02,1998), "Metz", new Date(31,12,2999), "France", 170, 59, Main.DROITE, "Apple", "ALKPOTE", Vetement.SHORT, Couleur.ROUGE));
         
         Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME, joueurs);
         tournoi.play(true, true, true, true);
@@ -132,7 +133,7 @@ public class Tennis {
         */
 
         
-    	Menu menuPrincipal = new Menu();
+    	Menu menuPrincipal = new Menu("Tennis game");
     	menuPrincipal.addChoice(new MenuItems("Creer un nouveau personnage"));
     	menuPrincipal.addChoice(new MenuItems("Creer un tournoi"));
     	Boolean continu = true;
@@ -159,8 +160,8 @@ public class Tennis {
     protected static Scanner scanner = new Scanner(System.in);
 
     public static void createPersonnage(){
-        System.out.println("creation d'un nouveau personnage");
-        Menu menuPersonnage = new Menu();
+        //System.out.println("creation d'un nouveau personnage");
+        Menu menuPersonnage = new Menu("Nouveau personnage");
         menuPersonnage.addChoice(new MenuItems("Creer un nouveau joueur"));
         menuPersonnage.addChoice(new MenuItems("Creer un nouveau arbitre"));
         menuPersonnage.addChoice(new MenuItems("Creer un nouveau spectateur"));

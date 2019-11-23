@@ -97,11 +97,14 @@ public class Date {
 
     protected static Scanner scanner = new Scanner(System.in);
 
-    public static Date createInterface(){
+    public static Date createInterface(String dateof){
         Date d = null;
         try {
-        	int jour = scanner.nextInt();
-        	int mois = scanner.nextInt();
+            System.out.printf("\nJour de %s : ",dateof);
+            int jour = scanner.nextInt();
+            System.out.printf("\nMois de %s : ",dateof);
+            int mois = scanner.nextInt();
+            System.out.printf("\nAnnée de %s : ",dateof);
         	int annee = scanner.nextInt();
         	d = new Date(jour, mois, annee);
 			

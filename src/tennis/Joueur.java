@@ -43,22 +43,36 @@ public class Joueur extends Personne implements ActionSpectateur{
     public static Joueur createJoueur() throws InputMismatchException{
         Joueur j = null;
         try {
+            System.out.print("\nNom de Naissance : ");
             String nomNaissance = scanner.next();
+            System.out.print("\nNom Courant : ");
             String nomCourant = scanner.next();
+            System.out.print("\nPrenom : ");
             String prenom = scanner.next();
+            System.out.print("\nSurnom : ");
             String surnom = scanner.next();
+            System.out.print("\nLieu de Naissance : ");
             String lieuNaissance = scanner.next();
+            System.out.print("\nNationnalité : ");
             String nationalite = scanner.next();
             
+            System.out.print("\nTaille : ");
             int taille = scanner.nextInt();
+            System.out.print("\nPoids : ");
             int poids = scanner.nextInt();
+            System.out.print("\nSponsor : ");
             String sponsor = scanner.next();
+            System.out.print("\nEntraineur : ");
             String entraineur = scanner.next();
             
             Main main = Main.createInterface();
-            Date dateNaissance = Date.createInterface();
-            Date dateDeces = Date.createInterface();
             Vetement vetement = Vetement.createInterface();
+            
+            Date dateNaissance = Date.createInterface("naissance");
+            Random random = new Random();
+            int esperanceVie = (vetement == Vetement.SHORT) ? (int)(7*random.nextGaussian() + 79) : (int)(7*random.nextGaussian() + 85);
+
+            Date dateDeces = Date.genererAleatoire(dateNaissance.getAnnee() + esperanceVie);
             
             Couleur couleur = Couleur.createInterface();
 
@@ -72,6 +86,8 @@ public class Joueur extends Personne implements ActionSpectateur{
             j = generer(Vetement.CHEMISE);
             System.out.println("Vous avez rentré un mauvais parametre pour votre joueur : You're a bad person !\nUn joueur aléatoire a été crée à la place\n");
         }
+
+        System.out.println("Joueur crée\n");
 
         return j;
     }
