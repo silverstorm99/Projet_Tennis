@@ -7,8 +7,14 @@ package tennis;
 import menu.*;
 
 /**
- * 21/10/2019
- * @author Nicolas
+ * <b>Cette énumération de caractériser les couleurs des vêtement des joueurs et des spectateurs.</b>
+ * <ul><li>BLEU</li>
+ * <li>ROUGE</li></ul>
+ * @since 21/10/2019
+ * @author Nicolas, Clément
+ * @see Vetement
+ * @see Joueur
+ * @see Spectateur
  */
 public enum Couleur {
     BLEU, ROUGE;

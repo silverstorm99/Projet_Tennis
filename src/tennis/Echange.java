@@ -6,8 +6,13 @@
 package tennis;
 
 /**
- * 25/10/2019
- * @author Nicolas
+ * <b>Cette classe permet de créer un échange entre deux équipes/joueurs.</b>
+ * @since 25/10/2019
+ * @author Nicolas, Clément
+ * @see Jeu
+ * @see Joueur
+ * @see Arbitre
+ * @see Spectateur
  */
 public class Echange {
     protected Arbitre [] arbitres;
@@ -19,7 +24,7 @@ public class Echange {
     /* Constructor */
     
     /**
-     * 03/11/2019
+     * @since 03/11/2019
      * @param arbitres
      * @param equipe1
      * @param equipe2
@@ -36,18 +41,17 @@ public class Echange {
     /* Method */
     
     /**
-     * 20/11/2019
+     * Cette méthode renvoie l'équipe qui remporte l'échange.
+     * @since 20/11/2019
      * @param muteEchange
      * @return Joueur []
-     * Cette méthode renvoie l'équipe qui remporte l'échange
      */
     public Joueur [] play(boolean muteEchange){
-        Joueur [][] equipe = {this.equipe1, this.equipe2};
-        
-
+        Joueur [][] equipe = {this.equipe1, this.equipe2};     
         int nbEchange = 0; // permet de tracer l'echange en cours
         Action echange = Action.CORRECT;
         int fauteService = 0;
+        
         while(echange == Action.CORRECT){
             echange = Joueur.play(equipe[(this.service + nbEchange) %2],this.arbitres,nbEchange,muteEchange);
             nbEchange++;

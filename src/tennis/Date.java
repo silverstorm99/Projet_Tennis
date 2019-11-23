@@ -9,16 +9,23 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * 13/10/2019
- * @author Nicolas
+ * <b>Cette classe permet de créer un objet de type date comprenant : </b>
+ * <ul><li>jour</li>
+ * <li>mois</li>
+ * <li>annee</li></ul>
+ * @since 13/10/2019
+ * @author Nicolas, Clément
+ * @see Personne
  */
 public class Date {
     private int jour;
     private int mois;
     private int annee;
     
+    /* Constructor */
+    
     /**
-     * 13/10/2019
+     * @since 13/10/2019
      * @param jour
      * @param mois
      * @param annee 
@@ -37,11 +44,10 @@ public class Date {
         this.annee = annee;
     }
     
+    
     /* Getters */
     
-    
     /**
-     * 13/10/2019
      * @return int
      */
     public int getJour() {
@@ -49,7 +55,6 @@ public class Date {
     }
 
     /**
-     * 13/10/2019
      * @return int
      */
     public int getMois() {
@@ -57,7 +62,6 @@ public class Date {
     }
 
     /**
-     * 13/10/2019
      * @return int
      */
     public int getAnnee() {
@@ -68,7 +72,8 @@ public class Date {
     /* Methods */
     
     /**
-     * 25/10/2019
+     * Cette méthode permet d'écrire la date sous la forme jj/mm/aa .
+     * @since 25/10/2019
      * @return String
      */
     @Override
@@ -81,7 +86,8 @@ public class Date {
     }
     
     /**
-     * 14/11/2019 
+     * Cette méthode permet de générer une date de manière aléatoire.
+     * @since 14/11/2019 
      * @param annee
      * @return Date
      */
@@ -97,6 +103,11 @@ public class Date {
 
     protected static Scanner scanner = new Scanner(System.in);
 
+    /**
+     * 
+     * @param dateof
+     * @return Date
+     */
     public static Date createInterface(String dateof){
         Date d = null;
         try {

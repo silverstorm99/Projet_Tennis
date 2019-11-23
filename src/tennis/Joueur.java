@@ -10,15 +10,21 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * 13/10/2019
- * @author Nicolas
+ * <b>Cette classe permet de créer un objet de type Joueur.</b>
+ * @since 13/10/2019
+ * @author Nicolas, Clément
+ * @see Personne
+ * @see Main
+ * @see Vetement
+ * @see Statistique
+ * @see Action
+ * @see ActionSpectateur
  */
 public class Joueur extends Personne implements ActionSpectateur{
     protected Main main;
     protected String sponsor;
     protected int classement;
     protected String entraineur;
-    
     protected Vetement vetement;
     protected Couleur couleur;
     
@@ -26,22 +32,44 @@ public class Joueur extends Personne implements ActionSpectateur{
     
     public static int nbJoueur = 0; // Compte le nombre de joueur
     
-    public Joueur (String nomNaissance, String nomCourant, String prenom,String surnom, Date dateNaissance, String lieuNaissance,Date dateDeces, String nationalite, int taille,
-        int poids,Main main, String sponsor, String entraineur, Vetement vetement, Couleur couleur){
-        
+    /*Constructor */
+    
+    /**
+     * @param nomNaissance
+     * @param nomCourant
+     * @param prenom
+     * @param surnom
+     * @param dateNaissance
+     * @param lieuNaissance
+     * @param dateDeces
+     * @param nationalite
+     * @param taille
+     * @param poids
+     * @param main
+     * @param sponsor
+     * @param entraineur
+     * @param vetement
+     * @param couleur 
+     */
+    public Joueur (String nomNaissance, String nomCourant, String prenom,String surnom, Date dateNaissance, String lieuNaissance,Date dateDeces, String nationalite, int taille, int poids,Main main, String sponsor, String entraineur, Vetement vetement, Couleur couleur){
         super(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
         this.main = main;
         this.sponsor = sponsor;
         this.classement = nbJoueur + 1;
         this.entraineur = entraineur;
-        
         this.vetement = vetement;
         this.couleur = couleur;
         
         nbJoueur ++;
     }
+    
     protected static Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Cette méthode permet de créer un joueur manuellement.
+     * @return Joueur
+     * @throws InputMismatchException 
+     */
     public static Joueur createJoueur() throws InputMismatchException{
         Joueur j = null;
         try {
@@ -94,10 +122,10 @@ public class Joueur extends Personne implements ActionSpectateur{
         return j;
     }
 
+    
     /* Getters */ 
     
     /**
-     * 21/10/2019
      * @return Main
      */
     public Main getMain() {
@@ -105,7 +133,6 @@ public class Joueur extends Personne implements ActionSpectateur{
     }
 
     /**
-     * 21/10/2019
      * @return String
      */
     public String getSponsor() {
@@ -113,7 +140,6 @@ public class Joueur extends Personne implements ActionSpectateur{
     }
 
     /**
-     * 21/10/2019
      * @return int
      */
     public int getClassement() {
@@ -121,7 +147,6 @@ public class Joueur extends Personne implements ActionSpectateur{
     }
 
     /**
-     * 21/10/2019
      * @return String
      */
     public String getEntraineur() {
@@ -129,7 +154,6 @@ public class Joueur extends Personne implements ActionSpectateur{
     }
 
     /**
-     * 21/10/2019
      * @return Vetement
      */
     public Vetement getVetement() {
@@ -137,17 +161,16 @@ public class Joueur extends Personne implements ActionSpectateur{
     }
 
     /**
-     * 21/10/2019
      * @return Couleur
      */
     public Couleur getCouleur() {
         return this.couleur;
     }
     
+    
     /* Setters */
 
     /**
-     * 21/10/2019
      * @param main 
      */
     public void setMain(Main main) {
@@ -155,7 +178,6 @@ public class Joueur extends Personne implements ActionSpectateur{
     }
 
     /**
-     * 21/10/2019
      * @param sponsor 
      */
     public void setSponsor(String sponsor) {
@@ -163,7 +185,6 @@ public class Joueur extends Personne implements ActionSpectateur{
     }
 
     /**
-     * 21/10/2019
      * @param entraineur 
      */
     public void setEntraineur(String entraineur) {
@@ -171,7 +192,6 @@ public class Joueur extends Personne implements ActionSpectateur{
     }
 
     /**
-     * 21/10/2019
      * @param vetement 
      */
     public void setVetement(Vetement vetement) {
@@ -179,17 +199,19 @@ public class Joueur extends Personne implements ActionSpectateur{
     }
 
     /**
-     * 21/10/2019
      * @param couleur 
      */
     public void setCouleur(Couleur couleur) {
         this.couleur = couleur;
     }    
     
+    
     /* Methods */
     
+    
     /**
-     * 21/10/2019
+     * Cette méthode permet d'afficher la valeurs des variables d'instances du joueur.
+     * @since 21/10/2019
      * @return String
      */
     @Override
@@ -199,7 +221,10 @@ public class Joueur extends Personne implements ActionSpectateur{
                 + " " + this.couleur;
     }
     
-    
+    /**
+     * Cette méthode permet au joueur de servir durant le match.
+     * @return Action
+     */
     protected Action servir(){
         // Simulation
         double random = Math.random();
@@ -208,6 +233,10 @@ public class Joueur extends Personne implements ActionSpectateur{
         else{return Action.SERVICE_FAUTE;}
     }
     
+    /**
+     * Cette méthode permet au joueur de pouvoir renvoyer la balle.
+     * @return Action
+     */
     Action renvoyer(){
         // Simulation
         double random = Math.random();
@@ -217,15 +246,12 @@ public class Joueur extends Personne implements ActionSpectateur{
     }
     
     
-    /*
-    * 21/10/2019
+    /**
+     * <ul><li>False : l'echange n'est pas terminé</li>
+     * <li>True : échange terminé (donc point gagné ou faute)</li></ul>
+     * @since 21/10/2019
      * @return Boolean
-     * servir, retourner un service, renvoyer la balle de l'adversaire, 
-     * faire des fautes, appeler l'arbitre, s'encourager, boire, criersa victoire/sa défaite
-     * 
-     * False veut dire que l'echange nest pas fini
-     * True oui (donc point gagne ou faute)
-     * */
+     */
     public static Action play(Joueur[] equipe, Arbitre[] arbitres, int nbEchange, boolean muteEchange){
         if(!muteEchange){System.out.print(equipe[0].getPrenom());}
         if (nbEchange == 0) {
@@ -238,44 +264,40 @@ public class Joueur extends Personne implements ActionSpectateur{
     }
     
     /**
-     * 16/11/2019
-     * 
-     * <p> Création d'un objet de type Random pour générer de manière aléatoire
-     * les différents attributs du spectateur ou de la spectatrice.</p>
-     * 
-     * <p>anneeNaissance, esperanceVie, taille et poids suivront une loi normale</p>
-    
+     * Cette méthode permet de générer un objet de type Joueur de manière aléatoire.
      * <h3>Exemple: </h3>
      * <p>
      * anneeNaissance: espérance = 1978 et écart_type = 15 donnera 
-     * int anneeNaissance = (int)(15*random.nextGaussian() + 1991);;
+     * int anneeNaissance = (int)(15*random.nextGaussian() + 1991);
      * </p>
-     * 
-     * @see Random
+     * @since 16/11/2019
      * @param vetement, ce paramètre determine le sexe du joueur
      * @return Joueur
+     * @see Random
+     * @see Joueur
+     * @see Spectateur
      */
     public static Joueur generer(Vetement vetement){
         Random random = new Random();
         
         /* Génération des attributs considérés communs */
         int anneeNaissance = (int)(7*random.nextGaussian() + 1991);
-        String nomNaissance = Personne.nomFamille.get(random.nextInt(Personne.nomFamille.size())),
-               nomCourant = nomNaissance,   // Par défaut le nomCourant sera le nomNaissance
-               lieuNaissance = Personne.villeNaissance.get(random.nextInt(Personne.villeNaissance.size())),
-               nationalite = Personne.pays.get(random.nextInt(Personne.pays.size())),
-               sponsor = Personne.sponsor.get(random.nextInt(Personne.sponsor.size())),
-               entraineur = Personne.nomFamille.get(random.nextInt(Personne.nomFamille.size()));
+        String nomNaissance = Personne.nomFamille.get(random.nextInt(Personne.nomFamille.size()));
+        String nomCourant = nomNaissance;   // Par défaut le nomCourant sera le nomNaissance
+        String lieuNaissance = Personne.villeNaissance.get(random.nextInt(Personne.villeNaissance.size()));
+        String nationalite = Personne.pays.get(random.nextInt(Personne.pays.size()));
+        String sponsor = Personne.sponsor.get(random.nextInt(Personne.sponsor.size()));
+        String entraineur = Personne.nomFamille.get(random.nextInt(Personne.nomFamille.size()));
         Date dateNaissance = Date.genererAleatoire(anneeNaissance);
         Couleur couleur = (random.nextBoolean()) ? Couleur.BLEU : Couleur.ROUGE ;  // Une chance sur 2 que la chemise ou les lunettes du/de la spectateur/spectatrice soit bleu ou rouge.
         Main main = (random.nextBoolean()) ? Main.DROITE : Main.GAUCHE;
         
         /* Attributs particuliers selon le sexe */
-        int esperanceVie = (vetement == Vetement.SHORT) ? (int)(7*random.nextGaussian() + 79) : (int)(7*random.nextGaussian() + 85),
-            taille = (vetement == Vetement.SHORT) ? (int)(6*random.nextGaussian() + 178) : (int)(6*random.nextGaussian() + 165),
-            poids = (vetement == Vetement.SHORT) ? (int)(6*random.nextGaussian() + 75) : (int)(6*random.nextGaussian() + 70);
-        String prenom = (vetement == Vetement.SHORT) ? Personne.prenomMasculin.get(random.nextInt(Personne.prenomMasculin.size())) : Personne.prenomFeminin.get(random.nextInt(Personne.prenomFeminin.size())),
-               surnom = prenom;
+        int esperanceVie = (vetement == Vetement.SHORT) ? (int)(7*random.nextGaussian() + 79) : (int)(7*random.nextGaussian() + 85);
+        int taille = (vetement == Vetement.SHORT) ? (int)(6*random.nextGaussian() + 178) : (int)(6*random.nextGaussian() + 165);
+        int poids = (vetement == Vetement.SHORT) ? (int)(6*random.nextGaussian() + 75) : (int)(6*random.nextGaussian() + 70);
+        String prenom = (vetement == Vetement.SHORT) ? Personne.prenomMasculin.get(random.nextInt(Personne.prenomMasculin.size())) : Personne.prenomFeminin.get(random.nextInt(Personne.prenomFeminin.size()));
+        String surnom = prenom;
         Date dateDeces = Date.genererAleatoire(anneeNaissance + esperanceVie);
         nomCourant = (vetement == Vetement.SHORT) ? nomNaissance : Personne.nomFamille.get(random.nextInt(Personne.nomFamille.size()));
         

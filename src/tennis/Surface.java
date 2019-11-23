@@ -6,13 +6,14 @@
 package tennis;
 
 /**
- * 11/11/2019
+ * <b>Cette énumération rescence les différents types de surface pour chaque ville.</b>
+ * <ul><li>PLEXICUSHION</li>
+ * <li>TERRE_BATTUE</li>
+ * <li>GAZON</li>
+ * <li>DECOTURF</li></ul>
+ * @since 11/11/2019
  * @author Nicolas
- * Cette énumération rescence les différents types de surface pour chaque ville.
  */
 public enum Surface {
     PLEXICUSHION, TERRE_BATTUE, GAZON, DECOTURF
 }
-
-
-

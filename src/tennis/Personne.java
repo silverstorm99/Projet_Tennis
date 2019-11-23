@@ -10,8 +10,15 @@ import java.time.LocalDate; // import the LocalDate class
 import java.util.ArrayList;
 
 /**
- * 13/10/2019
+ * <b>Cette classe (abstraite) rescence les instances communes aux arbitres, joueurs et spectateurs.</b>
+ * @since 13/10/2019
  * @author Nicolas
+ * @see Arbitre
+ * @see Joueur 
+ * @see Spectateur
+ * @see Date
+ * @see ArrayList
+ * @see FileData
  */
 public abstract class Personne{
     protected String nomNaissance;
@@ -34,8 +41,9 @@ public abstract class Personne{
     protected static ArrayList <String> pays = FileData.getData("pays");
     protected static ArrayList <String> sponsor = FileData.getData("sponsor");
     
+    /* Constructor */
     /**
-     * 21/10/2019
+     * @since 21/10/2019
      * @param nomNaissance
      * @param nomCourant
      * @param prenom
@@ -66,7 +74,6 @@ public abstract class Personne{
     /* Getters */
 
     /**
-     * 13/10/2019
      * @return String
      */
     public String getNomNaissance() {
@@ -74,7 +81,6 @@ public abstract class Personne{
     }
 
     /**
-     * 13/10/20219
      * @return String
      */
     public String getNomCourant() {
@@ -82,7 +88,6 @@ public abstract class Personne{
     }
 
     /**
-     * 13/10/2019
      * @return String
      */
     public String getPrenom() {
@@ -90,7 +95,6 @@ public abstract class Personne{
     }
 
     /**
-     * 13/10/2019
      * @return String
      */
     public String getSurnom() {
@@ -98,7 +102,6 @@ public abstract class Personne{
     }
 
     /**
-     * 13/10/2019
      * @return Date
      */
     public Date getDateNaissance() {
@@ -106,7 +109,6 @@ public abstract class Personne{
     }
 
     /**
-     * 13/10/2019
      * @return String
      */
     public String getLieuNaissance() {
@@ -114,7 +116,6 @@ public abstract class Personne{
     }
 
     /**
-     * 13/10/2019
      * @return Date
      */
     public Date getDateDeces() {
@@ -122,7 +123,6 @@ public abstract class Personne{
     }
 
     /**
-     * 13/10/2019
      * @return String
      */
     public String getNationalite() {
@@ -130,7 +130,6 @@ public abstract class Personne{
     }
 
     /**
-     * 13/10/2019
      * @return int
      */
     public int getTaille() {
@@ -138,7 +137,6 @@ public abstract class Personne{
     }
 
     /**
-     * 13/10/2019
      * @return int
      */
     public int getPoids() {
@@ -146,7 +144,7 @@ public abstract class Personne{
     }
     
     /**
-     * 13/10/2019
+     * Cette méthode calcule et renvoie l'age de la personne
      * @return int
      */
     public int getAge(){
@@ -163,7 +161,6 @@ public abstract class Personne{
     /* Setters */
 
     /**
-     * 13/10/2019
      * @param nomCourant 
      */
     public void setNomCourant(String nomCourant) {
@@ -171,7 +168,6 @@ public abstract class Personne{
     }
 
     /**
-     * 13/10/2019
      * @param surnom 
      */
     public void setSurnom(String surnom) {
@@ -179,7 +175,6 @@ public abstract class Personne{
     }
 
     /**
-     * 13/10/2019
      * @param nationalite 
      */
     public void setNationalite(String nationalite) {
@@ -187,7 +182,6 @@ public abstract class Personne{
     }
 
     /**
-     * 13/10/2019
      * @param poids 
      */
     public void setPoids(int poids) {
@@ -195,17 +189,18 @@ public abstract class Personne{
     }
     
     /**
-     * 21/10/2019
      * @param taille 
      */
     public void setTaille(int taille) {
         this.taille = taille;
     }
     
+    
     /* Methods */
     
     /**
-     * 21/10/2019
+     * Cette méthode revoie les valeurs des variables d'instances de la personne. 
+     * @since 21/10/2019
      * @return String
      */
     @Override
