@@ -30,7 +30,6 @@ public class Menu {
      * This method permit to add a choice to the menu
      * @see MenuItems
      * @param choice
->>>>>>> correction
      */
     public void addChoice(MenuItems choice){
         this.choices.add(this.choices.size() - 1,new MenuItems(choice.description,this.choices.size() - 1));
