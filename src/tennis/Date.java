@@ -100,50 +100,17 @@ public class Date {
     public static Date createInterface(){
         Date d = null;
         try {
-        	int jour = scanner.nextInt();
-        	int mois = scanner.nextInt();
-        	int annee = scanner.nextInt();
-        	d = new Date(jour, mois, annee);
-			
-		} catch (Exception e) {
+            int jour = scanner.nextInt();
+            int mois = scanner.nextInt();
+            int annee = scanner.nextInt();
+            d = new Date(jour, mois, annee);
+            } 
+        catch (Exception e) {
             Random random = new Random();
-			d = genererAleatoire((int)(7*random.nextGaussian() + 1991));
-			System.out.println("Vous avez mal rentré la date, une date aléatoire a été crée ...");
-		}
+            d = genererAleatoire((int)(7*random.nextGaussian() + 1991));
+            System.out.println("Vous avez mal rentré la date, une date aléatoire a été crée ...");
+        }
 		
         return d;
-        
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

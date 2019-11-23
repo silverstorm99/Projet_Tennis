@@ -22,6 +22,8 @@ public class Joueur extends Personne implements ActionSpectateur{
     protected Vetement vetement;
     protected Couleur couleur;
     
+    protected Statistique statistique;
+    
     public static int nbJoueur = 0; // Compte le nombre de joueur
     
     public Joueur (String nomNaissance, String nomCourant, String prenom,String surnom, Date dateNaissance, String lieuNaissance,Date dateDeces, String nationalite, int taille,

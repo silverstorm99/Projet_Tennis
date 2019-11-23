@@ -216,16 +216,3 @@ public abstract class Personne{
                 this.nationalite + " " + this.taille + " " + this.poids;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

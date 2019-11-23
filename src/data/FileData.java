@@ -44,7 +44,7 @@ public abstract class FileData {
      * @throws IOException 
      */
     private static ArrayList <String> getDataFromFile(String data) throws IOException{
-        ArrayList <String> arrayList = new ArrayList <String> (10);
+        ArrayList <String> arrayList = new ArrayList <String> (20);
         
         BufferedReader file = new BufferedReader(new FileReader(path.getAbsoluteFile()+"\\src\\data\\"+data+".txt"));
         String line;
@@ -53,96 +53,7 @@ public abstract class FileData {
             arrayList.add(line);
         }
         file.close();
-        
-        
-        for(int i=0; i<arrayList.size(); i++){
-            System.out.println(arrayList.get(i));
-        }
+     
         return arrayList;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
