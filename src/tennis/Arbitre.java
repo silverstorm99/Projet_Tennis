@@ -5,7 +5,9 @@
  */
 package tennis;
 
+import java.util.InputMismatchException;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * <b>Cette classe qui hérite de la classe Personne permet de créer un objet arbitre.</b>
@@ -65,11 +67,10 @@ public class Arbitre extends Personne{
             int taille = scanner.nextInt();
             System.out.print("\nPoids : ");
             int poids = scanner.nextInt();
-            System.out.print("\nSponsor : ");
             
             Date dateNaissance = Date.createInterface("naissance");
             Random random = new Random();
-            int esperanceVie = (vetement == Vetement.SHORT) ? (int)(7*random.nextGaussian() + 79) : (int)(7*random.nextGaussian() + 85);
+            int esperanceVie = (int)(7*random.nextGaussian() + 79);
 
             Date dateDeces = Date.genererAleatoire(dateNaissance.getAnnee() + esperanceVie);
 
@@ -211,7 +212,8 @@ public class Arbitre extends Personne{
      * @see Joueur
      * @see Spectateur
      */
-    public static Arbitre generer( random = new Random();
+    public static Arbitre generer(){
+        Random random = new Random();
         
         /* Génération des attributs considérés communs */
         int anneeNaissance = (int)(15*random.nextGaussian() + 1991);

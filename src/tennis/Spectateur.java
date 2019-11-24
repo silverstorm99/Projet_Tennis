@@ -5,7 +5,9 @@
  */
 package tennis;
 
+import java.util.InputMismatchException;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * <b>Cette classe permet de créer un objet de type Spectateur.</b>
@@ -52,6 +54,7 @@ public class Spectateur extends Personne implements ActionSpectateur{
         nbSpectateur++;
     }
     
+    protected static Scanner scanner = new Scanner(System.in);
 
     public static Spectateur createInterface(){
         Spectateur monSpectateur = null;
@@ -209,8 +212,9 @@ public class Spectateur extends Personne implements ActionSpectateur{
      * @since 15/11/2019
      * @return Spectateur
      */
-    public static Spectateur generer( random = new Random();
-        
+    public static Spectateur generer(){
+        Random random = new Random();
+
         /* Génération des attributs considérés communs */
         int anneeNaissance = (int)(15*random.nextGaussian() + 1991);
         String nomNaissance = Personne.nomFamille.get(random.nextInt(Personne.nomFamille.size()));
