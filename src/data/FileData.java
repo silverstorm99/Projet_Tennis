@@ -51,7 +51,7 @@ public abstract class FileData {
     private static ArrayList <String> getDataFromFile(String data) throws IOException{
         ArrayList <String> arrayList = new ArrayList <String> (20);
         
-        BufferedReader file = new BufferedReader(new FileReader(path.getAbsoluteFile()+"\\src\\data\\"+data+".txt"));
+        BufferedReader file = new BufferedReader(new FileReader(path.getAbsoluteFile()+"/data/"+data+".txt"));
         String line;
         
         while ((line = file.readLine()) != null){

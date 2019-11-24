@@ -109,7 +109,7 @@ public class Tennis {
         */
         
         /* Test création d'un tournoi */
-        
+        /*  
         System.out.println("\n\n Test générer Tournoi");
         
         ArrayList <Joueur> joueurs = new ArrayList <Joueur> ();
