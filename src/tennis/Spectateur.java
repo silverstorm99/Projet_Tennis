@@ -172,28 +172,6 @@ public class Spectateur extends Personne implements ActionSpectateur{
         this.billet = billet;
     }
     
-    /* Interface ActionSpectateur methods */
-    
-    @Override
-    public void applaudir(){
-        System.out.println("CLAP CLAP CLAP");
-    }
-    
-    @Override
-    public void crier(){
-        System.out.println("ALLEZ !!!");
-    }
-    
-    @Override
-    public void huer(){
-        System.out.println("BOOOOOOOOOOO !!!! NUL !");
-    }
-    
-    @Override
-    public void dormir(){
-        System.out.println("ZzZzZzZzZzZzZ");
-    }
-    
     /**
      * Cette méthode renvoie les variables d'instances du spectateur.
      * @since 15/11/209
@@ -240,3 +218,4 @@ public class Spectateur extends Personne implements ActionSpectateur{
         return new Spectateur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, vetement, couleur);
     }
 }
+
