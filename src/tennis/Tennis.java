@@ -136,7 +136,7 @@ public class Tennis {
         
     	Menu menuPrincipal = new Menu("Tennis game");
     	menuPrincipal.addChoice(new MenuItems("Creer un nouveau personnage"));
-    	menuPrincipal.addChoice(new MenuItems("Creer un tournoi"));
+        menuPrincipal.addChoice(new MenuItems("Creer un tournoi"));
     	Boolean continu = true;
     	while(continu && !fini) {
             switch (menuPrincipal.getChoice()) {
