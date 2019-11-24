@@ -56,4 +56,16 @@ public class Billet {
     public int getPlace() {
         return this.place;
     }
+    
+    /* Method */
+    
+    /**
+     * Cette méthode décrit le billet avec ses variables d'instances.
+     * @since 24/11/2019
+     * @return String
+     */
+    @Override
+    public String toString(){
+        return String.valueOf(this.place) +" "+ String.valueOf(this.tribune) +" "+ String.valueOf(this.prix) + " €";
+    }
 }

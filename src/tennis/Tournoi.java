@@ -6,6 +6,8 @@
 package tennis;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Random;
 
 /**
  * <b>Cette classe permet de créer un tournoi pour 128 joueurs.</b>
@@ -19,6 +21,7 @@ import java.util.ArrayList;
  * @see Categorie
  * @see ArrayList
  * @see Match
+ * @see Random
  */
 public class Tournoi {
     protected Ville ville;
@@ -194,11 +197,31 @@ public class Tournoi {
         for(int i=0; i<127; i++){
             Arbitre [] arbitres = new Arbitre [nbArbitres];
             Spectateur [] spectateurs = new Spectateur [nbSpectateurs];
+            LinkedList <Billet> billets = new LinkedList <Billet>();
+            Random random = new Random();
+            int r;
+            int prix = 100;
+            
+            // Génération des billets pour chaque matchs on part du principe qu'il y a 16000 places en tout dans les tribunes (avec 2000 places par tribune)
+            for(int j=0; j<16000; j++){
+                if(j>14000){billets.add(new Billet(prix, Tribune.N, j%2000));}
+                else if(j>12000){billets.add(new Billet(prix, Tribune.NE, j%2000));}
+                else if(j>10000){billets.add(new Billet(prix, Tribune.E, j%2000));}
+                else if(j>8000){billets.add(new Billet(prix, Tribune.SE, j%2000));}
+                else if(j>6000){billets.add(new Billet(prix, Tribune.S, j%2000));}
+                else if(j>4000){billets.add(new Billet(prix, Tribune.SO, j%2000));}
+                else if(j>2000){billets.add(new Billet(prix, Tribune.O, j%2000));}
+                else{billets.add(new Billet(prix, Tribune.NO, j%2000));}
+            }
            
             // Génération des spectateurs
             for(int j=0; j<nbSpectateurs; j++){
+                r = random.nextInt(billets.size());
                 spectateurs[j] = Spectateur.generer();
+                spectateurs[j].acheterBillet(billets.get(r));
+                billets.remove(r);
             }
+            
             // Génération des arbitres
             for(int j=0; j<nbArbitres; j++){
                 arbitres[j] = Arbitre.generer();

@@ -106,6 +106,14 @@ public class Spectateur extends Personne implements ActionSpectateur{
         this.billet = new Billet(prix, tribune, place);
     }
     
+    /**
+     * Cette méthode permet au spectateur d'acheter un billet pour voir le match.
+     * @since 24/11/2019
+     * @param billet 
+     */
+    public void acheterBillet(Billet billet){
+        this.billet = billet;
+    }
     
     /* Interface ActionSpectateur methods */
     
