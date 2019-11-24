@@ -113,9 +113,9 @@ public class Tennis {
         System.out.println("\n\n Test générer Tournoi");
         
         ArrayList <Joueur> joueurs = new ArrayList <Joueur> ();
-        joueurs.add(new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Ruskov", new Date(23,02,1998), "Metz", new Date(25,11,2019), "France", 170, 59, Main.DROITE, "Grey Shop", "Poutine", Vetement.SHORT, Couleur.ROUGE));
-        joueurs.add(new Joueur("SANCHEZ", "SANCHEZ", "Clément", "Mamène", new Date(23,02,1998), "Metz", new Date(31,12,2999), "France", 170, 59, Main.DROITE, "Apple", "ALKPOTE", Vetement.SHORT, Couleur.ROUGE));
-        joueurs.add(new Joueur("DUBOIS", "DUBOIS", "Thomas", "Th4nx", new Date(23,02,1998), "Metz", new Date(31,12,2999), "France", 170, 59, Main.DROITE, "Apple", "ALKPOTE", Vetement.SHORT, Couleur.ROUGE));
+        joueurs.add(new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Ruskov", new Date(23,02,1998), "Metz", new Date(25,11,2019), "France", 170, 59, Main.DROITE, "Satan Corporation", "Poutine", Vetement.SHORT, Couleur.BLEU, 0.80, 0.9, 0.95));
+        joueurs.add(new Joueur("SANCHEZ", "SANCHEZ", "Clément", "Mamène", new Date(23,02,1998), "Metz", new Date(31,12,2999), "France", 170, 59, Main.DROITE, "Apple", "ALKPOTE", Vetement.SHORT, Couleur.ROUGE, 0.80, 0.9, 0.95));
+        joueurs.add(new Joueur("DUBOIS", "DUBOIS", "Thomas", "Th4nx", new Date(23,02,1998), "Metz", new Date(31,12,2999), "France", 170, 59, Main.DROITE, "Apple", "ALKPOTE", Vetement.SHORT, Couleur.ROUGE, 0.80, 0.9, 0.95));
         
         Tournoi tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME, joueurs);
         tournoi.play(true, true, true, true);

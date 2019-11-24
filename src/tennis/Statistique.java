@@ -21,6 +21,10 @@ public class Statistique{
     private int nbTournoi;        // Nombre de participation aux tournois
     private int gains;
     
+    private double probaServiceCorrect;
+    private double probaRenvoieCorrect;
+    private double probaRenvoieFaute;  // probaRenvoieCorrect < probaRenvoieFaute d'où le else if
+    
     /* Statistiques personnelles pour chaques matchs */
     private LinkedList <StatMatch> statMatch;
     
@@ -69,6 +73,51 @@ public class Statistique{
     public LinkedList<StatMatch> getStatMatch() {
         return this.statMatch;
     }
+
+    /**
+     * @return 
+     */
+    public double getProbaServiceCorrect() {
+        return this.probaServiceCorrect;
+    }
+
+    /**
+     * @return double
+     */
+    public double getProbaRenvoieCorrect() {
+        return this.probaRenvoieCorrect;
+    }
+
+    /**
+     * @return double
+     */
+    public double getProbaRenvoieFaute() {
+        return this.probaRenvoieFaute;
+    }
+    
+    /* Setters */
+
+    /**
+     * @param probaServiceCorrect 
+     */
+    public void setProbaServiceCorrect(double probaServiceCorrect) {
+        this.probaServiceCorrect = probaServiceCorrect;
+    }
+
+    /**
+     * @param probaRenvoieCorrect 
+     */
+    public void setProbaRenvoieCorrect(double probaRenvoieCorrect) {
+        this.probaRenvoieCorrect = probaRenvoieCorrect;
+    }
+
+    /**
+     * @param probaRenvoieFaute 
+     */
+    public void setProbaRenvoieFaute(double probaRenvoieFaute) {
+        this.probaRenvoieFaute = probaRenvoieFaute;
+    }
+    
     
     /* Methods */
 

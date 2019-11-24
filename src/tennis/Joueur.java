@@ -28,7 +28,7 @@ public class Joueur extends Personne implements ActionSpectateur{
     protected Vetement vetement;
     protected Couleur couleur;
     
-    protected Statistique statistique;
+    protected Statistique statistique = new Statistique();
     
     public static int nbJoueur = 0; // Compte le nombre de joueur
     
@@ -49,9 +49,12 @@ public class Joueur extends Personne implements ActionSpectateur{
      * @param sponsor
      * @param entraineur
      * @param vetement
-     * @param couleur 
+     * @param couleur
+     * @param probaServiceCorrect
+     * @param probaRenvoieCorrect
+     * @param probaRenvoieFaute    // Condition : probaRenvoieCorrect < probaRenvoieFaute < 1
      */
-    public Joueur (String nomNaissance, String nomCourant, String prenom,String surnom, Date dateNaissance, String lieuNaissance,Date dateDeces, String nationalite, int taille, int poids,Main main, String sponsor, String entraineur, Vetement vetement, Couleur couleur){
+    public Joueur (String nomNaissance, String nomCourant, String prenom,String surnom, Date dateNaissance, String lieuNaissance,Date dateDeces, String nationalite, int taille, int poids,Main main, String sponsor, String entraineur, Vetement vetement, Couleur couleur, double probaServiceCorrect, double probaRenvoieCorrect, double probaRenvoieFaute){
         super(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
         this.main = main;
         this.sponsor = sponsor;
@@ -59,6 +62,9 @@ public class Joueur extends Personne implements ActionSpectateur{
         this.entraineur = entraineur;
         this.vetement = vetement;
         this.couleur = couleur;
+        this.statistique.setProbaServiceCorrect(probaServiceCorrect);
+        this.statistique.setProbaRenvoieCorrect(probaRenvoieCorrect);
+        this.statistique.setProbaRenvoieFaute(probaRenvoieFaute);
         
         nbJoueur ++;
     }
@@ -94,7 +100,14 @@ public class Joueur extends Personne implements ActionSpectateur{
             String sponsor = scanner.next();
             System.out.print("\nEntraineur : ");
             String entraineur = scanner.next();
-            
+             
+            System.out.print("\nProbabilité de réussir le service [0;1[ : ");
+            double probaServiceCorrect = scanner.nextDouble();
+            System.out.print("\nProbabilité p de réussir le renvoie de la balle [0;1[ : ");
+            double probaRenvoieCorrect = scanner.nextDouble();
+            System.out.print("\nProbabilité de faire faute lors du renvoie de la balle [p;1[ : ");
+            double probaRenvoieFaute = scanner.nextDouble();
+      
             Main main = Main.createInterface();
             Vetement vetement = Vetement.createInterface();
             
@@ -106,7 +119,7 @@ public class Joueur extends Personne implements ActionSpectateur{
             
             Couleur couleur = Couleur.createInterface();
 
-            j = new Joueur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, entraineur, vetement, couleur);
+            j = new Joueur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, entraineur, vetement, couleur, probaServiceCorrect, probaRenvoieCorrect, probaRenvoieFaute);
         } 
         catch(InputMismatchException e){
             j = generer(Vetement.CHEMISE);
@@ -226,9 +239,8 @@ public class Joueur extends Personne implements ActionSpectateur{
      * @return Action
      */
     protected Action servir(){
-        // Simulation
         double random = Math.random();
-        if(random < 0.66){return Action.CORRECT;}
+        if(random < this.statistique.getProbaServiceCorrect()){return Action.CORRECT;}
         //else if(random < 0.66){return Action.SERVICE_FAUTE;}
         else{return Action.SERVICE_FAUTE;}
     }
@@ -238,10 +250,9 @@ public class Joueur extends Personne implements ActionSpectateur{
      * @return Action
      */
     Action renvoyer(){
-        // Simulation
         double random = Math.random();
-        if(random < 0.8){return Action.CORRECT;}
-        else if(random < 0.9){return Action.FAUTE;}
+        if(random < this.statistique.getProbaRenvoieCorrect()){return Action.CORRECT;}
+        else if(random < this.statistique.getProbaRenvoieFaute()){return Action.FAUTE;}
         else{return Action.FILET;}
     }
     
@@ -291,6 +302,9 @@ public class Joueur extends Personne implements ActionSpectateur{
         Date dateNaissance = Date.genererAleatoire(anneeNaissance);
         Couleur couleur = (random.nextBoolean()) ? Couleur.BLEU : Couleur.ROUGE ;  // Une chance sur 2 que la chemise ou les lunettes du/de la spectateur/spectatrice soit bleu ou rouge.
         Main main = (random.nextBoolean()) ? Main.DROITE : Main.GAUCHE;
+        double probaServiceCorrect = random.nextDouble()*0.95;
+        double probaRenvoieCorrect = random.nextDouble()*0.95;
+        double probaRenvoieFaute = probaRenvoieCorrect + (random.nextDouble() * (1 - probaRenvoieCorrect));
         
         /* Attributs particuliers selon le sexe */
         int esperanceVie = (vetement == Vetement.SHORT) ? (int)(7*random.nextGaussian() + 79) : (int)(7*random.nextGaussian() + 85);
@@ -301,6 +315,10 @@ public class Joueur extends Personne implements ActionSpectateur{
         Date dateDeces = Date.genererAleatoire(anneeNaissance + esperanceVie);
         nomCourant = (vetement == Vetement.SHORT) ? nomNaissance : Personne.nomFamille.get(random.nextInt(Personne.nomFamille.size()));
         
-        return new Joueur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, entraineur, vetement, couleur);
+        return new Joueur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, entraineur, vetement, couleur, probaServiceCorrect, probaRenvoieCorrect, probaRenvoieFaute);
     }
 }
+
+
+
+
