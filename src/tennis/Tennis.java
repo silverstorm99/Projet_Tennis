@@ -109,7 +109,7 @@ public class Tennis {
         */
         
         /* Test création d'un tournoi */
-        
+        /*  
         System.out.println("\n\n Test générer Tournoi");
         
         ArrayList <Joueur> joueurs = new ArrayList <Joueur> ();
@@ -133,10 +133,10 @@ public class Tennis {
         }
         */
 
-        
     	Menu menuPrincipal = new Menu("Tennis game");
     	menuPrincipal.addChoice(new MenuItems("Creer un nouveau personnage"));
         menuPrincipal.addChoice(new MenuItems("Creer un tournoi"));
+        menuPrincipal.addChoice(new MenuItems("Information sur les joueurs"));
     	Boolean continu = true;
     	while(continu && !fini) {
             switch (menuPrincipal.getChoice()) {
@@ -157,7 +157,13 @@ public class Tennis {
     }
     
     protected static Boolean fini = false;
-    protected static ArrayList<Personne> mesPersonnages = new ArrayList<Personne>();
+    
+    protected static ArrayList<Joueur> mesJoueurs = new ArrayList<Joueur>();
+    protected static ArrayList<Arbitre> mesArbitres = new ArrayList<Arbitre>();
+    protected static ArrayList<Spectateur> mesSpectateurs = new ArrayList<Spectateur>();
+    
+    protected static Tournoi monTournoi;
+
     protected static Scanner scanner = new Scanner(System.in);
 
     public static void createPersonnage(){
@@ -173,10 +179,53 @@ public class Tennis {
             switch (menuPersonnage.getChoice()) {
                 case 0:
                     System.out.println("creation d'un joueur");
-                    mesPersonnages.add(Joueur.createJoueur());
+                    mesJoueurs.add(Joueur.createInterface());
                     break;
                 case 1:
                     System.out.println("creation d'un arbitre");
+                    mesArbitres.add(Arbitre.createInterface());
+                    break;
+                case 2:
+                    System.out.println("creation d'un spectateur");
+                    mesSpectateurs.add(Spectateur.createInterface());
+                    break;
+                case -2:
+                    System.out.println("En arriere");
+                    continu = false;
+                    break;
+                case -1:
+                    System.out.println("fini");
+                    fini = true;
+                    break;
+                default:
+                    System.out.println("Action non implémenté");
+                    break;
+            }
+        }
+    }
+
+
+    public static void createTournoi(){
+        //System.out.println("creation d'un nouveau personnage");
+        Menu menuPersonnage = new Menu("Tournoi");
+        menuPersonnage.addChoice(new MenuItems("Lancer le tournoi entier"));
+        menuPersonnage.addChoice(new MenuItems("Voir les match passé"));
+        menuPersonnage.addChoice(new MenuItems("Voir les match a venir"));
+        menuPersonnage.addChoice(new MenuItems("Jour le match numero ..."));
+        menuPersonnage.addChoice(new MenuItems("Retourner en arriere",-2));
+        
+        Boolean continu = true;
+    	while(continu && !fini){
+            switch (menuPersonnage.getChoice()) {
+                case 0:
+                    System.out.println("creation d'un tournoi");
+                    Tournoi monTournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME, mesJoueurs);
+                    break;
+                case 1:
+                    System.out.println("creation d'un arbitre");
+                    break;
+                case 2:
+                    System.out.println("creation d'un spectateur");
                     break;
                 case -2:
                     System.out.println("En arriere");

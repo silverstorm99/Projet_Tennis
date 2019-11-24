@@ -74,9 +74,8 @@ public class Joueur extends Personne implements ActionSpectateur{
     /**
      * Cette méthode permet de créer un joueur manuellement.
      * @return Joueur
-     * @throws InputMismatchException 
      */
-    public static Joueur createJoueur() throws InputMismatchException{
+    public static Joueur createInterface(){
         Joueur j = null;
         try {
             System.out.print("\nNom de Naissance : ");
@@ -267,7 +266,11 @@ public class Joueur extends Personne implements ActionSpectateur{
      * <ul><li>False : l'echange n'est pas terminé</li>
      * <li>True : échange terminé (donc point gagné ou faute)</li></ul>
      * @since 21/10/2019
-     * @return Boolean
+     * @param equipe
+     * @param arbitres
+     * @param nbEchange
+     * @param muteEchange
+     * @return
      */
     public static Action play(Joueur[] equipe, Arbitre[] arbitres, int nbEchange, boolean muteEchange){
         if(!muteEchange){System.out.print(equipe[0].getPrenom());}

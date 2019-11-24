@@ -5,7 +5,9 @@
  */
 package tennis;
 
+import java.util.InputMismatchException;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * <b>Cette classe qui hérite de la classe Personne permet de créer un objet arbitre.</b>
@@ -35,9 +37,61 @@ public class Arbitre extends Personne{
         super(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
         nbArbitre++;
     }
-    
+
     
     /* Methods */
+
+    protected static Scanner scanner = new Scanner(System.in);
+
+    /**
+     * Cette méthode permet de créer un Arbitre manuellement.
+     * @return Arbitre
+     */
+    public static Arbitre createInterface(){
+        Arbitre myArbitre =  null;
+        try {
+            System.out.print("\nNom de Naissance : ");
+            String nomNaissance = scanner.next();
+            System.out.print("\nNom Courant : ");
+            String nomCourant = scanner.next();
+            System.out.print("\nPrenom : ");
+            String prenom = scanner.next();
+            System.out.print("\nSurnom : ");
+            String surnom = scanner.next();
+            System.out.print("\nLieu de Naissance : ");
+            String lieuNaissance = scanner.next();
+            System.out.print("\nNationnalité : ");
+            String nationalite = scanner.next();
+            
+            System.out.print("\nTaille : ");
+            int taille = scanner.nextInt();
+            System.out.print("\nPoids : ");
+            int poids = scanner.nextInt();
+            
+            Date dateNaissance = Date.createInterface("naissance");
+            Random random = new Random();
+            int esperanceVie = (int)(7*random.nextGaussian() + 79);
+
+            Date dateDeces = Date.genererAleatoire(dateNaissance.getAnnee() + esperanceVie);
+
+            myArbitre = new Arbitre(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
+        } 
+        catch(InputMismatchException e){
+            myArbitre = generer();
+            System.out.println("Vous avez rentré un mauvais parametre pour votre arbitre : You're a bad person !\nUn arbitre aléatoire a été crée à la place\n");
+        }
+        catch (Exception e) {
+            myArbitre = generer();
+            System.out.println("Vous avez rentré un mauvais parametre pour votre arbitre : You're a bad person !\nUn arbitre aléatoire a été crée à la place\n");
+        }
+
+        System.out.println("Arbitre crée\n");
+
+        return myArbitre;
+    }
+
+
+
     
     /**
      * Cette méthode annonce le score du match en indiquant le score (en set) de chaque équipe.

@@ -5,7 +5,9 @@
  */
 package tennis;
 
+import java.util.InputMismatchException;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * <b>Cette classe permet de créer un objet de type Spectateur.</b>
@@ -28,6 +30,7 @@ public class Spectateur extends Personne implements ActionSpectateur{
     /* Constructor */
     
     /**
+     * Ce construteur permet de cree une instance Spectateur
      * @since 21/10/2019
      * @param nomNaissance
      * @param nomCourant
@@ -51,6 +54,58 @@ public class Spectateur extends Personne implements ActionSpectateur{
         nbSpectateur++;
     }
     
+    protected static Scanner scanner = new Scanner(System.in);
+
+    public static Spectateur createInterface(){
+        Spectateur monSpectateur = null;
+        try {
+            System.out.print("\nNom de Naissance : ");
+            String nomNaissance = scanner.next();
+            System.out.print("\nNom Courant : ");
+            String nomCourant = scanner.next();
+            System.out.print("\nPrenom : ");
+            String prenom = scanner.next();
+            System.out.print("\nSurnom : ");
+            String surnom = scanner.next();
+            System.out.print("\nLieu de Naissance : ");
+            String lieuNaissance = scanner.next();
+            System.out.print("\nNationnalité : ");
+            String nationalite = scanner.next();
+            
+            System.out.print("\nTaille : ");
+            int taille = scanner.nextInt();
+            System.out.print("\nPoids : ");
+            int poids = scanner.nextInt();
+      
+            Vetement vetement = Vetement.createInterface();
+            
+            Date dateNaissance = Date.createInterface("naissance");
+            Random random = new Random();
+            int esperanceVie = (vetement == Vetement.SHORT) ? (int)(7*random.nextGaussian() + 79) : (int)(7*random.nextGaussian() + 85);
+
+            Date dateDeces = Date.genererAleatoire(dateNaissance.getAnnee() + esperanceVie);
+            
+            Couleur couleur = Couleur.createInterface();
+
+            monSpectateur = new Spectateur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, vetement, couleur);
+        } 
+        catch(InputMismatchException e){
+            monSpectateur = generer();
+            System.out.println("Vous avez rentré un mauvais parametre pour votre spectateur : You're a bad person !\nUn spectateur aléatoire a été crée à la place\n");
+        }
+        catch (Exception e) {
+            monSpectateur = generer();
+            System.out.println("Vous avez rentré un mauvais parametre pour votre spectateur : You're a bad person !\nUn spectateur aléatoire a été crée à la place\n");
+        }
+
+        System.out.println("Spectateur crée\n");
+
+        return monSpectateur;
+    }
+
+
+
+
     
     /* Getters */
     
@@ -137,7 +192,7 @@ public class Spectateur extends Personne implements ActionSpectateur{
      */
     public static Spectateur generer(){
         Random random = new Random();
-        
+
         /* Génération des attributs considérés communs */
         int anneeNaissance = (int)(15*random.nextGaussian() + 1991);
         String nomNaissance = Personne.nomFamille.get(random.nextInt(Personne.nomFamille.size()));
