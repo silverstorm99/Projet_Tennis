@@ -136,6 +136,7 @@ public class Tennis {
     	Menu menuPrincipal = new Menu("Tennis game");
     	menuPrincipal.addChoice(new MenuItems("Creer un nouveau personnage"));
         menuPrincipal.addChoice(new MenuItems("Creer un tournoi"));
+        menuPrincipal.addChoice(new MenuItems("Information sur les joueurs"));
     	Boolean continu = true;
     	while(continu && !fini) {
             switch (menuPrincipal.getChoice()) {
@@ -156,7 +157,13 @@ public class Tennis {
     }
     
     protected static Boolean fini = false;
-    protected static ArrayList<Personne> mesPersonnages = new ArrayList<Personne>();
+    
+    protected static ArrayList<Joueur> mesJoueurs = new ArrayList<Joueur>();
+    protected static ArrayList<Arbitre> mesArbitres = new ArrayList<Arbitre>();
+    protected static ArrayList<Spectateur> mesSpectateurs = new ArrayList<Spectateur>();
+    
+    protected static Tournoi monTournoi;
+
     protected static Scanner scanner = new Scanner(System.in);
 
     public static void createPersonnage(){
@@ -176,6 +183,46 @@ public class Tennis {
                     break;
                 case 1:
                     System.out.println("creation d'un arbitre");
+                    break;
+                case 2:
+                    System.out.println("creation d'un spectateur");
+                    break;
+                case -2:
+                    System.out.println("En arriere");
+                    continu = false;
+                    break;
+                case -1:
+                    System.out.println("fini");
+                    fini = true;
+                    break;
+                default:
+                    System.out.println("Action non implémenté");
+                    break;
+            }
+        }
+    }
+
+
+    public static void createTournoi(){
+        //System.out.println("creation d'un nouveau personnage");
+        Menu menuPersonnage = new Menu("Tournoi");
+        menuPersonnage.addChoice(new MenuItems("Lancer le tournoi entier"));
+        menuPersonnage.addChoice(new MenuItems("Voir les match passé"));
+        menuPersonnage.addChoice(new MenuItems("Creer un nouveau spectateur"));
+        menuPersonnage.addChoice(new MenuItems("Retourner en arriere",-2));
+        
+        Boolean continu = true;
+    	while(continu && !fini){
+            switch (menuPersonnage.getChoice()) {
+                case 0:
+                    System.out.println("creation d'un joueur");
+                    mesPersonnages.add(Joueur.createJoueur());
+                    break;
+                case 1:
+                    System.out.println("creation d'un arbitre");
+                    break;
+                case 2:
+                    System.out.println("creation d'un spectateur");
                     break;
                 case -2:
                     System.out.println("En arriere");
