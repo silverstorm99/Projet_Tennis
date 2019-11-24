@@ -88,6 +88,8 @@ public class Spectateur extends Personne implements ActionSpectateur{
             Couleur couleur = Couleur.createInterface();
 
             monSpectateur = new Spectateur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, vetement, couleur);
+
+            scanner.close();
         } 
         catch(InputMismatchException e){
             monSpectateur = generer();

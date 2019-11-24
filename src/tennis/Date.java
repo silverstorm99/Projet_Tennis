@@ -117,7 +117,8 @@ public class Date {
             int mois = scanner.nextInt();
             System.out.printf("\nAnnée de %s : ",dateof);
         	int annee = scanner.nextInt();
-        	d = new Date(jour, mois, annee);
+            d = new Date(jour, mois, annee);
+            scanner.close();
 			
 		} catch (Exception e) {
             Random random = new Random();

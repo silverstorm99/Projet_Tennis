@@ -218,8 +218,9 @@ public class Tennis {
     	while(continu && !fini){
             switch (menuPersonnage.getChoice()) {
                 case 0:
-                    System.out.println("creation d'un tournoi");
+                    System.out.println("Lancement du tournoi");
                     Tournoi monTournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME, mesJoueurs);
+                    monTournoi.play(true, true, true, true);
                     break;
                 case 1:
                     System.out.println("creation d'un arbitre");

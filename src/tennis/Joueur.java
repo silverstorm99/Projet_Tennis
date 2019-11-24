@@ -119,6 +119,8 @@ public class Joueur extends Personne implements ActionSpectateur{
             Couleur couleur = Couleur.createInterface();
 
             j = new Joueur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, entraineur, vetement, couleur, probaServiceCorrect, probaRenvoieCorrect, probaRenvoieFaute);
+
+            scanner.close();
         } 
         catch(InputMismatchException e){
             j = generer(Vetement.CHEMISE);
@@ -126,7 +128,7 @@ public class Joueur extends Personne implements ActionSpectateur{
         }
         catch (Exception e) {
             j = generer(Vetement.CHEMISE);
-            System.out.println("Vous avez rentré un mauvais parametre pour votre joueur : You're a bad person !\nUn joueur aléatoire a été crée à la place\n");
+            System.out.println("Une erreur : " + e +  "!\nUn joueur aléatoire a été crée à la place\n");
         }
 
         System.out.println("Joueur crée\n");

@@ -75,6 +75,8 @@ public class Arbitre extends Personne{
             Date dateDeces = Date.genererAleatoire(dateNaissance.getAnnee() + esperanceVie);
 
             myArbitre = new Arbitre(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
+
+            scanner.close();
         } 
         catch(InputMismatchException e){
             myArbitre = generer();
