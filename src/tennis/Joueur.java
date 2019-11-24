@@ -74,9 +74,8 @@ public class Joueur extends Personne implements ActionSpectateur{
     /**
      * Cette méthode permet de créer un joueur manuellement.
      * @return Joueur
-     * @throws InputMismatchException 
      */
-    public static Joueur createJoueur() throws InputMismatchException{
+    public static Joueur createInterface(){
         Joueur j = null;
         try {
             System.out.print("\nNom de Naissance : ");

@@ -179,13 +179,15 @@ public class Tennis {
             switch (menuPersonnage.getChoice()) {
                 case 0:
                     System.out.println("creation d'un joueur");
-                    mesPersonnages.add(Joueur.createJoueur());
+                    mesJoueurs.add(Joueur.createInterface());
                     break;
                 case 1:
                     System.out.println("creation d'un arbitre");
+                    mesArbitres.add(Arbitre.createInterface());
                     break;
                 case 2:
                     System.out.println("creation d'un spectateur");
+                    mesSpectateurs.add(Spectateur.createInterface());
                     break;
                 case -2:
                     System.out.println("En arriere");
@@ -208,15 +210,16 @@ public class Tennis {
         Menu menuPersonnage = new Menu("Tournoi");
         menuPersonnage.addChoice(new MenuItems("Lancer le tournoi entier"));
         menuPersonnage.addChoice(new MenuItems("Voir les match passé"));
-        menuPersonnage.addChoice(new MenuItems("Creer un nouveau spectateur"));
+        menuPersonnage.addChoice(new MenuItems("Voir les match a venir"));
+        menuPersonnage.addChoice(new MenuItems("Jour le match numero ..."));
         menuPersonnage.addChoice(new MenuItems("Retourner en arriere",-2));
         
         Boolean continu = true;
     	while(continu && !fini){
             switch (menuPersonnage.getChoice()) {
                 case 0:
-                    System.out.println("creation d'un joueur");
-                    mesPersonnages.add(Joueur.createJoueur());
+                    System.out.println("creation d'un tournoi");
+                    Tournoi monTournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME, mesJoueurs);
                     break;
                 case 1:
                     System.out.println("creation d'un arbitre");
