@@ -180,6 +180,12 @@ public class Joueur extends Personne implements ActionSpectateur{
         return this.couleur;
     }
     
+    /**
+     * return Statistique
+     */
+    public Statistique getStatistique(){
+        return this.statistique;
+    }
     
     /* Setters */
 
@@ -322,7 +328,3 @@ public class Joueur extends Personne implements ActionSpectateur{
         return new Joueur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, entraineur, vetement, couleur, probaServiceCorrect, probaRenvoieCorrect, probaRenvoieFaute);
     }
 }
-
-
-
-
