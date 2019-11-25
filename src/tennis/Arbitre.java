@@ -76,7 +76,7 @@ public class Arbitre extends Personne{
 
             myArbitre = new Arbitre(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
 
-            scanner.close();
+            
         } 
         catch(InputMismatchException e){
             myArbitre = generer();
