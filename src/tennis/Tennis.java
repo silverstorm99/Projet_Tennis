@@ -152,7 +152,7 @@ public class Tennis {
 		}
 
     }
-
+    
     public static void testFunction(){
                 /* Test création match */
         Joueur player = new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Nico",
