@@ -100,6 +100,7 @@ public class Joueur extends Personne implements ActionSpectateur{
             System.out.print("\nEntraineur : ");
             String entraineur = scanner.next();
              
+            System.out.println("Pour la suite, utilisé ',' pour les chiffres à virgule !");
             System.out.print("\nProbabilité de réussir le service [0;1[ : ");
             double probaServiceCorrect = scanner.nextDouble();
             System.out.print("\nProbabilité p de réussir le renvoie de la balle [0;1[ : ");
@@ -120,7 +121,7 @@ public class Joueur extends Personne implements ActionSpectateur{
 
             j = new Joueur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, entraineur, vetement, couleur, probaServiceCorrect, probaRenvoieCorrect, probaRenvoieFaute);
 
-            scanner.close();
+            
         } 
         catch(InputMismatchException e){
             j = generer(Vetement.CHEMISE);

@@ -176,6 +176,7 @@ public class Tennis {
         
         Boolean continu = true;
     	while(continu && !fini){
+            System.out.println(menuPersonnage.getChoice());
             switch (menuPersonnage.getChoice()) {
                 case 0:
                     System.out.println("creation d'un joueur");
