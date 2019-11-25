@@ -53,9 +53,9 @@ public abstract class FileData {
         ArrayList <String> arrayList = new ArrayList <String> (20);
         BufferedReader file;
         try {
-        	file = new BufferedReader(new FileReader(path.getAbsoluteFile()+"/ok/data/"+data+".txt"));
+        	file = new BufferedReader(new FileReader(path.getAbsoluteFile()+"/data/"+data+".txt"));
 		} catch(FileNotFoundException e) {
-        	System.out.println("Vous devez modifier le chemin d'accés pour accéder aux fichiers:\n ");
+        	System.out.println("Vous devez modifier le chemin d'accés pour accéder aux fichiers (class data.FileData.java):\n " + e.getMessage() + "\n");
         	return new ArrayList<String>();
         }catch (Exception e) {
         	System.out.println("Une erreur inconnu s'est produite : " + e.getMessage());
