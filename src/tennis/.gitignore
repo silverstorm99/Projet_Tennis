@@ -22,3 +22,5 @@
 /Tribune.class
 /Vetement.class
 /Ville.class
+/InvalidWomenException.class
+/InvalidGenderException.class

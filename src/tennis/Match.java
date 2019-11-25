@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package tennis;
-
+import tennis.InvalidGenderException;
 /**
  * <b>Cette classe permet de créer un match qui opposera deux joueurs/équipes.</b>
  * @since 25/10/2019
@@ -35,8 +35,9 @@ public class Match {
      * @param equipe1
      * @param equipe2
      * @param spectateurs 
+     * @throws InvalidGenderException 
      */
-    public Match(Categorie categorie, Phase phase, Arbitre [] arbitres, Joueur [] equipe1, Joueur [] equipe2, Spectateur [] spectateurs) throws IllegalArgumentException {
+    public Match(Categorie categorie, Phase phase, Arbitre [] arbitres, Joueur [] equipe1, Joueur [] equipe2, Spectateur [] spectateurs) throws IllegalArgumentException, InvalidGenderException {
         /* Exceptions */
         
         if(arbitres.length == 0){throw new IllegalArgumentException("Il n'y a pas d'abitre(s) pour arbitrer le match.");}
@@ -45,30 +46,30 @@ public class Match {
             case SIMPLE_HOMME:
                 if(equipe1.length != 1){throw new IllegalArgumentException("L'équipe 1 est composée de " + equipe1.length + " joueur(s).");}
                 if(equipe2.length != 1){throw new IllegalArgumentException("L'équipe 2 est composée de " + equipe2.length + " joueur(s).");}
-                if(equipe1[0].getVetement() != Vetement.SHORT){throw new IllegalArgumentException("Le joueur de l'équipe 1 n'est pas un homme.");}
-                if(equipe2[0].getVetement() != Vetement.SHORT){throw new IllegalArgumentException("Le joueur de l'équipe 2 n'est pas un homme.");}
+                if(equipe1[0].getVetement() != Vetement.SHORT){throw new InvalidGenderException("Le joueur de l'équipe 1 n'est pas un homme.");}
+                if(equipe2[0].getVetement() != Vetement.SHORT){throw new InvalidGenderException("Le joueur de l'équipe 2 n'est pas un homme.");}
                 break;
             case DOUBLE_HOMME:
                 if(equipe1.length != 2){throw new IllegalArgumentException("L'équipe 1 est composée de " + equipe1.length + " joueur(s).");}
                 if(equipe2.length != 2){throw new IllegalArgumentException("L'équipe 2 est composée de " + equipe2.length + " joueur(s).");}
-                if(equipe1[0].getVetement() != Vetement.SHORT){throw new IllegalArgumentException("Le joueur 1 de l'équipe 1 n'est pas un homme.");}
-                if(equipe1[1].getVetement() != Vetement.SHORT){throw new IllegalArgumentException("Le joueur 2 de l'équipe 1 n'est pas un homme.");}
-                if(equipe2[0].getVetement() != Vetement.SHORT){throw new IllegalArgumentException("Le joueur 1 de l'équipe 2 n'est pas un homme.");}
-                if(equipe2[1].getVetement() != Vetement.SHORT){throw new IllegalArgumentException("Le joueur 2 de l'équipe 2 n'est pas un homme.");}
+                if(equipe1[0].getVetement() != Vetement.SHORT){throw new InvalidGenderException("Le joueur 1 de l'équipe 1 n'est pas un homme.");}
+                if(equipe1[1].getVetement() != Vetement.SHORT){throw new InvalidGenderException("Le joueur 2 de l'équipe 1 n'est pas un homme.");}
+                if(equipe2[0].getVetement() != Vetement.SHORT){throw new InvalidGenderException("Le joueur 1 de l'équipe 2 n'est pas un homme.");}
+                if(equipe2[1].getVetement() != Vetement.SHORT){throw new InvalidGenderException("Le joueur 2 de l'équipe 2 n'est pas un homme.");}
                 break;
             case SIMPLE_FEMME:
                 if(equipe1.length != 1){throw new IllegalArgumentException("L'équipe 1 est composée de " + equipe1.length + " joueur(s).");}
                 if(equipe2.length != 1){throw new IllegalArgumentException("L'équipe 2 est composée de " + equipe2.length + " joueur(s).");}
-                if(equipe1[0].getVetement() != Vetement.JUPE){throw new IllegalArgumentException("Le joueur de l'équipe 1 n'est pas une femme.");}
-                if(equipe2[0].getVetement() != Vetement.JUPE){throw new IllegalArgumentException("Le joueur de l'équipe 2 n'est pas une femme.");}
+                if(equipe1[0].getVetement() != Vetement.JUPE){throw new InvalidGenderException("Le joueur de l'équipe 1 n'est pas une femme.");}
+                if(equipe2[0].getVetement() != Vetement.JUPE){throw new InvalidGenderException("Le joueur de l'équipe 2 n'est pas une femme.");}
                 break;
             case DOUBLE_FEMME:
                 if(equipe1.length != 2){throw new IllegalArgumentException("L'équipe 1 est composée de " + equipe1.length + " joueur(s).");}
                 if(equipe2.length != 2){throw new IllegalArgumentException("L'équipe 2 est composée de " + equipe2.length + " joueur(s).");}
-                if(equipe1[0].getVetement() != Vetement.JUPE){throw new IllegalArgumentException("Le joueur 1 de l'équipe 1 n'est pas une femme.");}
-                if(equipe1[1].getVetement() != Vetement.JUPE){throw new IllegalArgumentException("Le joueur 2 de l'équipe 1 n'est pas une femme.");}
-                if(equipe2[0].getVetement() != Vetement.JUPE){throw new IllegalArgumentException("Le joueur 1 de l'équipe 2 n'est pas une femme.");}
-                if(equipe2[1].getVetement() != Vetement.JUPE){throw new IllegalArgumentException("Le joueur 2 de l'équipe 2 n'est pas une femme.");}
+                if(equipe1[0].getVetement() != Vetement.JUPE){throw new InvalidGenderException("Le joueur 1 de l'équipe 1 n'est pas une femme.");}
+                if(equipe1[1].getVetement() != Vetement.JUPE){throw new InvalidGenderException("Le joueur 2 de l'équipe 1 n'est pas une femme.");}
+                if(equipe2[0].getVetement() != Vetement.JUPE){throw new InvalidGenderException("Le joueur 1 de l'équipe 2 n'est pas une femme.");}
+                if(equipe2[1].getVetement() != Vetement.JUPE){throw new InvalidGenderException("Le joueur 2 de l'équipe 2 n'est pas une femme.");}
                 break;
             default:
                 throw new IllegalArgumentException("La categorie du match n'existe pas");

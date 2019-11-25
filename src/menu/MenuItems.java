@@ -8,7 +8,7 @@ package menu;
  */
 public class MenuItems {
     protected String description; //Description of the Items that will be display
-    public int value; // Value (can be not defined )
+    public int value = 0; // Value (can be not defined )
     
 
     /**
@@ -22,6 +22,9 @@ public class MenuItems {
     /**
 
      * Constructor with special value, permit to return special value 
+     * <p>
+     * 0 is a special, if you set it to 0, it will be the index that will be return
+     * </p>
      * <h3>Example</h3>
      * For the items "quit program", or "return to precedent menu"   
      * @param description
