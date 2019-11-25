@@ -161,7 +161,7 @@ public class Tennis {
 		}
 
     }
-
+    
     /**
      * Cette méthode est utilisée pour réaliser des tests.
      */
@@ -287,4 +287,3 @@ public class Tennis {
         }
     }
 }
-
