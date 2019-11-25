@@ -56,6 +56,10 @@ public class Spectateur extends Personne implements ActionSpectateur{
     
     protected static Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Cette méthode permet de créer un Spectateur manuellement.
+     * @return Spectateur
+     */
     public static Spectateur createInterface(){
         Spectateur monSpectateur = null;
         try {
