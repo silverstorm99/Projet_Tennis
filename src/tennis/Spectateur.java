@@ -46,8 +46,7 @@ public class Spectateur extends Personne implements ActionSpectateur{
      * @param couleur 
      */
     public Spectateur(String nomNaissance, String nomCourant, String prenom, String surnom, Date dateNaissance, String lieuNaissance, Date dateDeces, String nationalite, int taille, int poids, Vetement vetement, Couleur couleur){
-        super(nomNaissance, nomCourant, prenom, surnom, dateNaissance, 
-                lieuNaissance, dateDeces, nationalite, taille, poids);
+        super(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
         this.vetement = vetement;
         this.couleur = couleur;
         
@@ -88,7 +87,6 @@ public class Spectateur extends Personne implements ActionSpectateur{
             Couleur couleur = Couleur.createInterface();
 
             monSpectateur = new Spectateur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, vetement, couleur);
-
             
         } 
         catch(InputMismatchException e){
@@ -218,4 +216,3 @@ public class Spectateur extends Personne implements ActionSpectateur{
         return new Spectateur(nomNaissance, nomCourant, prenom, surnom, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, vetement, couleur);
     }
 }
-
