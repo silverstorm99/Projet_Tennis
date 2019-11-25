@@ -61,6 +61,9 @@ public class Tennis {
 
     protected static Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Cette méthode propose à l'utilisateur des faire un choix de création de personne.
+     */
     public static void createPersonnage(){
         //System.out.println("creation d'un nouveau personnage");
         Menu menuPersonnage = new Menu("Nouveau personnage");
@@ -100,6 +103,9 @@ public class Tennis {
     }
 
 
+    /**
+     * Cette méthode propose à l'utilisateur les modalités de lancement du tournoi.
+     */
     public static void createTournoi(){
         System.out.println("creation d'un tournoi");
         Menu menuPersonnage = new Menu("Tournoi");
@@ -140,6 +146,9 @@ public class Tennis {
         }
     }
 
+    /**
+     * Cette méthode affiche les informations des joueurs.
+     */
     public static void afficherInfoJoueur(){
     	if(mesJoueurs.size() ==  0) {
     		System.out.println("Vous n'avez pas de joueurs !");
@@ -153,8 +162,11 @@ public class Tennis {
 
     }
 
+    /**
+     * Cette méthode est utilisée pour réaliser des tests.
+     */
     public static void testFunction(){
-                /* Test création match */
+        /* Test création match */
         Joueur player = new Joueur("SCHMITT", "SCHMITT", "Nicolas", "Nico",
                 new Date(23,2,1998), "Metz", new Date(19,11,2019), "France",
                 170, 60, Main.DROITE, "URSS", "Poutine", Vetement.SHORT, Couleur.BLEU, 0.5, 0.5,0.5);
@@ -179,19 +191,19 @@ public class Tennis {
         Joueur [] equipe1 = {player};
         Joueur [] equipe2 = {player2};
         Spectateur [] spectateur = {};
-        try {
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+        try {	
+	} 
+        catch (Exception e) {
+            // TODO: handle exception
+	}
         Match match;
-		try {
-			match = new Match(Categorie.SIMPLE_HOMME, Phase.FINALE, arbitre1, equipe1, equipe2, spectateur);
-			match.play(false, true, true, true);
-		} catch (IllegalArgumentException | InvalidGenderException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+        try {
+                match = new Match(Categorie.SIMPLE_HOMME, Phase.FINALE, arbitre1, equipe1, equipe2, spectateur);
+                match.play(false, true, true, true);
+        } catch (IllegalArgumentException | InvalidGenderException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+        }
 
         
         /* Test génération spectateur */
@@ -217,7 +229,6 @@ public class Tennis {
 
         /* Test génération Joueur */
         
-
         System.out.println("\n\n Test générer Joueur");
         
         arraySize = 128;
@@ -230,7 +241,7 @@ public class Tennis {
             System.out.println(joueurs.get(i));
         }
 
-        
+     
         /* Test génération Arbitre */
         
 
@@ -257,23 +268,23 @@ public class Tennis {
         joueurs.add(new Joueur("DUBOIS", "DUBOIS", "Thomas", "Th4nx", new Date(23,02,1998), "Metz", new Date(31,12,2999), "France", 170, 59, Main.DROITE, "Apple", "ALKPOTE", Vetement.SHORT, Couleur.ROUGE, 0.80, 0.9, 0.95));
         
         Tournoi tournoi;
-		try {
-			tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME, joueurs);
-			tournoi.play(true, true, true, true);
-			for(int i=0; i<127; i++){
-				System.out.print(i+" ");
-				System.out.println(tournoi.getMatchs().get(i).toString());
-			}
-			
-			for(int i=0; i<128;i++){
-				System.out.print(i+" ");
-				System.out.println(tournoi.getJoueurs().get(i).toString());
-			}
-		} catch (InvalidGenderException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        
-    }
+        try {
+            tournoi = new Tournoi(Ville.LONDRES, Categorie.SIMPLE_HOMME, joueurs);
+            tournoi.play(true, true, true, true);
+            for(int i=0; i<127; i++){
+                    System.out.print(i+" ");
+                    System.out.println(tournoi.getMatchs().get(i).toString());
+            }
 
+            for(int i=0; i<128;i++){
+                    System.out.print(i+" ");
+                    System.out.println(tournoi.getJoueurs().get(i).toString());
+            }
+        } 
+        catch (InvalidGenderException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 }
+
