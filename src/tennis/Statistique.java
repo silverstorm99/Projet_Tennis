@@ -137,6 +137,9 @@ public class Statistique{
         this.nbTournoi++;
     }
 
+    /**
+     * @param gains 
+     */
     public void addGains(int gains) {
         this.gains += gains;
     }
@@ -149,9 +152,11 @@ public class Statistique{
         this.statMatch.add(new StatMatch());
     }
 
+    /**
+     * @return String
+     */
     @Override
     public String toString() {
         return String.format("Nombre de match joué : %s \nNombre de macth remporté : %s\nNombre de participation aux tournois : %s\nNombre de gains total : %s\nProbabilité de service/renvoie correct : %.2f %.2f\n", matchJoues,matchRemporte,nbTournoi,gains,probaServiceCorrect,probaRenvoieCorrect);
-    	
     }
 }

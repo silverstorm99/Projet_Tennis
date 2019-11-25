@@ -31,12 +31,12 @@ public class Jeu {
      * @param equipe2
      * @param spectateurs 
      */
-    public Jeu(Arbitre[] arbitres, Joueur[] equipe1, Joueur[] equipe2, Spectateur[] spectateurs,int Service) {
+    public Jeu(Arbitre[] arbitres, Joueur[] equipe1, Joueur[] equipe2, Spectateur[] spectateurs,int service) {
         this.arbitres = arbitres;
         this.equipe1 = equipe1;
         this.equipe2 = equipe2;
         this.spectateurs = spectateurs;
-        this.service = Service;
+        this.service = service;
     }
     
     /* Method */

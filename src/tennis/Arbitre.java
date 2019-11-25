@@ -143,23 +143,23 @@ public class Arbitre extends Personne{
         3 <=> 40
         4 et + <=> Game ou AV
         */
-        String Score1 = "0", Score2 = "0";
+        String scoreA = "0", scoreB = "0";
         
-        if(score1 == 1){Score1 = "15";}
-        else if(score1 == 2){Score1 = "30";}
-        else if(score1 == 3){Score1 = "40";}
+        if(score1 == 1){scoreA = "15";}
+        else if(score1 == 2){scoreA = "30";}
+        else if(score1 == 3){scoreA = "40";}
         
-        if(score2 == 1){Score2 = "15";}
-        else if(score2 == 2){Score2 = "30";}
-        else if(score2 == 3){Score2 = "40";}
+        if(score2 == 1){scoreB = "15";}
+        else if(score2 == 2){scoreB = "30";}
+        else if(score2 == 3){scoreB = "40";}
         
-        if(score1 >= 4 && score2 <= score1 - 2){Score1 = "Game";}
-        else if(score2 >= 4 && score1 <= score2 - 2){Score2 = "Game";}
-        else if(score1 == score2 && score1 >= 3 && score2 >= 3){Score1 = "40"; Score2 ="40";}
-        else if(score1 > 3 && score2 < score1){Score1 = "AV"; Score2 = "40";}
-        else if(score2 > 3 && score1 < score2){Score2 = "AV"; Score1 = "40";}
+        if(score1 >= 4 && score2 <= score1 - 2){scoreA = "Game";}
+        else if(score2 >= 4 && score1 <= score2 - 2){scoreB = "Game";}
+        else if(score1 == score2 && score1 >= 3 && score2 >= 3){scoreA = "40"; scoreB ="40";}
+        else if(score1 > 3 && score2 < score1){scoreA = "AV"; scoreB = "40";}
+        else if(score2 > 3 && score1 < score2){scoreB = "AV"; scoreA = "40";}
         
-        System.out.println("Echange : " + Score1 + "-" + Score2 + "\n");
+        System.out.println("Echange : " + scoreA + "-" + scoreB + "\n");
     }
     
     /**
