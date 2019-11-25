@@ -26,7 +26,7 @@ public class Statistique{
     private double probaRenvoieFaute;  // probaRenvoieCorrect < probaRenvoieFaute d'où le else if
     
     /* Statistiques personnelles pour chaques matchs */
-    private LinkedList <StatMatch> statMatch;
+    private LinkedList<StatMatch> statMatch;
     
     /* Constructor */
 
@@ -147,5 +147,11 @@ public class Statistique{
      */
     private void addStatMatch() {
         this.statMatch.add(new StatMatch());
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Nombre de match joué : %s \nNombre de macth remporté : %s\nNombre de participation aux tournois : %s\nNombre de gains total : %s\nProbabilité de service/renvoie correct : %.2f %.2f\n", matchJoues,matchRemporte,nbTournoi,gains,probaServiceCorrect,probaRenvoieCorrect);
+    	
     }
 }

@@ -7,6 +7,7 @@ package data;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -50,8 +51,17 @@ public abstract class FileData {
      */
     private static ArrayList <String> getDataFromFile(String data) throws IOException{
         ArrayList <String> arrayList = new ArrayList <String> (20);
+        BufferedReader file;
+        try {
+        	file = new BufferedReader(new FileReader(path.getAbsoluteFile()+"/ok/data/"+data+".txt"));
+		} catch(FileNotFoundException e) {
+        	System.out.println("Vous devez modifier le chemin d'accés pour accéder aux fichiers:\n ");
+        	return new ArrayList<String>();
+        }catch (Exception e) {
+        	System.out.println("Une erreur inconnu s'est produite : " + e.getMessage());
+        	return new ArrayList<String>();
+		}
         
-        BufferedReader file = new BufferedReader(new FileReader(path.getAbsoluteFile()+"/data/"+data+".txt"));
         String line;
         
         while ((line = file.readLine()) != null){

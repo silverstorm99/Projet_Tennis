@@ -6,6 +6,8 @@
 package tennis;
 
 import data.FileData;
+import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
+
 import java.time.LocalDate; // import the LocalDate class
 import java.util.ArrayList;
 
@@ -33,6 +35,7 @@ public abstract class Personne{
     protected int poids;
     
     public static int nbPersonne = 0; // Compte le nombre de personne
+    
      
     protected static ArrayList <String> prenomMasculin = FileData.getData("prenomMasculin");
     protected static ArrayList <String> prenomFeminin = FileData.getData("prenomFeminin");
