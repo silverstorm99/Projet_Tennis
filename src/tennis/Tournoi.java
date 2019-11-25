@@ -38,8 +38,9 @@ public class Tournoi {
      * @param ville
      * @param categorie
      * @param joueurs
+     * @throws InvalidGenderException 
      */
-    public Tournoi(Ville ville, Categorie categorie, ArrayList <Joueur> joueurs){
+    public Tournoi(Ville ville, Categorie categorie, ArrayList <Joueur> joueurs) throws InvalidGenderException{
         
         /* Exeptions */
         
@@ -95,8 +96,9 @@ public class Tournoi {
      * @param surface
      * @param categorie
      * @param joueurs 
+     * @throws InvalidGenderException 
      */
-    public Tournoi(Surface surface, Categorie categorie, ArrayList <Joueur> joueurs){
+    public Tournoi(Surface surface, Categorie categorie, ArrayList <Joueur> joueurs) throws InvalidGenderException{
         
         /* Exeptions */
         

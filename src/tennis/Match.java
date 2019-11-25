@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package tennis;
-import tennis>InvalidGenderException;
+import tennis.InvalidGenderException;
 /**
  * <b>Cette classe permet de créer un match qui opposera deux joueurs/équipes.</b>
  * @since 25/10/2019
@@ -35,8 +35,9 @@ public class Match {
      * @param equipe1
      * @param equipe2
      * @param spectateurs 
+     * @throws InvalidGenderException 
      */
-    public Match(Categorie categorie, Phase phase, Arbitre [] arbitres, Joueur [] equipe1, Joueur [] equipe2, Spectateur [] spectateurs) throws IllegalArgumentException {
+    public Match(Categorie categorie, Phase phase, Arbitre [] arbitres, Joueur [] equipe1, Joueur [] equipe2, Spectateur [] spectateurs) throws IllegalArgumentException, InvalidGenderException {
         /* Exceptions */
         
         if(arbitres.length == 0){throw new IllegalArgumentException("Il n'y a pas d'abitre(s) pour arbitrer le match.");}
