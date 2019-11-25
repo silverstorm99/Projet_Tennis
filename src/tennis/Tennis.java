@@ -144,7 +144,7 @@ public class Tennis {
                     createPersonnage();
                     break;
                 case 1:
-                    System.out.println("creation d'un tournoi");
+                    createTournoi();
                     break;
                 case -1:
                     System.out.println("fini");
@@ -176,7 +176,6 @@ public class Tennis {
         
         Boolean continu = true;
     	while(continu && !fini){
-            System.out.println(menuPersonnage.getChoice());
             switch (menuPersonnage.getChoice()) {
                 case 0:
                     System.out.println("creation d'un joueur");
@@ -207,7 +206,7 @@ public class Tennis {
 
 
     public static void createTournoi(){
-        //System.out.println("creation d'un nouveau personnage");
+        System.out.println("creation d'un tournoi");
         Menu menuPersonnage = new Menu("Tournoi");
         menuPersonnage.addChoice(new MenuItems("Lancer le tournoi entier"));
         menuPersonnage.addChoice(new MenuItems("Voir les match passé"));
@@ -224,10 +223,13 @@ public class Tennis {
                     monTournoi.play(true, true, true, true);
                     break;
                 case 1:
-                    System.out.println("creation d'un arbitre");
+                    System.out.println("Voir les match passé");
                     break;
                 case 2:
-                    System.out.println("creation d'un spectateur");
+                    System.out.println("Voir les match a venir");
+                    break;
+                case 3:
+                    System.out.println("Jouer le match numero ...");
                     break;
                 case -2:
                     System.out.println("En arriere");

@@ -8,6 +8,7 @@ package tennis;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
+import tennis.InvalidGenderException;
 
 /**
  * <b>Cette classe permet de créer un tournoi pour 128 joueurs.</b>
@@ -51,7 +52,7 @@ public class Tournoi {
         if(categorie == Categorie.SIMPLE_HOMME){
             for(int i=0; i<joueurs.size(); i++){
                 if(joueurs.get(i).getVetement() != Vetement.SHORT){
-                    throw new IllegalArgumentException("Il y a une femme inscrite dans un tournoi SIMPLE_HOMME.");
+                    throw new InvalidGenderException("Il y a une femme inscrite dans un tournoi SIMPLE_HOMME.");
                 }
             }
         }
@@ -60,7 +61,7 @@ public class Tournoi {
         if(categorie == Categorie.SIMPLE_FEMME){
             for(int i=0; i<joueurs.size(); i++){
                 if(joueurs.get(i).getVetement() != Vetement.JUPE){
-                    throw new IllegalArgumentException("Il y a un homme inscrit dans un tournoi SIMPLE_FEMME.");
+                    throw new InvalidGenderException("Il y a un homme inscrit dans un tournoi SIMPLE_FEMME.");
                 }
             }
         }
@@ -108,7 +109,7 @@ public class Tournoi {
         if(categorie == Categorie.SIMPLE_HOMME){
             for(int i=0; i<joueurs.size(); i++){
                 if(joueurs.get(i).getVetement() != Vetement.SHORT){
-                    throw new IllegalArgumentException("Il y a une femme inscrite dans un tournoi SIMPLE_HOMME.");
+                    throw new InvalidGenderException("Il y a une femme inscrite dans un tournoi SIMPLE_HOMME.");
                 }
             }
         }
@@ -117,7 +118,7 @@ public class Tournoi {
         if(categorie == Categorie.SIMPLE_FEMME){
             for(int i=0; i<joueurs.size(); i++){
                 if(joueurs.get(i).getVetement() != Vetement.JUPE){
-                    throw new IllegalArgumentException("Il y a un homme inscrit dans un tournoi SIMPLE_FEMME.");
+                    throw new InvalidGenderException("Il y a un homme inscrit dans un tournoi SIMPLE_FEMME.");
                 }
             }
         }

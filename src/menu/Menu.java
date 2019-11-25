@@ -32,7 +32,7 @@ public class Menu {
      * @param choice
      */
     public void addChoice(MenuItems choice){
-        this.choices.add(this.choices.size() - 1,new MenuItems(choice.description,this.choices.size() - 1));
+        this.choices.add(this.choices.size() - 1,new MenuItems(choice.description,(choice.value != 0) ? choice.value : (this.choices.size() - 1) ));
     }
     
     
@@ -76,6 +76,6 @@ public class Menu {
             choice = this.afficherMenu();
         }
 
-        return (this.choices.get(choice) != null) ? this.choices.get(choice).value : choice;
+        return (this.choices.get(choice).value != 0) ? this.choices.get(choice).value : choice;
     }
 }
